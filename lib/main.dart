@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale, //for setting localization strings
       fallbackLocale: Locale('en', 'US'),
       scrollBehavior: AppScrollBehavior(),
-      title: 'DemoFlutter',
+      title: 'DemoMBanking',
       home: firstScreen,
       theme: ThemeData(
           bottomSheetTheme:

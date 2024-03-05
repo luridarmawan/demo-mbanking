@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.investmentapp" "\0"
-            VALUE "FileDescription", "DemoFlutter" "\0"
+            VALUE "FileDescription", "DemoMBanking" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "DemoFlutter" "\0"
+            VALUE "InternalName", "DemoMBanking" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.investmentapp. All rights reserved." "\0"
-            VALUE "OriginalFilename", "DemoFlutter.exe" "\0"
-            VALUE "ProductName", "DemoFlutter" "\0"
+            VALUE "OriginalFilename", "DemoMBanking.exe" "\0"
+            VALUE "ProductName", "DemoMBanking" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
