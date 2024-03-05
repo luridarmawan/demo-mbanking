@@ -8,7 +8,7 @@ import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DemoAntiJailbreakVM.check();
+  //await DemoAntiJailbreakVM.check();
   DemoReachabilityVM.startListening();
 
   final freshInstall = await DemoPreferencesVM.getFreshInstall();
@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale, //for setting localization strings
       fallbackLocale: Locale('en', 'US'),
       scrollBehavior: AppScrollBehavior(),
-      title: 'DemoFlutter',
+      title: 'DemoMBanking',
       home: firstScreen,
       theme: ThemeData(
           bottomSheetTheme:

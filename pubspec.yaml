@@ -1,5 +1,5 @@
-name: demoflutter
-description: DemoFlutter.
+name: demombanking
+description: DemoMBanking.
 version: 1.0.0+1
 environment: 
   sdk: '>=2.19.0 <=3.3.0'

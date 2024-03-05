@@ -10,7 +10,7 @@ class DemoScreen extends StatelessWidget {
         init: DemoController(),
         builder: (controller) => ScreenX(
             headerView: NavigationBarX(
-              title: 'DemoFlutter',
+              title: 'DemoMBanking',
             ),
             lightStatusBar: true,
             bottomPadding: true,
