@@ -1,0 +1,24 @@
+{
+	"status": 200,
+	"message": "Movie list retrieved.",
+	"result": [
+	  {
+		"onboarding_id": 1,
+		"image": "lib/images/mbx_onboarding_01.png",
+		"title": "DemoMBanking",
+		"description": "Mobile superapps dari Bank XYZ."
+	  },
+	  {
+		"onboarding_id": 2,
+		"image": "lib/images/mbx_onboarding_02.png",
+		"title": "Semua Ada Di sini",
+		"description": "Segala keperluan sehari-hari bisa dilakukan di sini."
+	  },
+	  {
+		"onboarding_id": 3,
+		"image": "lib/images/mbx_onboarding_03.png",
+		"title": "Simpel, Cepat, Aman",
+		"description": "Kenyamanan dan keamanan menjadi prioritas."
+	  }
+	]
+  }
