@@ -23,11 +23,14 @@ class MbxOnboardingScreen extends StatelessWidget {
                         .map((onboarding) => Column(
                               children: [
                                 Expanded(
-                                  child: ImageX(
-                                    url: onboarding.image,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
+                                  child: Stack(children: [
+                                    ImageX(
+                                      url: onboarding.image,
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ]),
                                 ),
                                 ContainerX(
                                   width: double.infinity,
@@ -56,7 +59,7 @@ class MbxOnboardingScreen extends StatelessWidget {
                                         fontSize: 17.0,
                                         fontWeight: FontWeight.w700,
                                         textAlign: TextAlign.center,
-                                        maxLines: 1,
+                                        maxLines: 4,
                                       ),
                                     ],
                                   )),
@@ -78,8 +81,8 @@ class MbxOnboardingScreen extends StatelessWidget {
                         effect: SlideEffect(
                           dotHeight: 8,
                           dotWidth: 8,
-                          dotColor: ColorX.gray.withOpacity(0.2),
-                          activeDotColor: ColorX.gray,
+                          dotColor: ColorX.theme.withOpacity(0.2),
+                          activeDotColor: ColorX.theme,
                         ),
                       )),
                 ),
@@ -87,10 +90,9 @@ class MbxOnboardingScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
                     child: ButtonX(
-                      width: 100.0,
-                      title: 'Next',
-                      titleColor: ColorX.black,
-                      backgroundColor: ColorX.transparent,
+                      title: 'Masuk',
+                      titleColor: ColorX.white,
+                      backgroundColor: ColorX.theme,
                       onClicked: () {
                         controller.btnBackClicked();
                       },
