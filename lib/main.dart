@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
+
 import 'viewmodels/demo_anti_jailbreak_vm.dart';
 import 'viewmodels/demo_preferences_vm+users.dart';
 import 'viewmodels/demo_preferences_vm.dart';
@@ -36,7 +38,7 @@ Future<void> main() async {
     }
   } */
 
-  firstScreen = DemoScreen();
+  firstScreen = MbxOnboardingScreen();
 //  firstScreen = DemoBottomNavBarScreen();
 
   SystemChrome.setPreferredOrientations([

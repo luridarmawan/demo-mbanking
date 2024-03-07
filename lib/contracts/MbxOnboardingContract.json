@@ -1,0 +1,24 @@
+{
+	"status": 200,
+	"message": "Movie list retrieved.",
+	"result": [
+	  {
+		"onboarding_id": 1,
+		"image": "https://assets-prd.ignimgs.com/2023/04/27/transformers-rise-of-the-beast-new-button-1682603563738.jpg",
+		"title": "Transformers: Rise of the Beasts",
+		"description": "description"
+	  },
+	  {
+		"onboarding_id": 2,
+		"image": "https://sportshub.cbsistatic.com/i/2023/09/28/254f7df7-226d-425b-87ba-32ecbc7101dc/the-marvels-captain-marvel-2-poster-international.jpg",
+		"title": "Captain Marvel 2",
+		"description": "description"
+	  },
+	  {
+		"onboarding_id": 3,
+		"image": "https://assets-prd.ignimgs.com/2022/07/17/thor-love-1656959570216-1658079450307.png",
+		"title": "Thor: Love and Thunder",
+		"description": "description"
+	  }
+	]
+  }
