@@ -16,7 +16,7 @@ class DemoLoginScreen extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 24.0),
                 ImageX(
-                  url: 'lib/images/ic_demo_logo.png',
+                  url: 'lib/images/mbx_logo.png',
                   width: 128.0,
                   height: 128.0,
                 ),

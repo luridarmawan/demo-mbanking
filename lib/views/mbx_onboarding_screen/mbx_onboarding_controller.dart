@@ -1,4 +1,6 @@
 import 'package:demombanking/viewmodels/mbx_onboarding_vm.dart';
+import 'package:demombanking/views/demo_screen/demo_screen.dart';
+import 'package:demombanking/views/mbx_login_screen/mbx_login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +18,7 @@ class MbxOnboardingController extends GetxController {
     });
   }
 
-  btnBackClicked() {
-    Get.back();
+  btnStartClicked() {
+    Get.to(MbxLoginScreen());
   }
 }
