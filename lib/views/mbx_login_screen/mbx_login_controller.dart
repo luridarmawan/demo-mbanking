@@ -1,8 +1,10 @@
-import 'package:demombanking/views/demo_screen/demo_screen.dart';
+import 'package:demombanking/views/demo_bottom_navbar_screen/demo_bottom_navbar_screen.dart';
 
 import '../../utils/all_utils.dart';
 import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../demo_screen/demo_screen.dart';
+import '../mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
 
 class MbxLoginController extends SuperController {
   final txtUsernameController = TextEditingController();
@@ -53,7 +55,14 @@ class MbxLoginController extends SuperController {
       return;
     }
 
-    Get.to(DemoScreen());
+    final sheet = MbxLoginOtpSheet();
+    sheet.show().then((value) {
+      LoggerX.log('OTP: $value');
+      if (value != null) {
+        Get.deleteAll();
+        Get.offAll(DemoBottomNavBarScreen());
+      }
+    });
   }
 
   @override
