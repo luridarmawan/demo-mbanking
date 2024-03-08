@@ -21,7 +21,7 @@ class MbxHomeView extends StatelessWidget {
                 options: CarouselOptions(
                   padEnds: false,
                   autoPlay: true,
-                  viewportFraction: 0.80,
+                  viewportFraction: 0.85,
                   height: 180.0,
                   onPageChanged: (index, reason) {
                     controller.setPageIndex(index);
@@ -48,7 +48,7 @@ class MbxHomeView extends StatelessWidget {
                                 height: double.infinity,
                                 cornerRadius: 8.0,
                                 fit: BoxFit.cover,
-                              ))));
+                              )))); //)));
                 })
             : Container(),
       ),
