@@ -1,3 +1,6 @@
+import 'package:demombanking/views/demo_qr_scan_screen/demo_qr_scan_screen.dart';
+import 'package:demombanking/views/mbx_qris_screen/mbx_qris_screen.dart';
+
 import '../../../utils/all_utils.dart';
 import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -41,24 +44,28 @@ class MbxHomeController extends SuperController {
   onChange(int index) {
     LoggerX.log('MbxHomeController.onChange: $index');
     tabBarIndex = index;
-    update();
 
     switch (index) {
-      case 0:
+      case 0: // Beranda
         StatusBarX.setLight();
         //final HomeController controller = Get.find();
         //controller.reloadAll();
+        update();
         break;
-      case 1:
-        StatusBarX.setLight();
+      case 1: // QRIS
+        Get.to(MbxQRISScreen());
         break;
-      case 2:
+      case 2: // Riwayat
         StatusBarX.setLight();
+        update();
+        break;
+      case 3: // Akun Saya
+        StatusBarX.setLight();
+        update();
         break;
     }
   }
-  
+
   @override
-  void onHidden() {
-  }
+  void onHidden() {}
 }
