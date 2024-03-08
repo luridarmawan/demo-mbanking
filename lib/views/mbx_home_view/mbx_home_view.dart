@@ -21,7 +21,7 @@ class MbxHomeView extends StatelessWidget {
                 options: CarouselOptions(
                   padEnds: false,
                   autoPlay: true,
-                  viewportFraction: 0.85,
+                  viewportFraction: 0.80,
                   height: 180.0,
                   onPageChanged: (index, reason) {
                     controller.setPageIndex(index);
@@ -41,7 +41,7 @@ class MbxHomeView extends StatelessWidget {
                             Get.to(DemoImageScreen(url: movie.poster));
                           },
                           child: Padding(
-                              padding: EdgeInsets.all(4.0),
+                              padding: EdgeInsets.only(left: 8.0),
                               child: ImageX(
                                 url: movie.poster,
                                 width: double.infinity,
