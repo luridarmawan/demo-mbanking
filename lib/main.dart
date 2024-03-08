@@ -38,7 +38,7 @@ Future<void> main() async {
   } */
 
   firstScreen = MbxOnboardingScreen();
-  firstScreen = MbxHomeScreen();
+  //firstScreen = MbxHomeScreen();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
