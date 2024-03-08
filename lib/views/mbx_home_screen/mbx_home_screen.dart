@@ -1,3 +1,6 @@
+import 'package:demombanking/views/demo_listview_screen/demo_listview_screen.dart';
+import 'package:demombanking/views/mbx_history_view/mbx_history_view.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
 
@@ -15,6 +18,7 @@ class MbxHomeScreen extends StatelessWidget {
                 children: <Widget>[
                   ContainerX(backgroundColor: ColorX.blue),
                   ContainerX(backgroundColor: ColorX.teal),
+                  MbxHistoryView(),
                   ContainerX(backgroundColor: ColorX.green),
                   ContainerX(backgroundColor: ColorX.red),
                 ],
