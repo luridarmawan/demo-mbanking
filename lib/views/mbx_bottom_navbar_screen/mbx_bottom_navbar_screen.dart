@@ -1,22 +1,22 @@
-import 'package:demombanking/views/demo_listview_screen/demo_listview_screen.dart';
-import 'package:demombanking/views/mbx_history_view/mbx_history_view.dart';
-
 import '../../widgets/all_widgets.dart';
-import 'mbx_home_controller.dart';
+import '../mbx_history_view/mbx_history_view.dart';
+import '../mbx_home_view/mbx_home_view.dart';
+import 'mbx_bottom_navbar_controller.dart';
 
 // ignore: must_be_immutable
-class MbxHomeScreen extends StatelessWidget {
+class MbxBottomNavBarScreen extends StatelessWidget {
   final int tabBarIndex;
-  MbxHomeScreen({this.tabBarIndex = 0});
+  MbxBottomNavBarScreen({this.tabBarIndex = 0});
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxHomeController>(
-        init: MbxHomeController(tabBarIndex: tabBarIndex),
+    return GetBuilder<MbxBottomNavBarController>(
+        init: MbxBottomNavBarController(tabBarIndex: tabBarIndex),
         builder: (controller) => ScreenX(
               bodyView: IndexedStack(
                 index: controller.tabBarIndex,
                 children: <Widget>[
-                  ContainerX(backgroundColor: ColorX.blue),
+                  MbxHomeView(),
+                  //ContainerX(backgroundColor: ColorX.blue),
                   ContainerX(backgroundColor: ColorX.teal),
                   MbxHistoryView(),
                   ContainerX(backgroundColor: ColorX.green),

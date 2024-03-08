@@ -37,20 +37,23 @@ class MbxLoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 4.0),
                       TextFieldX(
-                        hint: 'Masukkan nomor handphone',
+                        hint: '08xxxxxxxxx',
                         obscureText: false,
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.phone,
                         readOnly: false,
-                        controller: controller.txtUsernameController,
-                        focusNode: controller.txtUsernameNode,
+                        controller: controller.txtPhoneController,
+                        focusNode: controller.txtPhoneNode,
+                        onChanged: (value) {
+                          controller.txtPhoneOnChanged(value);
+                        },
                       ),
                       Visibility(
-                          visible: controller.txtUsernameError.isNotEmpty,
+                          visible: controller.txtPhoneError.isNotEmpty,
                           child: Column(
                             children: [
                               const SizedBox(height: 4.0),
                               TextX(
-                                controller.txtUsernameError,
+                                controller.txtPhoneError,
                                 color: ColorX.red,
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w400,
@@ -61,20 +64,16 @@ class MbxLoginScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                ContainerX(
+                Padding(
                   padding: const EdgeInsets.only(
                       left: 24.0, top: 8.0, right: 24.0, bottom: 8.0),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        SizedBox(height: 16.0),
-                        ButtonX(
-                          title: 'Login',
-                          onClicked: () {
-                            controller.btnLoginClicked();
-                          },
-                        )
-                      ]),
+                  child: ButtonX(
+                    title: 'Login',
+                    enabled: controller.loginEnabled,
+                    onClicked: () {
+                      controller.btnLoginClicked();
+                    },
+                  ),
                 )
               ],
             )))));

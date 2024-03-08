@@ -1,19 +1,21 @@
 import '../../utils/all_utils.dart';
 import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_home_screen/mbx_home_screen.dart';
+import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import '../mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
 
 class MbxLoginController extends SuperController {
-  final txtUsernameController = TextEditingController();
-  final txtUsernameNode = FocusNode();
-  var txtUsernameError = '';
+  final txtPhoneController = TextEditingController();
+  final txtPhoneNode = FocusNode();
+  var txtPhoneError = '';
+  var loginEnabled = false;
 
   @override
   void onReady() {
     super.onReady();
-    txtUsernameError = '';
+    txtPhoneError = '';
     update();
+    FocusScope.of(Get.context!).requestFocus(txtPhoneNode);
   }
 
   btnBackClicked() {
@@ -38,17 +40,22 @@ class MbxLoginController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[MbxLoginController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    //await DemoAntiJailbreakVM.check();
+  }
+
+  txtPhoneOnChanged(String value) {
+    loginEnabled = !value.isEmpty;
+    update();
   }
 
   btnLoginClicked() {
     FocusManager.instance.primaryFocus?.unfocus();
-    txtUsernameError = '';
+    txtPhoneError = '';
     update();
 
-    if (txtUsernameController.text.trim().isEmpty) {
-      txtUsernameError = 'Username cannot be empty.';
-      FocusScope.of(Get.context!).requestFocus(txtUsernameNode);
+    if (txtPhoneController.text.trim().isEmpty) {
+      txtPhoneError = 'Username cannot be empty.';
+      FocusScope.of(Get.context!).requestFocus(txtPhoneNode);
       update();
       return;
     }
@@ -58,7 +65,7 @@ class MbxLoginController extends SuperController {
       LoggerX.log('OTP: $value');
       if (value != null) {
         Get.deleteAll();
-        Get.offAll(MbxHomeScreen());
+        Get.offAll(MbxBottomNavBarScreen());
       }
     });
   }
