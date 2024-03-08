@@ -1,12 +1,12 @@
 import '../../widgets/all_widgets.dart';
-import 'demo_pin_sheet_controller.dart';
+import 'mbx_login_otp_sheet_controller.dart';
 
 // ignore: must_be_immutable
-class DemoPinSheet extends GetWidget<DemoPinSheetController> {
+class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
   final String title;
   TextEditingController pinController = TextEditingController();
 
-  DemoPinSheet({this.title = 'Enter your PIN'});
+  MbxLoginOtpSheet({this.title = 'Enter your OTP'});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -19,8 +19,8 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DemoPinSheetController>(
-        init: DemoPinSheetController(),
+    return GetBuilder<MbxLoginOtpSheetController>(
+        init: MbxLoginOtpSheetController(),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,
@@ -64,7 +64,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ContainerX(
-                    backgroundColor: controller.code.length >= 1
+                    backgroundColor: controller.otp.length >= 1
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -75,7 +75,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.code.length >= 2
+                    backgroundColor: controller.otp.length >= 2
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -86,7 +86,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.code.length >= 3
+                    backgroundColor: controller.otp.length >= 3
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -97,7 +97,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.code.length >= 4
+                    backgroundColor: controller.otp.length >= 4
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -108,7 +108,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.code.length >= 5
+                    backgroundColor: controller.otp.length >= 5
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -119,7 +119,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.code.length >= 6
+                    backgroundColor: controller.otp.length >= 6
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -367,7 +367,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                     ),
                     SizedBox(height: 12.0),
                     ButtonX(
-                      title: 'Forgot PIN?',
+                      title: 'Kirim Ulang?',
                       titleColor: ColorX.black,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
@@ -376,7 +376,7 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
                       height: 32.0,
                       cornerRadius: 16.0,
                       onClicked: () {
-                        controller.btnForgotPinClicked();
+                        controller.btnResendClicked();
                       },
                     ),
                     SizedBox(height: 24.0),

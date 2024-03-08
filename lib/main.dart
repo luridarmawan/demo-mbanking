@@ -1,11 +1,10 @@
-import 'package:demombanking/views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
+import 'package:demombanking/views/mbx_home_screen/mbx_home_screen.dart';
 
-import 'viewmodels/demo_anti_jailbreak_vm.dart';
 import 'viewmodels/demo_preferences_vm+users.dart';
 import 'viewmodels/demo_preferences_vm.dart';
 import 'viewmodels/demo_reachability_vm.dart';
 import 'viewmodels/demo_session_vm.dart';
-import 'views/demo_screen/demo_screen.dart';
+import 'views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
@@ -39,7 +38,7 @@ Future<void> main() async {
   } */
 
   firstScreen = MbxOnboardingScreen();
-//  firstScreen = DemoBottomNavBarScreen();
+  //firstScreen = MbxHomeScreen();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
