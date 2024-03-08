@@ -40,14 +40,8 @@ class MbxLoginOtpSheetController extends GetxController {
   submit() {
     Get.loading();
     Future.delayed(Duration(milliseconds: 2000), () {
-      final hardcodedOtp = '123456';
       Get.back();
-      if (otp == hardcodedOtp) {
-        Get.back(result: otp);
-      } else {
-        clear(
-            'OTP yang anda masukkan salah. OTP sebenarnya adalah $hardcodedOtp.');
-      }
+      Get.back(result: otp);
     });
   }
 }
