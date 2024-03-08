@@ -30,7 +30,7 @@ class DemoBottomNavBarController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[DemoBottomNavBarController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    //await DemoAntiJailbreakVM.check();
   }
 
   @override
@@ -57,8 +57,7 @@ class DemoBottomNavBarController extends SuperController {
         break;
     }
   }
-  
+
   @override
-  void onHidden() {
-  }
+  void onHidden() {}
 }

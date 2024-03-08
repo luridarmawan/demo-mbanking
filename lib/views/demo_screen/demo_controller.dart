@@ -55,7 +55,7 @@ class DemoController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[DemoController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    //await DemoAntiJailbreakVM.check();
   }
 
   btnOnboardingClicked() {

@@ -1,5 +1,3 @@
-import 'package:demombanking/views/mbx_home_screen/mbx_home_screen.dart';
-
 import 'viewmodels/demo_preferences_vm+users.dart';
 import 'viewmodels/demo_preferences_vm.dart';
 import 'viewmodels/demo_reachability_vm.dart';
@@ -38,7 +36,7 @@ Future<void> main() async {
   } */
 
   firstScreen = MbxOnboardingScreen();
-  //firstScreen = MbxHomeScreen();
+  //firstScreen = MbxBottomNavBarScreen();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

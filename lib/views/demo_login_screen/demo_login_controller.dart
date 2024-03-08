@@ -45,7 +45,7 @@ class DemoLoginController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[DemoLoginController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    //await DemoAntiJailbreakVM.check();
   }
 
   btnRegionDropdownClicked() {
@@ -94,8 +94,7 @@ class DemoLoginController extends SuperController {
 
     Get.back();
   }
-  
+
   @override
-  void onHidden() {
-  }
+  void onHidden() {}
 }

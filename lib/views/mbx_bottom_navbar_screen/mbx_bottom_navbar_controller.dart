@@ -5,9 +5,9 @@ import '../../../utils/all_utils.dart';
 import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
 
-class MbxHomeController extends SuperController {
+class MbxBottomNavBarController extends SuperController {
   int tabBarIndex = 0;
-  MbxHomeController({this.tabBarIndex = 0});
+  MbxBottomNavBarController({this.tabBarIndex = 0});
 
   @override
   void onReady() {
@@ -17,23 +17,23 @@ class MbxHomeController extends SuperController {
 
   @override
   void onDetached() {
-    LoggerX.log('[MbxHomeController] onDetached');
+    LoggerX.log('[MbxBottomNavBarController] onDetached');
   }
 
   @override
   void onInactive() {
-    LoggerX.log('[MbxHomeController] onInactive');
+    LoggerX.log('[MbxBottomNavBarController] onInactive');
   }
 
   @override
   void onPaused() {
-    LoggerX.log('[MbxHomeController] onPaused');
+    LoggerX.log('[MbxBottomNavBarController] onPaused');
   }
 
   @override
   Future<void> onResumed() async {
-    LoggerX.log('[MbxHomeController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    LoggerX.log('[MbxBottomNavBarController] onResumed');
+    //await DemoAntiJailbreakVM.check();
   }
 
   @override
@@ -42,7 +42,7 @@ class MbxHomeController extends SuperController {
   }
 
   onChange(int index) {
-    LoggerX.log('MbxHomeController.onChange: $index');
+    LoggerX.log('MbxBottomNavBarController.onChange: $index');
     tabBarIndex = index;
 
     switch (index) {

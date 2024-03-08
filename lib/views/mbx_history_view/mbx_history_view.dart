@@ -16,16 +16,6 @@ class MbxHistoryView extends StatelessWidget {
                   controller.movieListVM.loading,
               headerView: NavigationBarX(
                 title: 'History',
-                leftBtn: ImageX(
-                  faIcon: FontAwesomeIcons.arrowLeft,
-                  width: 20.0,
-                  height: 20.0,
-                  color: ColorX.white,
-                  fit: BoxFit.contain,
-                ),
-                leftAction: () {
-                  controller.btnBackClicked();
-                },
               ),
               bottomPadding: false,
               bodyView: NotificationListener<ScrollNotification>(
