@@ -1,9 +1,6 @@
-import 'package:demombanking/views/demo_qr_scan_screen/demo_qr_scan_screen.dart';
-import 'package:demombanking/views/mbx_qris_screen/mbx_qris_screen.dart';
-
 import '../../../utils/all_utils.dart';
-import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_qris_screen/mbx_qris_screen.dart';
 
 class MbxBottomNavBarController extends SuperController {
   int tabBarIndex = 0;

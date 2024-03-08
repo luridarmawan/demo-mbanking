@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
 import '../../utils/all_utils.dart';
-import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../viewmodels/demo_biometric_vm.dart';
 import '../../viewmodels/demo_security_vm.dart';
 import '../../widgets/all_widgets.dart';

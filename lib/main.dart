@@ -2,6 +2,7 @@ import 'viewmodels/demo_preferences_vm+users.dart';
 import 'viewmodels/demo_preferences_vm.dart';
 import 'viewmodels/demo_reachability_vm.dart';
 import 'viewmodels/demo_session_vm.dart';
+import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'widgets/all_widgets.dart';
 
@@ -35,8 +36,8 @@ Future<void> main() async {
     }
   } */
 
-  firstScreen = MbxOnboardingScreen();
-  //firstScreen = MbxBottomNavBarScreen();
+  //firstScreen = MbxOnboardingScreen();
+  firstScreen = MbxBottomNavBarScreen();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
