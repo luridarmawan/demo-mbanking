@@ -10,7 +10,7 @@ class DemoScreen extends StatelessWidget {
         init: DemoController(),
         builder: (controller) => ScreenX(
             headerView: NavigationBarX(
-              title: 'DemoMBanking',
+              title: 'DemoFlutter',
             ),
             lightStatusBar: true,
             bottomPadding: true,
@@ -55,6 +55,21 @@ class DemoScreen extends StatelessWidget {
                                   backgroundColor: ColorX.teal,
                                   onClicked: () {
                                     controller.btnLoginClicked();
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 4.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Expanded(
+                                child: ButtonX(
+                                  title: 'Profile',
+                                  backgroundColor: ColorX.teal,
+                                  onClicked: () {
+                                    controller.btnProfileClicked();
                                   },
                                 ),
                               ),

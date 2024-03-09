@@ -1,4 +1,5 @@
 import '../../utils/all_utils.dart';
+import '../../viewmodels/demo_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_string_picker/demo_string_picker.dart';
 
@@ -44,7 +45,7 @@ class DemoLoginController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[DemoLoginController] onResumed');
-    //await DemoAntiJailbreakVM.check();
+    await DemoAntiJailbreakVM.check();
   }
 
   btnRegionDropdownClicked() {
@@ -93,7 +94,8 @@ class DemoLoginController extends SuperController {
 
     Get.back();
   }
-
+  
   @override
-  void onHidden() {}
+  void onHidden() {
+  }
 }
