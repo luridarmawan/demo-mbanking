@@ -16,7 +16,7 @@ class DemoLoginScreen extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 24.0),
                 ImageX(
-                  url: 'lib/images/mbx_logo.png',
+                  url: 'lib/images/ic_demo_logo.png',
                   width: 128.0,
                   height: 128.0,
                 ),
@@ -185,7 +185,6 @@ class DemoLoginScreen extends StatelessWidget {
                         SizedBox(height: 16.0),
                         ButtonX(
                           title: 'Sign In',
-                          backgroundColor: ColorX.green,
                           onClicked: () {
                             controller.btnSignInClicked();
                           },
