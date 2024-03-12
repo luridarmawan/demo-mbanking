@@ -1,4 +1,4 @@
-import '../../viewmodels/demo_profile_vm.dart';
+import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'demo_profile_controller.dart';
 
@@ -26,14 +26,14 @@ class DemoProfileScreen extends StatelessWidget {
                           cornerRadius: 55.0,
                           child: Center(
                               child: ImageX(
-                            faIcon: DemoProfileVM.profile.photo.isEmpty
+                            faIcon: MbxProfileVM.profile.photo.isEmpty
                                 ? FontAwesomeIcons.user
                                 : null,
-                            color: DemoProfileVM.profile.photo.isEmpty
+                            color: MbxProfileVM.profile.photo.isEmpty
                                 ? ColorX.gray
                                 : null,
-                            url: DemoProfileVM.profile.photo,
-                            width: DemoProfileVM.profile.photo.isEmpty
+                            url: MbxProfileVM.profile.photo,
+                            width: MbxProfileVM.profile.photo.isEmpty
                                 ? 50.0
                                 : 100.0,
                             height: 100.0,
@@ -41,17 +41,17 @@ class DemoProfileScreen extends StatelessWidget {
                           ))),
                       SizedBox(height: 8.0),
                       TextX(
-                        DemoProfileVM.profile.name.isEmpty
+                        MbxProfileVM.profile.name.isEmpty
                             ? '-'
-                            : DemoProfileVM.profile.name,
+                            : MbxProfileVM.profile.name,
                         fontSize: 17.0,
                         fontWeight: FontWeight.w700,
                         color: ColorX.white,
                       ),
                       TextX(
-                        DemoProfileVM.profile.email.isEmpty
+                        MbxProfileVM.profile.email.isEmpty
                             ? '-'
-                            : DemoProfileVM.profile.email,
+                            : MbxProfileVM.profile.email,
                         fontSize: 13.0,
                         fontWeight: FontWeight.w400,
                         color: ColorX.white,
@@ -230,7 +230,7 @@ class DemoProfileScreen extends StatelessWidget {
                         customBorder: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         onTap: () {
-                          Get.back();
+                          controller.btnSignOutClicked();
                         },
                         child: ContainerX(
                             padding: EdgeInsets.only(

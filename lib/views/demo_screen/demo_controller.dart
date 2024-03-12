@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
 import '../../utils/all_utils.dart';
-import '../../viewmodels/demo_anti_jailbreak_vm.dart';
+import '../../viewmodels/mbxanti_jailbreak_vm.dart';
 import '../../viewmodels/demo_biometric_vm.dart';
-import '../../viewmodels/demo_security_vm.dart';
+import '../../viewmodels/mbx_security_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_barcode_screen/demo_barcode_screen.dart';
 import '../demo_pdf_screen/demo_pdf_screen.dart';
@@ -56,7 +56,7 @@ class DemoController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[DemoController] onResumed');
-    await DemoAntiJailbreakVM.check();
+    await MbxAntiJailbreakVM.check();
   }
 
   btnOnboardingClicked() {
@@ -471,8 +471,8 @@ class DemoController extends SuperController {
 
   btnDoubleEncryptClicked() {
     final plain = LoremIpsumX.medium();
-    final encrypted = DemoSecurityVM.doubleEncrypt(Utf8Utils.encode(plain));
-    final decrypted = DemoSecurityVM.doubleDecrypt(encrypted);
+    final encrypted = MbxSecurityVM.doubleEncrypt(Utf8Utils.encode(plain));
+    final decrypted = MbxSecurityVM.doubleDecrypt(encrypted);
 
     SheetX.showMessage(
         title: 'DoubleEncrypt',

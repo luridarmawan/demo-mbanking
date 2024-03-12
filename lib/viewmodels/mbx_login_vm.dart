@@ -1,22 +1,18 @@
 import 'dart:async';
-import '../models/demo_profile_model.dart';
-import 'demo_apis.dart';
+import 'mbx_apis.dart';
 
 class MbxLoginVM {
-  static var profile = DemoProfileModel();
-
-  static Future<DemoApiResponse> request() {
-    return DemoApi.get(
+  static Future<MbxApiResponse> request({required String phone}) {
+    final params = {
+      'phone': phone,
+    };
+    return MbxApi.post(
             endpoint: '/login',
-            params: {},
+            params: params,
             headers: {},
-            contractFile: 'lib/contracts/DemoLoginContract.json',
+            contractFile: 'lib/contracts/MbxLoginContract.json',
             contract: true)
         .then((resp) async {
-      profile = DemoProfileModel();
-      if (resp.statusCode == 200) {
-        profile.decode(resp.jason['result']);
-      }
       return resp;
     });
   }

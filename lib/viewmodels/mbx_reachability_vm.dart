@@ -1,7 +1,7 @@
 import '../utils/all_utils.dart';
 import '../widgets/all_widgets.dart';
 
-class DemoReachabilityVM {
+class MbxReachabilityVM {
   static startListening() {
     ReachabilityX.startListening(handler: (connected) {
       if (connected == true) {

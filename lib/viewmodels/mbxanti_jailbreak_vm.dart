@@ -2,7 +2,7 @@ import 'dart:io';
 import '../utils/all_utils.dart';
 import '../widgets/all_widgets.dart';
 
-class DemoAntiJailbreakVM {
+class MbxAntiJailbreakVM {
   static var jailbroken = false;
 
   static check() async {

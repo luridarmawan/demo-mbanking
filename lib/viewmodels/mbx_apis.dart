@@ -1,10 +1,10 @@
-import 'demo_preferences_vm+users.dart';
-import 'demo_session_vm.dart';
+import 'mbx_preferences_vm+users.dart';
+import 'mbx_session_vm.dart';
 import '../utils/api_x.dart';
-import 'demo_baseurl_vm.dart';
+import 'mbx_baseurl_vm.dart';
 
-class DemoApiResponse extends ApiXResponse {
-  DemoApiResponse(ApiXResponse resp) {
+class MbxApiResponse extends ApiXResponse {
+  MbxApiResponse(ApiXResponse resp) {
     headers = resp.headers;
     statusCode = resp.statusCode;
     body = resp.body;
@@ -13,8 +13,8 @@ class DemoApiResponse extends ApiXResponse {
   }
 }
 
-class DemoApi {
-  static Future<DemoApiResponse> get(
+class MbxApi {
+  static Future<MbxApiResponse> get(
       {required String endpoint,
       Map<String, Object?>? params,
       Map<String, Object?>? headers,
@@ -24,24 +24,24 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
     return ApiX.get(
             url: contract == false
-                ? DemoBaseUrlVM.apiUrl(endpoint)
+                ? MbxBaseUrlVM.apiUrl(endpoint)
                 : contractFile,
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static Future<DemoApiResponse> post(
+  static Future<MbxApiResponse> post(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -52,25 +52,25 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
     return ApiX.post(
             url: contract == false
-                ? DemoBaseUrlVM.apiUrl(endpoint)
+                ? MbxBaseUrlVM.apiUrl(endpoint)
                 : contractFile,
             params: params,
             headers: newHeaders,
             json: json)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static Future<DemoApiResponse> delete(
+  static Future<MbxApiResponse> delete(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -80,24 +80,24 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
     return ApiX.delete(
             url: contract == false
-                ? DemoBaseUrlVM.apiUrl(endpoint)
+                ? MbxBaseUrlVM.apiUrl(endpoint)
                 : contractFile,
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static Future<DemoApiResponse> put(
+  static Future<MbxApiResponse> put(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -108,24 +108,24 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
 
     return ApiX.put(
-            url: mock == false ? DemoBaseUrlVM.apiUrl(endpoint) : contractFile,
+            url: mock == false ? MbxBaseUrlVM.apiUrl(endpoint) : contractFile,
             params: params,
             headers: newHeaders,
             json: json)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static Future<DemoApiResponse> postMultipart(
+  static Future<MbxApiResponse> postMultipart(
       {required String endpoint,
       Map<String, String?>? files,
       Map<String, Object?>? params,
@@ -136,25 +136,25 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
     return ApiX.postMultipart(
             url: contract == false
-                ? DemoBaseUrlVM.apiUrl(endpoint)
+                ? MbxBaseUrlVM.apiUrl(endpoint)
                 : contractFile,
             files: files,
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static Future<DemoApiResponse> putMultipart(
+  static Future<MbxApiResponse> putMultipart(
       {required String endpoint,
       Map<String, String?>? files,
       Map<String, Object?>? params,
@@ -165,30 +165,30 @@ class DemoApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await DemoUserPreferencesVM.getToken();
+    final accessToken = await MbxUserPreferencesVM.getToken();
     if (accessToken.isNotEmpty) {
       newHeaders['Authorization'] = 'Bearer $accessToken';
     }
     return ApiX.putMultipart(
             url: contract == false
-                ? DemoBaseUrlVM.apiUrl(endpoint)
+                ? MbxBaseUrlVM.apiUrl(endpoint)
                 : contractFile,
             files: files,
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = DemoApiResponse(resp);
+      final response = MbxApiResponse(resp);
       handleResponse(response);
       return response;
     });
   }
 
-  static handleResponse(DemoApiResponse resp) async {
+  static handleResponse(MbxApiResponse resp) async {
     if (resp.statusCode == 401 ||
         resp.statusCode == 403 ||
         resp.jason['error'].stringValue == '401' ||
         resp.jason['error'].stringValue == '403') {
-      await DemoSessionVM.logout();
+      await MbxSessionVM.logout();
     }
   }
 }

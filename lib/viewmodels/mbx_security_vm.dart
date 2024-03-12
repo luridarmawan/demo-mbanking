@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import '../utils/all_utils.dart';
 
-class DemoSecurityVM {
+class MbxSecurityVM {
   static String securityKey =
       '09a3de1355af0cd9298b3c19c46312346e858bd0fdcfc29be59cc41db8d7edf8';
 

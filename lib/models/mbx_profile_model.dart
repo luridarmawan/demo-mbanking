@@ -1,11 +1,11 @@
 import '../utils/all_utils.dart';
 
-class DemoProfileModel {
+class MbxProfileModel {
   String name = '';
   String email = '';
   String photo = '';
 
-  DemoProfileModel();
+  MbxProfileModel();
 
   decode(Jason jason) {
     name = jason['name'].stringValue;

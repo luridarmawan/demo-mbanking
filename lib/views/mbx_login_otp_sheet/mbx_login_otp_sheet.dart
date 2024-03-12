@@ -3,15 +3,15 @@ import 'mbx_login_otp_sheet_controller.dart';
 
 // ignore: must_be_immutable
 class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
-  final String title;
+  final String phone;
   TextEditingController pinController = TextEditingController();
 
-  MbxLoginOtpSheet({this.title = 'Enter your OTP'});
+  MbxLoginOtpSheet({required this.phone});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white,
+        backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 32.0,
         avoidingKeyboard: false,
         widget: this);
@@ -20,7 +20,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxLoginOtpSheetController>(
-        init: MbxLoginOtpSheetController(),
+        init: MbxLoginOtpSheetController(phone: phone),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,
@@ -48,7 +48,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                     ),
                     Expanded(
                       child: TextX(
-                        title,
+                        'Verifikasi OTP',
                         color: ColorX.black,
                         fontSize: 17.0,
                         fontWeight: FontWeight.w600,
