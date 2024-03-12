@@ -14,6 +14,14 @@ class MbxApiResponse extends ApiXResponse {
 }
 
 class MbxApi {
+  static addRequiredHeader(Map<String, Object?> header) async {
+    header['X-DEVICE-ID'] = 'deviceid';
+    final token = await MbxUserPreferencesVM.getToken();
+    if (token.isNotEmpty) {
+      header['Authorization'] = 'Bearer $token';
+    }
+  }
+
   static Future<MbxApiResponse> get(
       {required String endpoint,
       Map<String, Object?>? params,
@@ -24,10 +32,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
+    await addRequiredHeader(newHeaders);
     return ApiX.get(
             url: contract == false
                 ? MbxBaseUrlVM.apiUrl(endpoint)
@@ -52,10 +57,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
+    await addRequiredHeader(newHeaders);
     return ApiX.post(
             url: contract == false
                 ? MbxBaseUrlVM.apiUrl(endpoint)
@@ -80,10 +82,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
+    await addRequiredHeader(newHeaders);
     return ApiX.delete(
             url: contract == false
                 ? MbxBaseUrlVM.apiUrl(endpoint)
@@ -108,11 +107,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
-
+    await addRequiredHeader(newHeaders);
     return ApiX.put(
             url: mock == false ? MbxBaseUrlVM.apiUrl(endpoint) : contractFile,
             params: params,
@@ -136,10 +131,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
+    await addRequiredHeader(newHeaders);
     return ApiX.postMultipart(
             url: contract == false
                 ? MbxBaseUrlVM.apiUrl(endpoint)
@@ -165,10 +157,7 @@ class MbxApi {
     headers?.forEach((key, value) {
       newHeaders[key] = value;
     });
-    final accessToken = await MbxUserPreferencesVM.getToken();
-    if (accessToken.isNotEmpty) {
-      newHeaders['Authorization'] = 'Bearer $accessToken';
-    }
+    await addRequiredHeader(newHeaders);
     return ApiX.putMultipart(
             url: contract == false
                 ? MbxBaseUrlVM.apiUrl(endpoint)
