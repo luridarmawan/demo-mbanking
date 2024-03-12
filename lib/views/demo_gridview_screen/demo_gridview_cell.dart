@@ -1,5 +1,5 @@
 import '../../models/demo_movie_model.dart';
-import '../../viewmodels/demo_format_vm.dart';
+import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
@@ -33,7 +33,7 @@ class DemoGridViewCell extends StatelessWidget {
               ),
               const SizedBox(height: 4.0),
               TextX(
-                DemoFormatVM.currencyUSD(value: movie.revenue),
+                MbxFormatVM.currencyUSD(value: movie.revenue),
                 color: ColorX.black,
                 fontSize: 17.0,
                 fontWeight: FontWeight.w400,

@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import '../utils/all_utils.dart';
 
-class DemoSecurityVM {
+class MbxSecurityVM {
   static String securityKey =
-      'eb2d9519f39d359c7530943092453879e7b3556e5550feb0c25c7fd2bf68cffe';
+      '09a3de1355af0cd9298b3c19c46312346e858bd0fdcfc29be59cc41db8d7edf8';
 
   static Uint8List generateEncryptionKey() {
     var reversedChars = securityKey.split('');

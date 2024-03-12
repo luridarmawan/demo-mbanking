@@ -1,43 +1,31 @@
-import 'viewmodels/demo_preferences_vm+users.dart';
-import 'viewmodels/demo_preferences_vm.dart';
-import 'viewmodels/demo_reachability_vm.dart';
-import 'viewmodels/demo_session_vm.dart';
+import 'viewmodels/mbx_preferences_vm+users.dart';
+import 'viewmodels/mbx_preferences_vm.dart';
+import 'viewmodels/mbx_reachability_vm.dart';
+import 'viewmodels/mbx_session_vm.dart';
 import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await DemoAntiJailbreakVM.check();
-  DemoReachabilityVM.startListening();
+  //await MbxAntiJailbreakVM.check();
+  MbxReachabilityVM.startListening();
 
-  final freshInstall = await DemoPreferencesVM.getFreshInstall();
+  final freshInstall = await MbxPreferencesVM.getFreshInstall();
   if (freshInstall == true) {
-    await DemoPreferencesVM.setFreshInstall(false);
-    await DemoUserPreferencesVM.resetAll();
+    await MbxPreferencesVM.setFreshInstall(false);
+    await MbxUserPreferencesVM.resetAll();
   }
 
-  await DemoSessionVM.load();
+  await MbxSessionVM.load();
 
   Widget firstScreen;
 
-  /*
-  if (firstInstall == true) {
-    firstScreen = DemoOnboardingScreen();
+  if (MbxSessionVM.token.isEmpty) {
+    firstScreen = MbxOnboardingScreen();
   } else {
-    if (DemoSessionVM.token.isNotEmpty) {
-      if (biometricEnabled == true) {
-        firstScreen = DemoLoginScreen();
-      } else {
-        firstScreen = DemoBottomNavBarScreen();
-      }
-    } else {
-      firstScreen = DemoLoginScreen();
-    }
-  } */
-
-  firstScreen = MbxOnboardingScreen();
-  //firstScreen = MbxBottomNavBarScreen();
+    firstScreen = MbxBottomNavBarScreen();
+  }
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -55,8 +43,8 @@ Future<void> main() async {
     );
   });
 /*
-  if (DemoSessionVM.token.isNotEmpty) {
-    DemoSessionVM.checkPinAndBiometric();
+  if (MbxSessionVM.token.isNotEmpty) {
+    MbxSessionVM.checkPinAndBiometric();
   } */
 }
 

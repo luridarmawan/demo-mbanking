@@ -2,19 +2,19 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'demo_security_vm.dart';
+import 'mbx_security_vm.dart';
 import '../utils/all_utils.dart';
 
-class DemoPreferencesVM {
+class MbxPreferencesVM {
   static String encodeKey(String key) {
     final xorKey = XorUtils.encrypt(
-        Utf8Utils.encode(key), DemoSecurityVM.generateEncryptionKey());
+        Utf8Utils.encode(key), MbxSecurityVM.generateEncryptionKey());
     return Base64Utils.encode(xorKey);
   }
 
   static Future<void> setString(String key, String value) async {
     var prefKey = encodeKey(key);
-    final encrypted = DemoSecurityVM.doubleEncrypt(Utf8Utils.encode(value));
+    final encrypted = MbxSecurityVM.doubleEncrypt(Utf8Utils.encode(value));
     if (kIsWeb) {
       final storage = await SharedPreferences.getInstance();
       await storage.setString(prefKey, Base64Utils.encode(encrypted));
@@ -32,7 +32,7 @@ class DemoPreferencesVM {
       String? value = storage.getString(prefKey);
       if (value != null) {
         return Utf8Utils.decode(
-            DemoSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
+            MbxSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
       } else {
         return '';
       }
@@ -41,7 +41,7 @@ class DemoPreferencesVM {
       String? value = await storage.read(key: prefKey);
       if (value != null) {
         return Utf8Utils.decode(
-            DemoSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
+            MbxSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
       } else {
         return '';
       }
@@ -88,7 +88,7 @@ class DemoPreferencesVM {
     final storage = await SharedPreferences.getInstance();
     var prefKey = encodeKey(key);
     if (value.isNotEmpty) {
-      final encrypted = DemoSecurityVM.doubleEncrypt(Utf8Utils.encode(value));
+      final encrypted = MbxSecurityVM.doubleEncrypt(Utf8Utils.encode(value));
       return await storage.setString(prefKey, Base64Utils.encode(encrypted));
     } else {
       return await storage.setString(prefKey, '');
@@ -101,7 +101,7 @@ class DemoPreferencesVM {
     String? value = storage.getString(prefKey);
     if (value != null && value.isNotEmpty) {
       return Utf8Utils.decode(
-          DemoSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
+          MbxSecurityVM.doubleDecrypt(Base64Utils.decode(value)));
     } else {
       return '';
     }
@@ -146,11 +146,11 @@ class DemoPreferencesVM {
 
   static demo() async {
     if (kDebugMode) {
-      LoggerX.log('[PREF] security key: ${DemoSecurityVM.securityKey}');
+      LoggerX.log('[PREF] security key: ${MbxSecurityVM.securityKey}');
       LoggerX.log(
-          '[PREF] encryption key: ${HexUtils.encode(DemoSecurityVM.generateEncryptionKey())}');
+          '[PREF] encryption key: ${HexUtils.encode(MbxSecurityVM.generateEncryptionKey())}');
       LoggerX.log(
-          '[PREF] encryption IV: ${HexUtils.encode(DemoSecurityVM.generateEncryptionIV())}');
+          '[PREF] encryption IV: ${HexUtils.encode(MbxSecurityVM.generateEncryptionIV())}');
       const key =
           "97283b39a7866ed6ed9d5520b746cc5079a7abed640122ec0763aa759a03dd83";
       LoggerX.log('[PREF] key plain: $key');
@@ -159,18 +159,18 @@ class DemoPreferencesVM {
       var value = LoremIpsumX.tiny();
       LoggerX.log('[PREF] value plain: $value');
       var encrypted = Base64Utils.encode(
-          DemoSecurityVM.doubleEncrypt(Utf8Utils.encode(value)));
+          MbxSecurityVM.doubleEncrypt(Utf8Utils.encode(value)));
       LoggerX.log('[PREF] value encrypted: $encrypted');
       var decrypted =
-          DemoSecurityVM.doubleDecrypt(Base64Utils.decode(encrypted));
+          MbxSecurityVM.doubleDecrypt(Base64Utils.decode(encrypted));
       LoggerX.log('[PREF] value decrypted: ${Utf8Utils.decode(decrypted)}');
 
       value = LoremIpsumX.medium();
       LoggerX.log('[PREF] value plain: $value');
       encrypted = Base64Utils.encode(
-          DemoSecurityVM.doubleEncrypt(Utf8Utils.encode(value)));
+          MbxSecurityVM.doubleEncrypt(Utf8Utils.encode(value)));
       LoggerX.log('[PREF] value encrypted: $encrypted');
-      decrypted = DemoSecurityVM.doubleDecrypt(Base64Utils.decode(encrypted));
+      decrypted = MbxSecurityVM.doubleDecrypt(Base64Utils.decode(encrypted));
       LoggerX.log('[PREF] value decrypted: ${Utf8Utils.decode(decrypted)}');
 
       var valueString = 'Hello World!';

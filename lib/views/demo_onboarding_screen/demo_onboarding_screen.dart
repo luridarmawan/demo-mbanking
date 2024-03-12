@@ -1,5 +1,5 @@
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../viewmodels/demo_format_vm.dart';
+import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'demo_onboarding_controller.dart';
 
@@ -52,7 +52,7 @@ class DemoOnboardingScreen extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 8.0),
                                       TextX(
-                                        DemoFormatVM.currencyUSD(
+                                        MbxFormatVM.currencyUSD(
                                             value: movie.revenue),
                                         color: ColorX.black,
                                         fontSize: 17.0,

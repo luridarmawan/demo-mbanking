@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-class DemoFormatVM {
+class MbxFormatVM {
   static String currencyIDR({required value, bool prefix = true}) {
     final currencyFormatter = NumberFormat('#,##0', 'ID');
     if (prefix == true) {

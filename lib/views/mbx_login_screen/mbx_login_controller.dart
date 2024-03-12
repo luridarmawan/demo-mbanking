@@ -1,4 +1,5 @@
 import '../../utils/all_utils.dart';
+import '../../viewmodels/mbx_login_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import '../mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
@@ -39,7 +40,7 @@ class MbxLoginController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[MbxLoginController] onResumed');
-    //await DemoAntiJailbreakVM.check();
+    //await MbxAntiJailbreakVM.check();
   }
 
   txtPhoneOnChanged(String value) {
@@ -53,19 +54,27 @@ class MbxLoginController extends SuperController {
     update();
 
     if (txtPhoneController.text.trim().isEmpty) {
-      txtPhoneError = 'Username cannot be empty.';
+      txtPhoneError = 'Nomor handphone tidak boleh kosong.';
       FocusScope.of(Get.context!).requestFocus(txtPhoneNode);
       update();
       return;
     }
 
-    final sheet = MbxLoginOtpSheet();
-    sheet.show().then((value) {
-      LoggerX.log('OTP: $value');
-      if (value != null) {
-        Get.deleteAll();
-        Get.offAll(MbxBottomNavBarScreen());
-      }
+    Get.loading();
+    MbxLoginVM.request(phone: txtPhoneController.text).then((resp) {
+      Get.back();
+      if (resp.statusCode == 200) {
+        final sheet = MbxLoginOtpSheet(
+          phone: txtPhoneController.text,
+        );
+        sheet.show().then((value) {
+          LoggerX.log('OTP: $value');
+          if (value != null) {
+            Get.deleteAll();
+            Get.offAll(MbxBottomNavBarScreen());
+          }
+        });
+      } else {}
     });
   }
 

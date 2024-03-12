@@ -1,8 +1,12 @@
+import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxLoginOtpSheetController extends GetxController {
+  final String phone;
   String otp = '';
   String error = '';
+
+  MbxLoginOtpSheetController({required this.phone});
 
   btnCloseClicked() {
     Get.back();
@@ -39,9 +43,11 @@ class MbxLoginOtpSheetController extends GetxController {
 
   submit() {
     Get.loading();
-    Future.delayed(Duration(milliseconds: 2000), () {
+    MbxLoginOtpVM.request(phone: phone, otp: otp).then((resp) {
       Get.back();
-      Get.back(result: otp);
+      if (resp.statusCode == 200) {
+        Get.back(result: otp);
+      } else {}
     });
   }
 }

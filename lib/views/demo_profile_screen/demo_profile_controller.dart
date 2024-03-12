@@ -1,5 +1,7 @@
+import 'package:demombanking/viewmodels/mbx_session_vm.dart';
+import 'package:demombanking/views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import '../../viewmodels/demo_profile_vm.dart';
+import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class DemoProfileController extends GetxController {
@@ -12,8 +14,14 @@ class DemoProfileController extends GetxController {
       version = 'Version ${info.version}.${info.buildNumber}';
       update();
     });
-    DemoProfileVM.request().then((resp) {
+    MbxProfileVM.request().then((resp) {
       update();
     });
+  }
+
+  btnSignOutClicked() {
+    MbxSessionVM.logout();
+    Get.deleteAll();
+    Get.offAll(MbxOnboardingScreen());
   }
 }

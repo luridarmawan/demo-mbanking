@@ -30,7 +30,7 @@ class MbxBottomNavBarController extends SuperController {
   @override
   Future<void> onResumed() async {
     LoggerX.log('[MbxBottomNavBarController] onResumed');
-    //await DemoAntiJailbreakVM.check();
+    //await MbxAntiJailbreakVM.check();
   }
 
   @override

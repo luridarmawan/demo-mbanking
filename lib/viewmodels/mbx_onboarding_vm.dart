@@ -1,6 +1,6 @@
 import 'dart:async';
 import '../models/mbx_onboarding_model.dart';
-import 'demo_apis.dart';
+import 'mbx_apis.dart';
 
 class MbxOnboardingVM {
   var loading = false;
@@ -11,9 +11,9 @@ class MbxOnboardingVM {
     list = [];
   }
 
-  Future<DemoApiResponse> nextPage() {
+  Future<MbxApiResponse> nextPage() {
     loading = true;
-    return DemoApi.get(
+    return MbxApi.get(
             endpoint: '/movies',
             params: {},
             headers: {},
