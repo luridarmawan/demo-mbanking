@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
 import 'package:flutter/services.dart';
 import 'mbx_preferences_vm+users.dart';
 
@@ -7,6 +8,7 @@ class MbxSessionVM {
 
   static load() async {
     token = await MbxUserPreferencesVM.getToken();
+    await MbxProfileVM.load();
   }
 
   static logout() async {

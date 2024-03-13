@@ -1,4 +1,5 @@
 import '../../../utils/all_utils.dart';
+import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_qris_screen/mbx_qris_screen.dart';
 
@@ -10,6 +11,9 @@ class MbxBottomNavBarController extends SuperController {
   void onReady() {
     super.onReady();
     StatusBarX.setDark();
+    MbxProfileVM.request().then((resp) {
+      update();
+    });
   }
 
   @override

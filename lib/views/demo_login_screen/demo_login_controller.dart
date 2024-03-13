@@ -1,5 +1,5 @@
 import '../../utils/all_utils.dart';
-import '../../viewmodels/mbxanti_jailbreak_vm.dart';
+import '../../viewmodels/mbx_anti_jailbreak_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_string_picker/demo_string_picker.dart';
 

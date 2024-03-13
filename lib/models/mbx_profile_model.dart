@@ -12,4 +12,12 @@ class MbxProfileModel {
     email = jason['email'].stringValue;
     photo = jason['photo'].stringValue;
   }
+
+  Jason encode() {
+    final jason = Jason();
+    jason['name'] = name;
+    jason['email'] = email;
+    jason['photo'] = photo;
+    return jason;
+  }
 }

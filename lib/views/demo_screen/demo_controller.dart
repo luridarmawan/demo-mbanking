@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
 import '../../utils/all_utils.dart';
-import '../../viewmodels/mbxanti_jailbreak_vm.dart';
+import '../../viewmodels/mbx_anti_jailbreak_vm.dart';
 import '../../viewmodels/demo_biometric_vm.dart';
 import '../../viewmodels/mbx_security_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -23,7 +23,7 @@ import '../demo_otp_screen/demo_otp_screen.dart';
 import '../demo_piechart_screen/demo_piechart_screen.dart';
 import '../demo_pin_screen/demo_pin_screen.dart';
 import '../demo_pin_sheet/demo_pin_sheet.dart';
-import '../demo_profile_screen/demo_profile_screen.dart';
+import '../mbx_profile_page/mbx_profile_page.dart';
 import '../demo_qr_code_screen/demo_qr_code_screen.dart';
 import '../demo_qr_scan_screen/demo_qr_scan_screen.dart';
 import '../demo_receipt_screen/demo_receipt_screen.dart';
@@ -68,7 +68,7 @@ class DemoController extends SuperController {
   }
 
   btnProfileClicked() {
-    Get.to(DemoProfileScreen());
+    Get.to(MbxProfilePage());
   }
 
   btnOtpClicked() {

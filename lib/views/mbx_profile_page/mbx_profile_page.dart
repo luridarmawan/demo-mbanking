@@ -1,12 +1,12 @@
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
-import 'demo_profile_controller.dart';
+import 'mbx_profile_controller.dart';
 
-class DemoProfileScreen extends StatelessWidget {
+class MbxProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DemoProfileController>(
-        init: DemoProfileController(),
+    return GetBuilder<MbxProfileController>(
+        init: MbxProfileController(),
         builder: (controller) => ScreenX(
             lightStatusBar: true,
             topPadding: false,
@@ -230,7 +230,7 @@ class DemoProfileScreen extends StatelessWidget {
                         customBorder: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         onTap: () {
-                          controller.btnSignOutClicked();
+                          controller.btnLogoutClicked();
                         },
                         child: ContainerX(
                             padding: EdgeInsets.only(
@@ -257,7 +257,7 @@ class DemoProfileScreen extends StatelessWidget {
                                   width: 8.0,
                                 ),
                                 TextX(
-                                  'Sign Out',
+                                  'Logout',
                                   fontSize: 17.0,
                                   fontWeight: FontWeight.w500,
                                   color: ColorX.black,

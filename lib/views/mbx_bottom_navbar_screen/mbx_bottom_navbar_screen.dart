@@ -1,8 +1,7 @@
-import 'package:demombanking/views/demo_profile_screen/demo_profile_screen.dart';
-
 import '../../widgets/all_widgets.dart';
 import '../mbx_history_view/mbx_history_view.dart';
 import '../mbx_home_view/mbx_home_view.dart';
+import '../mbx_profile_page/mbx_profile_page.dart';
 import 'mbx_bottom_navbar_controller.dart';
 
 // ignore: must_be_immutable
@@ -21,7 +20,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                   //ContainerX(backgroundColor: ColorX.blue),
                   ContainerX(backgroundColor: ColorX.teal),
                   MbxHistoryView(),
-                  DemoProfileScreen(),
+                  MbxProfilePage(),
                   ContainerX(backgroundColor: ColorX.green),
                   ContainerX(backgroundColor: ColorX.red),
                 ],
