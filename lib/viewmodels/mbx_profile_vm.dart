@@ -19,9 +19,9 @@ class MbxProfileVM {
             contract: true)
         .then((resp) async {
       if (resp.statusCode == 200) {
-        profile.name = resp.jason['result']['name'].stringValue;
-        profile.email = resp.jason['result']['email'].stringValue;
-        profile.photo = resp.jason['result']['photo'].stringValue;
+        final savedToken = profile.token;
+        profile.decode(resp.jason['result']);
+        profile.token = savedToken;
         await save();
       }
       return resp;
