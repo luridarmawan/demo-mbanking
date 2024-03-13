@@ -1,5 +1,6 @@
+import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
+
 import 'mbx_preferences_vm+users.dart';
-import 'mbx_session_vm.dart';
 import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
 
@@ -16,7 +17,7 @@ class MbxApiResponse extends ApiXResponse {
 class MbxApi {
   static addRequiredHeader(Map<String, Object?> header) async {
     header['X-DEVICE-ID'] = 'deviceid';
-    final token = await MbxUserPreferencesVM.getToken();
+    final token = MbxProfileVM.profile.token;
     if (token.isNotEmpty) {
       header['Authorization'] = 'Bearer $token';
     }
@@ -173,11 +174,8 @@ class MbxApi {
   }
 
   static handleResponse(MbxApiResponse resp) async {
-    if (resp.statusCode == 401 ||
-        resp.statusCode == 403 ||
-        resp.jason['error'].stringValue == '401' ||
-        resp.jason['error'].stringValue == '403') {
-      await MbxSessionVM.logout();
+    if (resp.statusCode == 401) {
+      await MbxProfileVM.logout();
     }
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'mbx_apis.dart';
-import 'mbx_preferences_vm+users.dart';
+import 'mbx_profile_vm.dart';
 
 class MbxLoginOtpVM {
   static Future<MbxApiResponse> request(
@@ -17,8 +17,8 @@ class MbxLoginOtpVM {
             contract: true)
         .then((resp) async {
       if (resp.statusCode == 200) {
-        final token = resp.jason['result']['token'].stringValue;
-        MbxUserPreferencesVM.setToken(token);
+        MbxProfileVM.profile.token = resp.jason['result']['token'].stringValue;
+        MbxProfileVM.save();
       } else {}
       return resp;
     });

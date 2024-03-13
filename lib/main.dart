@@ -1,14 +1,15 @@
+import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
+import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
-import 'viewmodels/mbx_session_vm.dart';
 import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await MbxAntiJailbreakVM.check();
+  await MbxAntiJailbreakVM.check();
   MbxReachabilityVM.startListening();
 
   final freshInstall = await MbxPreferencesVM.getFreshInstall();
@@ -17,11 +18,11 @@ Future<void> main() async {
     await MbxUserPreferencesVM.resetAll();
   }
 
-  await MbxSessionVM.load();
+  await MbxProfileVM.load();
 
   Widget firstScreen;
 
-  if (MbxSessionVM.token.isEmpty) {
+  if (MbxProfileVM.profile.token.isEmpty) {
     firstScreen = MbxOnboardingScreen();
   } else {
     firstScreen = MbxBottomNavBarScreen();
