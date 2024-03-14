@@ -53,14 +53,18 @@ class MbxBottomNavBarController extends SuperController {
         //controller.reloadAll();
         update();
         break;
-      case 1: // QRIS
-        Get.to(MbxQRISScreen());
-        break;
-      case 2: // Riwayat
+      case 1: // Riwayat
         StatusBarX.setLight();
         update();
         break;
-      case 3: // Akun Saya
+      case 2: // QRIS
+        Get.to(MbxQRISScreen());
+        break;
+      case 3: // Notifikasi
+        StatusBarX.setLight();
+        update();
+        break;
+      case 4: // Akun
         StatusBarX.setLight();
         update();
         break;

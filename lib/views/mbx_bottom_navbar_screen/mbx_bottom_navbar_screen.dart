@@ -17,7 +17,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 index: controller.tabBarIndex,
                 children: <Widget>[
                   MbxHomePage(),
-                  //ContainerX(backgroundColor: ColorX.blue),
+                  ContainerX(backgroundColor: ColorX.blue),
                   ContainerX(backgroundColor: ColorX.teal),
                   MbxHistoryView(),
                   MbxProfilePage(),
@@ -84,6 +84,44 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           activeIcon: Column(
                             children: [
                               ImageX(
+                                faIcon: FontAwesomeIcons.clockRotateLeft,
+                                height: 24.0,
+                                width: 24.0,
+                                color: ColorX.gray,
+                              ),
+                              SizedBox(height: 4.0),
+                              TextX(
+                                'Riwayat',
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w500,
+                                color: ColorX.gray,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          icon: Column(
+                            children: [
+                              ImageX(
+                                faIcon: FontAwesomeIcons.clockRotateLeft,
+                                height: 24.0,
+                                width: 24.0,
+                                color: ColorX.gray.withOpacity(0.60),
+                              ),
+                              SizedBox(height: 4.0),
+                              TextX(
+                                'Riwayat',
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w500,
+                                color: ColorX.gray.withOpacity(0.60),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          label: ''),
+                      BottomNavigationBarItem(
+                          activeIcon: Column(
+                            children: [
+                              ImageX(
                                 faIcon: FontAwesomeIcons.qrcode,
                                 height: 24.0,
                                 width: 24.0,
@@ -129,7 +167,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 4.0),
                               TextX(
-                                'Riwayat',
+                                'Notifikasi',
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w500,
                                 color: ColorX.gray,
@@ -140,14 +178,14 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           icon: Column(
                             children: [
                               ImageX(
-                                faIcon: FontAwesomeIcons.clockRotateLeft,
+                                faIcon: FontAwesomeIcons.bell,
                                 height: 24.0,
                                 width: 24.0,
                                 color: ColorX.gray.withOpacity(0.60),
                               ),
                               SizedBox(height: 4.0),
                               TextX(
-                                'Riwayat',
+                                'Notifikasi',
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w500,
                                 color: ColorX.gray.withOpacity(0.60),
@@ -167,7 +205,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 4.0),
                               TextX(
-                                'Akun Saya',
+                                'Akun',
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w500,
                                 color: ColorX.gray,
@@ -185,7 +223,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 4.0),
                               TextX(
-                                'Akun Saya',
+                                'Akun',
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w500,
                                 color: ColorX.gray.withOpacity(0.60),

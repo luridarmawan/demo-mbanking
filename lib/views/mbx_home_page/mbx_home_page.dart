@@ -20,15 +20,20 @@ class MbxHomePage extends StatelessWidget {
             bodyView: Material(
               child: Scrollbar(
                   child: ListView(padding: EdgeInsets.zero, children: [
-                GridView.builder(
+                GridView.count(
                   shrinkWrap: true,
+                  mainAxisSpacing: 0.0,
+                  crossAxisSpacing: 0.0,
+                  childAspectRatio: 0.85,
+                  crossAxisCount: 4,
                   padding: EdgeInsets.all(8.0),
                   physics: ClampingScrollPhysics(),
+                  /*
                   itemCount: controller.movieListVM.list.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 0.0,
                     crossAxisSpacing: 0.0,
-                    childAspectRatio: 0.58,
+                    childAspectRatio: 0.68,
                     crossAxisCount: 4,
                   ),
                   itemBuilder: (BuildContext context, int index) {
@@ -41,15 +46,49 @@ class MbxHomePage extends StatelessWidget {
                             highlightColor: ColorX.highlight,
                             onTap: () {},
                             child: MbxHomeGridCell(movie)));
-                  },
+                  }, */
+                  children: [
+                    MbxHomeGridCell(
+                        color: ColorX.green,
+                        faIcon: FontAwesomeIcons.arrowRightArrowLeft,
+                        title: 'Transfer'),
+                    MbxHomeGridCell(
+                        color: ColorX.blue,
+                        faIcon: FontAwesomeIcons.sackDollar,
+                        title: 'Tarik Tunai'),
+                    MbxHomeGridCell(
+                        color: ColorX.teal,
+                        faIcon: FontAwesomeIcons.landmark,
+                        title: 'Deposito'),
+                    MbxHomeGridCell(
+                        color: ColorX.yellow,
+                        faIcon: FontAwesomeIcons.handHoldingDollar,
+                        title: 'Paylater'),
+                    MbxHomeGridCell(
+                        color: ColorX.red,
+                        faIcon: FontAwesomeIcons.qrcode,
+                        title: 'QRIS'),
+                    MbxHomeGridCell(
+                        color: ColorX.green,
+                        faIcon: FontAwesomeIcons.houseFlag,
+                        title: 'Bayar'),
+                    MbxHomeGridCell(
+                        color: ColorX.blue,
+                        faIcon: FontAwesomeIcons.circleDollarToSlot,
+                        title: 'Top Up'),
+                    MbxHomeGridCell(
+                        color: ColorX.gray,
+                        faIcon: FontAwesomeIcons.ellipsis,
+                        title: 'Lainnya'),
+                  ],
                 ),
                 controller.movieListVM.list.length > 0
                     ? CarouselSlider.builder(
                         options: CarouselOptions(
                           padEnds: false,
                           autoPlay: true,
-                          viewportFraction: 0.85,
-                          height: 180.0,
+                          viewportFraction: 0.75,
+                          height: 120.0,
                           onPageChanged: (index, reason) {
                             controller.setPageIndex(index);
                           },
@@ -62,7 +101,8 @@ class MbxHomePage extends StatelessWidget {
                               color: ColorX.transparent,
                               child: InkWell(
                                   customBorder: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0)),
+                                      borderRadius:
+                                          BorderRadius.circular(12.0)),
                                   highlightColor: ColorX.highlight,
                                   onTap: () {
                                     Get.to(DemoImageScreen(url: movie.poster));
@@ -73,7 +113,7 @@ class MbxHomePage extends StatelessWidget {
                                         url: movie.poster,
                                         width: double.infinity,
                                         height: double.infinity,
-                                        cornerRadius: 8.0,
+                                        cornerRadius: 12.0,
                                         fit: BoxFit.cover,
                                       )))); //)));
                         })
