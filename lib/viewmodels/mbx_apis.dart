@@ -1,8 +1,6 @@
-import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
-
-import 'mbx_preferences_vm+users.dart';
 import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
+import 'mbx_profile_vm.dart';
 
 class MbxApiResponse extends ApiXResponse {
   MbxApiResponse(ApiXResponse resp) {

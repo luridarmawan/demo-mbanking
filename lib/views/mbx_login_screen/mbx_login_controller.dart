@@ -1,3 +1,5 @@
+import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
+
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -70,8 +72,12 @@ class MbxLoginController extends SuperController {
         sheet.show().then((value) {
           LoggerX.log('OTP: $value');
           if (value != null) {
-            Get.deleteAll();
-            Get.offAll(MbxBottomNavBarScreen());
+            Get.loading();
+            MbxProfileVM.request().then((resp) {
+              Get.back();
+              Get.deleteAll();
+              Get.offAll(MbxBottomNavBarScreen());
+            });
           }
         });
       } else {}

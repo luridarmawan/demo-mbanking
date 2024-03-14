@@ -1,6 +1,6 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_history_view/mbx_history_view.dart';
-import '../mbx_home_view/mbx_home_view.dart';
+import '../mbx_home_page/mbx_home_page.dart';
 import '../mbx_profile_page/mbx_profile_page.dart';
 import 'mbx_bottom_navbar_controller.dart';
 
@@ -16,7 +16,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
               bodyView: IndexedStack(
                 index: controller.tabBarIndex,
                 children: <Widget>[
-                  MbxHomeView(),
+                  MbxHomePage(),
                   //ContainerX(backgroundColor: ColorX.blue),
                   ContainerX(backgroundColor: ColorX.teal),
                   MbxHistoryView(),
