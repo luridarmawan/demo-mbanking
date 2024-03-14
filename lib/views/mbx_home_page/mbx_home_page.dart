@@ -10,81 +10,76 @@ class MbxHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxHomeController>(
-      init: MbxHomeController(),
-      builder: (controller) => ScreenX(
-          lightStatusBar: true,
-          headerView: NavigationBarX(
-            title: 'Beranda',
-          ),
-          bottomPadding: false,
-          bodyView: ListView(children: [
-            GridView.builder(
-              shrinkWrap: true,
-              padding: EdgeInsets.only(
-                  left: 8.0,
-                  top: 8.0,
-                  right: 8.0,
-                  bottom: 8.0 + MediaQuery.of(Get.context!).padding.bottom),
-              physics: ClampingScrollPhysics(),
-              itemCount: controller.movieListVM.list.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 8.0,
-                crossAxisSpacing: 8.0,
-                childAspectRatio: 0.65,
-                crossAxisCount: 4,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                final movie = controller.movieListVM.list[index];
-                return Material(
-                    color: ColorX.transparent,
-                    child: InkWell(
-                        customBorder: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        highlightColor: ColorX.highlight,
-                        onTap: () {
-                          Get.to(DemoImageScreen(url: movie.poster));
-                        },
-                        child: MbxHomeGridCell(movie)));
-              },
+        init: MbxHomeController(),
+        builder: (controller) => ScreenX(
+            lightStatusBar: true,
+            headerView: NavigationBarX(
+              title: 'Beranda',
             ),
-            SizedBox(height: 8.0),
-            controller.movieListVM.list.length > 0
-                ? CarouselSlider.builder(
-                    options: CarouselOptions(
-                      padEnds: false,
-                      autoPlay: true,
-                      viewportFraction: 0.85,
-                      height: 180.0,
-                      onPageChanged: (index, reason) {
-                        controller.setPageIndex(index);
-                      },
-                    ),
-                    itemCount: controller.movieListVM.list.length,
-                    itemBuilder:
-                        (BuildContext context, int index, int pageViewIndex) {
-                      final movie = controller.movieListVM.list[index];
-                      return Material(
-                          color: ColorX.transparent,
-                          child: InkWell(
-                              customBorder: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0)),
-                              highlightColor: ColorX.highlight,
-                              onTap: () {
-                                Get.to(DemoImageScreen(url: movie.poster));
-                              },
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: ImageX(
-                                    url: movie.poster,
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    cornerRadius: 8.0,
-                                    fit: BoxFit.cover,
-                                  )))); //)));
-                    })
-                : Container(),
-            SizedBox(height: 8.0),
-          ])),
-    );
+            bottomPadding: false,
+            bodyView: Material(
+              child: Scrollbar(
+                  child: ListView(padding: EdgeInsets.zero, children: [
+                GridView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.all(8.0),
+                  physics: ClampingScrollPhysics(),
+                  itemCount: controller.movieListVM.list.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 0.0,
+                    crossAxisSpacing: 0.0,
+                    childAspectRatio: 0.58,
+                    crossAxisCount: 4,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    final movie = controller.movieListVM.list[index];
+                    return Material(
+                        color: ColorX.transparent,
+                        child: InkWell(
+                            customBorder: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0)),
+                            highlightColor: ColorX.highlight,
+                            onTap: () {},
+                            child: MbxHomeGridCell(movie)));
+                  },
+                ),
+                controller.movieListVM.list.length > 0
+                    ? CarouselSlider.builder(
+                        options: CarouselOptions(
+                          padEnds: false,
+                          autoPlay: true,
+                          viewportFraction: 0.85,
+                          height: 180.0,
+                          onPageChanged: (index, reason) {
+                            controller.setPageIndex(index);
+                          },
+                        ),
+                        itemCount: controller.movieListVM.list.length,
+                        itemBuilder: (BuildContext context, int index,
+                            int pageViewIndex) {
+                          final movie = controller.movieListVM.list[index];
+                          return Material(
+                              color: ColorX.transparent,
+                              child: InkWell(
+                                  customBorder: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0)),
+                                  highlightColor: ColorX.highlight,
+                                  onTap: () {
+                                    Get.to(DemoImageScreen(url: movie.poster));
+                                  },
+                                  child: Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: ImageX(
+                                        url: movie.poster,
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        cornerRadius: 8.0,
+                                        fit: BoxFit.cover,
+                                      )))); //)));
+                        })
+                    : Container(),
+                SizedBox(height: 8.0),
+              ])),
+            )));
   }
 }
