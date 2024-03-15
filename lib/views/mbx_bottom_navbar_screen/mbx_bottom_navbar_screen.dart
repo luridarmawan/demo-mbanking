@@ -1,5 +1,7 @@
+import 'package:demombanking/views/mbx_notification_page/mbx_notification_page.dart';
+
 import '../../widgets/all_widgets.dart';
-import '../mbx_history_view/mbx_history_view.dart';
+import '../mbx_history_page/mbx_history_page.dart';
 import '../mbx_home_page/mbx_home_page.dart';
 import '../mbx_profile_page/mbx_profile_page.dart';
 import 'mbx_bottom_navbar_controller.dart';
@@ -17,12 +19,10 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 index: controller.tabBarIndex,
                 children: <Widget>[
                   MbxHomePage(),
-                  ContainerX(backgroundColor: ColorX.blue),
+                  MbxHistoryPage(),
                   ContainerX(backgroundColor: ColorX.teal),
-                  MbxHistoryView(),
+                  MbxNotificationPage(),
                   MbxProfilePage(),
-                  ContainerX(backgroundColor: ColorX.green),
-                  ContainerX(backgroundColor: ColorX.red),
                 ],
               ),
               bottomNavigationBar: Theme(
@@ -160,7 +160,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           activeIcon: Column(
                             children: [
                               ImageX(
-                                faIcon: FontAwesomeIcons.clockRotateLeft,
+                                faIcon: FontAwesomeIcons.bell,
                                 height: 24.0,
                                 width: 24.0,
                                 color: ColorX.gray,

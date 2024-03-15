@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_image_screen/demo_image_screen.dart';
 import 'mbx_home_controller.dart';
@@ -13,13 +14,57 @@ class MbxHomePage extends StatelessWidget {
         init: MbxHomeController(),
         builder: (controller) => ScreenX(
             lightStatusBar: true,
-            headerView: NavigationBarX(
-              title: 'Beranda',
-            ),
             bottomPadding: false,
             bodyView: Material(
               child: Scrollbar(
                   child: ListView(padding: EdgeInsets.zero, children: [
+                ContainerX(
+                    width: double.infinity,
+                    backgroundColor: ColorX.theme,
+                    padding: EdgeInsets.only(
+                        left: 24.0, top: 12.0, right: 24.0, bottom: 12.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                            height: MediaQuery.of(Get.context!).padding.top),
+                        Row(
+                          children: [
+                            ContainerX(
+                                backgroundColor: ColorX.white,
+                                width: 46.0,
+                                height: 46.0,
+                                cornerRadius: 23.0,
+                                child: Center(
+                                    child: ImageX(
+                                  faIcon: MbxProfileVM.profile.photo.isEmpty
+                                      ? FontAwesomeIcons.user
+                                      : null,
+                                  color: MbxProfileVM.profile.photo.isEmpty
+                                      ? ColorX.gray
+                                      : null,
+                                  url: MbxProfileVM.profile.photo,
+                                  width: MbxProfileVM.profile.photo.isEmpty
+                                      ? 20.0
+                                      : 40.0,
+                                  height: 40.0,
+                                  cornerRadius: 20.0,
+                                ))),
+                            SizedBox(width: 8.0),
+                            TextX(
+                              MbxProfileVM.profile.name.isEmpty
+                                  ? '-'
+                                  : MbxProfileVM.profile.name,
+                              fontSize: 17.0,
+                              fontWeight: FontWeight.w700,
+                              color: ColorX.white,
+                            ),
+                          ],
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  height: 12.0,
+                ),
                 GridView.count(
                   shrinkWrap: true,
                   mainAxisSpacing: 0.0,

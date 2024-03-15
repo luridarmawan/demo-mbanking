@@ -1,21 +1,21 @@
 import '../../widgets/all_widgets.dart';
 import '../demo_image_screen/demo_image_screen.dart';
-import 'mbx_history_controller.dart';
-import 'mbx_history_cell.dart';
+import 'mbx_notification_controller.dart';
+import 'mbx_notification_cell.dart';
 
-class MbxHistoryView extends StatelessWidget {
-  MbxHistoryView({Key? key}) : super(key: key);
+class MbxNotificationPage extends StatelessWidget {
+  MbxNotificationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxHistoryController>(
-        init: MbxHistoryController(),
+    return GetBuilder<MbxNotificationController>(
+        init: MbxNotificationController(),
         builder: (controller) => ScreenX(
               lightStatusBar: true,
               loading: controller.movieListVM.list.isEmpty &&
                   controller.movieListVM.loading,
               headerView: NavigationBarX(
-                title: 'History',
+                title: 'Notifikasi',
               ),
               bottomPadding: false,
               bodyView: NotificationListener<ScrollNotification>(
@@ -54,7 +54,7 @@ class MbxHistoryView extends StatelessWidget {
                                         Get.to(
                                             DemoImageScreen(url: movie.poster));
                                       },
-                                      child: MbxHistoryCell(movie)));
+                                      child: MbxNotificationCell(movie)));
                             })),
                   )),
             ));
