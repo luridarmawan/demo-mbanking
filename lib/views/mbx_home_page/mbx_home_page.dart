@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:demombanking/views/mbx_home_page/mbx_banner_cell.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../demo_gridview_screen/demo_gridview_cell.dart';
 import '../demo_image_screen/demo_image_screen.dart';
+import '../demo_listview_screen/demo_listview_cell.dart';
 import 'mbx_home_controller.dart';
 import 'mbx_home_grid_cell.dart';
 
@@ -63,6 +66,27 @@ class MbxHomePage extends StatelessWidget {
                       ],
                     )),
                 SizedBox(
+                    height: 100.0,
+                    child: ListView.separated(
+                        padding: EdgeInsets.all(8.0),
+                        physics: ClampingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        separatorBuilder: (context, index) {
+                          return ContainerX(width: 8.0);
+                        },
+                        itemCount: controller.movieListVM.list.length,
+                        itemBuilder: (context, index) {
+                          final movie = controller.movieListVM.list[index];
+                          return Material(
+                              color: ColorX.transparent,
+                              child: InkWell(
+                                  highlightColor: ColorX.highlight,
+                                  onTap: () {
+                                    Get.to(DemoImageScreen(url: movie.poster));
+                                  },
+                                  child: MbxBannerCell(movie)));
+                        })),
+                SizedBox(
                   height: 12.0,
                 ),
                 GridView.count(
@@ -73,25 +97,6 @@ class MbxHomePage extends StatelessWidget {
                   crossAxisCount: 4,
                   padding: EdgeInsets.all(8.0),
                   physics: ClampingScrollPhysics(),
-                  /*
-                  itemCount: controller.movieListVM.list.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 0.0,
-                    crossAxisSpacing: 0.0,
-                    childAspectRatio: 0.68,
-                    crossAxisCount: 4,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    final movie = controller.movieListVM.list[index];
-                    return Material(
-                        color: ColorX.transparent,
-                        child: InkWell(
-                            customBorder: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0)),
-                            highlightColor: ColorX.highlight,
-                            onTap: () {},
-                            child: MbxHomeGridCell(movie)));
-                  }, */
                   children: [
                     MbxHomeGridCell(
                         color: ColorX.green,
