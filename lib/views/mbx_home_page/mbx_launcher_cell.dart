@@ -1,12 +1,12 @@
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxHomeGridCell extends StatelessWidget {
+class MbxLauncherCell extends StatelessWidget {
   final Color color;
   final IconData faIcon;
   final String title;
 
-  MbxHomeGridCell(
+  MbxLauncherCell(
       {required this.color, required this.faIcon, required this.title});
 
   @override
@@ -15,8 +15,8 @@ class MbxHomeGridCell extends StatelessWidget {
         color: ColorX.transparent,
         child: InkWell(
             customBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            highlightColor: ColorX.highlight,
+                borderRadius: BorderRadius.circular(12.0)),
+            highlightColor: ColorX.white.withOpacity(0.2),
             onTap: () {},
             child: ContainerX(
                 child: Padding(
@@ -37,9 +37,9 @@ class MbxHomeGridCell extends StatelessWidget {
                         ),
                         TextX(
                           title,
-                          color: ColorX.black,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
+                          color: ColorX.white,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w500,
                           textAlign: TextAlign.center,
                           maxLines: 2,
                         ),

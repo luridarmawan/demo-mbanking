@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:demombanking/views/mbx_home_page/mbx_banner_cell.dart';
+import 'package:demombanking/views/mbx_home_page/mbx_account_cell.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_image_screen/demo_image_screen.dart';
 import 'mbx_home_controller.dart';
-import 'mbx_home_grid_cell.dart';
+import 'mbx_launcher_cell.dart';
+import 'mbx_promo_cell.dart';
 
 class MbxHomePage extends StatelessWidget {
   MbxHomePage({Key? key}) : super(key: key);
@@ -59,14 +59,33 @@ class MbxHomePage extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                               color: ColorX.white,
                             ),
+                            Spacer(),
+                            ButtonX(
+                              faIcon: FontAwesomeIcons.powerOff,
+                              faColor: ColorX.white,
+                              width: 32.0,
+                              height: 32.0,
+                              onClicked: () {},
+                            )
                           ],
                         )
                       ],
                     )),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 12.0, top: 12.0, right: 12.0, bottom: 4.0),
+                  child: TextX(
+                    'REKENING',
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w600,
+                    color: ColorX.gray,
+                    textAlign: TextAlign.start,
+                  ),
+                ),
                 SizedBox(
-                    height: 100.0,
+                    height: 90.0,
                     child: ListView.separated(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(left: 12.0, right: 12.0),
                         physics: ClampingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         separatorBuilder: (context, index) {
@@ -81,51 +100,70 @@ class MbxHomePage extends StatelessWidget {
                                   onTap: () {
                                     //Get.to(DemoImageScreen(url: movie.poster));
                                   },
-                                  child: MbxBannerCell(
+                                  child: MbxAccountCell(
                                       MbxProfileVM.profile.accounts[index])));
                         })),
-                GridView.count(
-                  shrinkWrap: true,
-                  mainAxisSpacing: 0.0,
-                  crossAxisSpacing: 0.0,
-                  childAspectRatio: 0.85,
-                  crossAxisCount: 4,
-                  padding: EdgeInsets.all(8.0),
-                  physics: ClampingScrollPhysics(),
-                  children: [
-                    MbxHomeGridCell(
-                        color: ColorX.green,
-                        faIcon: FontAwesomeIcons.arrowRightArrowLeft,
-                        title: 'Transfer'),
-                    MbxHomeGridCell(
-                        color: ColorX.blue,
-                        faIcon: FontAwesomeIcons.sackDollar,
-                        title: 'Tarik Tunai'),
-                    MbxHomeGridCell(
-                        color: ColorX.teal,
-                        faIcon: FontAwesomeIcons.landmark,
-                        title: 'Deposito'),
-                    MbxHomeGridCell(
-                        color: ColorX.yellow,
-                        faIcon: FontAwesomeIcons.handHoldingDollar,
-                        title: 'Paylater'),
-                    MbxHomeGridCell(
-                        color: ColorX.red,
-                        faIcon: FontAwesomeIcons.qrcode,
-                        title: 'QRIS'),
-                    MbxHomeGridCell(
-                        color: ColorX.green,
-                        faIcon: FontAwesomeIcons.houseFlag,
-                        title: 'Bayar'),
-                    MbxHomeGridCell(
-                        color: ColorX.blue,
-                        faIcon: FontAwesomeIcons.circleDollarToSlot,
-                        title: 'Top Up'),
-                    MbxHomeGridCell(
-                        color: ColorX.gray,
-                        faIcon: FontAwesomeIcons.ellipsis,
-                        title: 'Lainnya'),
-                  ],
+                SizedBox(height: 12.0),
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: ContainerX(
+                    backgroundColor: ColorX.theme,
+                    cornerRadius: 12.0,
+                    child: GridView.count(
+                      shrinkWrap: true,
+                      mainAxisSpacing: 0.0,
+                      crossAxisSpacing: 0.0,
+                      childAspectRatio: 0.90,
+                      crossAxisCount: 4,
+                      padding: EdgeInsets.all(12.0),
+                      physics: ClampingScrollPhysics(),
+                      children: [
+                        MbxLauncherCell(
+                            color: ColorX.green,
+                            faIcon: FontAwesomeIcons.arrowRightArrowLeft,
+                            title: 'Transfer'),
+                        MbxLauncherCell(
+                            color: ColorX.blue,
+                            faIcon: FontAwesomeIcons.sackDollar,
+                            title: 'Tarik Tunai'),
+                        MbxLauncherCell(
+                            color: ColorX.teal,
+                            faIcon: FontAwesomeIcons.landmark,
+                            title: 'Deposito'),
+                        MbxLauncherCell(
+                            color: ColorX.yellow,
+                            faIcon: FontAwesomeIcons.handHoldingDollar,
+                            title: 'Paylater'),
+                        MbxLauncherCell(
+                            color: ColorX.red,
+                            faIcon: FontAwesomeIcons.qrcode,
+                            title: 'QRIS'),
+                        MbxLauncherCell(
+                            color: ColorX.green,
+                            faIcon: FontAwesomeIcons.houseFlag,
+                            title: 'Bayar'),
+                        MbxLauncherCell(
+                            color: ColorX.blue,
+                            faIcon: FontAwesomeIcons.circleDollarToSlot,
+                            title: 'Top Up'),
+                        MbxLauncherCell(
+                            color: ColorX.gray,
+                            faIcon: FontAwesomeIcons.ellipsis,
+                            title: 'Lainnya'),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 12.0, top: 4.0, right: 12.0, bottom: 4.0),
+                  child: TextX(
+                    'PROMO & BERITA',
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w600,
+                    color: ColorX.gray,
+                    textAlign: TextAlign.start,
+                  ),
                 ),
                 controller.movieListVM.list.length > 0
                     ? CarouselSlider.builder(
@@ -141,26 +179,8 @@ class MbxHomePage extends StatelessWidget {
                         itemCount: controller.movieListVM.list.length,
                         itemBuilder: (BuildContext context, int index,
                             int pageViewIndex) {
-                          final movie = controller.movieListVM.list[index];
-                          return Material(
-                              color: ColorX.transparent,
-                              child: InkWell(
-                                  customBorder: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(12.0)),
-                                  highlightColor: ColorX.highlight,
-                                  onTap: () {
-                                    Get.to(DemoImageScreen(url: movie.poster));
-                                  },
-                                  child: Padding(
-                                      padding: EdgeInsets.only(left: 8.0),
-                                      child: ImageX(
-                                        url: movie.poster,
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        cornerRadius: 12.0,
-                                        fit: BoxFit.cover,
-                                      )))); //)));
+                          return MbxPromoCell(
+                              controller.movieListVM.list[index]);
                         })
                     : Container(),
                 SizedBox(height: 8.0),
