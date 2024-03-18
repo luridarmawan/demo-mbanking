@@ -18,4 +18,11 @@ class MbxFormatVM {
       return '${currencyFormatter.format(value)}';
     }
   }
+
+  static String accountMasking(
+      {required String value,
+      required String prefix,
+      required int visibleDigits}) {
+    return '$prefix${value.substring(value.length - visibleDigits)}';
+  }
 }
