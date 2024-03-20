@@ -1,8 +1,8 @@
+import 'package:demombanking/viewmodels/mbx_promo_list_vm.dart';
 import 'package:get/get.dart';
-import '../../viewmodels/demo_movie_list_vm.dart';
 
 class MbxHomeController extends GetxController {
-  var movieListVM = DemoMovieListVM();
+  var movieListVM = MbxPromoListVM();
   var pageIndex = 0;
 
   @override

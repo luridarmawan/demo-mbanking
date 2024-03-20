@@ -11,21 +11,36 @@ class MbxPromoCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         color: ColorX.transparent,
-        child: InkWell(
-            customBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0)),
-            highlightColor: ColorX.highlight,
-            onTap: () {
-              Get.to(DemoImageScreen(url: movie.poster));
-            },
-            child: Padding(
-                padding: EdgeInsets.only(left: 12.0),
-                child: ImageX(
-                  url: movie.poster,
-                  width: double.infinity,
-                  height: double.infinity,
-                  cornerRadius: 12.0,
-                  fit: BoxFit.cover,
-                ))));
+        child: Padding(
+            padding: EdgeInsets.only(left: 12.0),
+            child: InkWell(
+              customBorder: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0)),
+              highlightColor: ColorX.highlight,
+              onTap: () {
+                Get.to(DemoImageScreen(url: movie.poster));
+              },
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ImageX(
+                      url: movie.poster,
+                      width: double.infinity,
+                      height: 100.0,
+                      cornerRadius: 12.0,
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(height: 4.0),
+                    TextX(
+                      movie.title,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w500,
+                      color: ColorX.gray,
+                      textAlign: TextAlign.start,
+                      maxLines: 3,
+                    ),
+                    Spacer()
+                  ]),
+            )));
   }
 }
