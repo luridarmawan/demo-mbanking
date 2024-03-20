@@ -23,7 +23,7 @@ class MbxProfileModel {
 
   Jason encode() {
     final jason = Jason();
-    List<Jason> accs = [];
+    List<Map<String, dynamic>> accs = [];
     for (final item in accounts) {
       accs.add(item.encode());
     }

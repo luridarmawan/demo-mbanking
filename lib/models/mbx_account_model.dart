@@ -15,12 +15,12 @@ class MbxAccountModel {
     name = jason['name'].stringValue;
   }
 
-  Jason encode() {
-    final jason = Jason();
-    jason['account'] = account;
-    jason['balance'] = balance;
-    jason['id'] = id;
-    jason['name'] = name;
-    return jason;
+  Map<String, dynamic> encode() {
+    Map<String, dynamic> map = {};
+    map['account'] = account;
+    map['balance'] = balance;
+    map['id'] = id;
+    map['name'] = name;
+    return map;
   }
 }
