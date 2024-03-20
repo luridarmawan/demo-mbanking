@@ -1,6 +1,6 @@
 import '../../models/demo_movie_model.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_image_screen/demo_image_screen.dart';
+import '../demo_html_screen/demo_html_screen.dart';
 
 // ignore: must_be_immutable
 class MbxPromoCell extends StatelessWidget {
@@ -18,7 +18,7 @@ class MbxPromoCell extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0)),
               highlightColor: ColorX.highlight,
               onTap: () {
-                Get.to(DemoImageScreen(url: movie.poster));
+                Get.to(DemoHtmlScreen());
               },
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

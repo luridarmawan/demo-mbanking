@@ -186,21 +186,21 @@ class MbxHomePage extends StatelessWidget {
                           physics: ClampingScrollPhysics(),
                           children: [
                             MbxLauncherCell(
-                                color: ColorX.green,
-                                faIcon: FontAwesomeIcons.arrowRightArrowLeft,
-                                title: 'Transfer'),
+                                color: ColorX.yellow,
+                                faIcon: FontAwesomeIcons.solidLightbulb,
+                                title: 'Listrik PLN'),
+                            MbxLauncherCell(
+                                color: ColorX.red,
+                                faIcon: FontAwesomeIcons.mobile,
+                                title: 'Pulsa'),
                             MbxLauncherCell(
                                 color: ColorX.blue,
-                                faIcon: FontAwesomeIcons.sackDollar,
-                                title: 'Tarik Tunai'),
+                                faIcon: FontAwesomeIcons.water,
+                                title: 'PAM'),
                             MbxLauncherCell(
                                 color: ColorX.teal,
-                                faIcon: FontAwesomeIcons.landmark,
-                                title: 'Deposito'),
-                            MbxLauncherCell(
-                                color: ColorX.yellow,
-                                faIcon: FontAwesomeIcons.handHoldingDollar,
-                                title: 'Paylater'),
+                                faIcon: FontAwesomeIcons.shield,
+                                title: 'BPJS'),
                           ],
                         ),
                       ),
