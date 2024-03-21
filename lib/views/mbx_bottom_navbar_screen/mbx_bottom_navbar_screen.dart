@@ -1,3 +1,4 @@
+import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_notification_page/mbx_notification_page.dart';
 
 import '../../widgets/all_widgets.dart';
@@ -25,214 +26,148 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                   MbxProfilePage(),
                 ],
               ),
-              bottomNavigationBar: Theme(
-                data: ThemeData(
-                  splashColor: ColorX.transparent,
-                  highlightColor: ColorX.transparent,
-                  hoverColor: ColorX.transparent,
+              floatingActionButton: ButtonX(
+                backgroundColor: ColorX.theme,
+                width: 70.0,
+                height: 70.0,
+                cornerRadius: 35.0,
+                faIcon: FontAwesomeIcons.qrcode,
+                faColor: ColorX.white,
+                onClicked: () {
+                  controller.btnQRISClicked();
+                },
+              ),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              bottomNavigationBar: BottomAppBar(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                height: 60.0,
+                color: ColorX.white.darken(0.001),
+                shape: const CircularNotchedRectangle(),
+                notchMargin: 5,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Material(
+                        color: ColorX.transparent,
+                        child: InkWell(
+                            highlightColor: ColorX.highlight,
+                            onTap: () {
+                              controller.btnHomeClicked();
+                            },
+                            child: Center(
+                              child: Wrap(
+                                direction: Axis.vertical,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  ImageX(
+                                    faIcon: FontAwesomeIcons.house,
+                                    height: 20.0,
+                                    width: 20.0,
+                                    color: ColorX.gray,
+                                  ),
+                                  SizedBox(height: 2.0),
+                                  TextX(
+                                    'Beranda',
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorX.gray,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ))),
+                    Material(
+                        color: ColorX.transparent,
+                        child: InkWell(
+                            highlightColor: ColorX.highlight,
+                            onTap: () {
+                              controller.btnHistoryClicked();
+                            },
+                            child: Center(
+                              child: Wrap(
+                                direction: Axis.vertical,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  ImageX(
+                                    faIcon: FontAwesomeIcons.clockRotateLeft,
+                                    height: 20.0,
+                                    width: 20.0,
+                                    color: ColorX.gray,
+                                  ),
+                                  SizedBox(height: 2.0),
+                                  TextX(
+                                    'Riwayat',
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorX.gray,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ))),
+                    ContainerX(),
+                    Material(
+                        color: ColorX.transparent,
+                        child: InkWell(
+                            highlightColor: ColorX.highlight,
+                            onTap: () {
+                              controller.btnNotificationsClicked();
+                            },
+                            child: Center(
+                              child: Wrap(
+                                direction: Axis.vertical,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  ImageX(
+                                    faIcon: FontAwesomeIcons.bell,
+                                    height: 20.0,
+                                    width: 20.0,
+                                    color: ColorX.gray,
+                                  ),
+                                  SizedBox(height: 2.0),
+                                  TextX(
+                                    'Notifikasi',
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorX.gray,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ))),
+                    Material(
+                        color: ColorX.transparent,
+                        child: InkWell(
+                            highlightColor: ColorX.highlight,
+                            onTap: () {
+                              controller.btnAccountClicked();
+                            },
+                            child: Center(
+                              child: Wrap(
+                                direction: Axis.vertical,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  ImageX(
+                                    faIcon: FontAwesomeIcons.user,
+                                    height: 20.0,
+                                    width: 20.0,
+                                    color: ColorX.gray,
+                                  ),
+                                  SizedBox(height: 2.0),
+                                  TextX(
+                                    'Akun',
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorX.gray,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ))),
+                  ],
                 ),
-                child: BottomNavigationBar(
-                    backgroundColor: ColorX.white,
-                    currentIndex: controller.tabBarIndex,
-                    onTap: (index) {
-                      controller.onChange(index);
-                    },
-                    type: BottomNavigationBarType.fixed,
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
-                    elevation: 0.0,
-                    items: [
-                      BottomNavigationBarItem(
-                          activeIcon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.house,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray,
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Beranda',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.house,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray.withOpacity(0.60),
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Beranda',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray.withOpacity(0.60),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          label: ''),
-                      BottomNavigationBarItem(
-                          activeIcon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.clockRotateLeft,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray,
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Riwayat',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.clockRotateLeft,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray.withOpacity(0.60),
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Riwayat',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray.withOpacity(0.60),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          label: ''),
-                      BottomNavigationBarItem(
-                          activeIcon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.qrcode,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray,
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'QRIS',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.qrcode,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray.withOpacity(0.60),
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'QRIS',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray.withOpacity(0.60),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          label: ''),
-                      BottomNavigationBarItem(
-                          activeIcon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.bell,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray,
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Notifikasi',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.bell,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray.withOpacity(0.60),
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Notifikasi',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray.withOpacity(0.60),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          label: ''),
-                      BottomNavigationBarItem(
-                          activeIcon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.user,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray,
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Akun',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: [
-                              ImageX(
-                                faIcon: FontAwesomeIcons.user,
-                                height: 24.0,
-                                width: 24.0,
-                                color: ColorX.gray.withOpacity(0.60),
-                              ),
-                              SizedBox(height: 4.0),
-                              TextX(
-                                'Akun',
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorX.gray.withOpacity(0.60),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          label: ''),
-                    ]),
               ),
             ));
   }

@@ -5,6 +5,8 @@ class ScreenX extends StatelessWidget {
   final Widget? drawer;
   final Widget? headerView;
   final Widget? bodyView;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
   final Widget? bottomNavigationBar;
   final bool topPadding;
   final bool bottomPadding;
@@ -17,6 +19,8 @@ class ScreenX extends StatelessWidget {
     this.drawer,
     this.headerView,
     this.bodyView,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
     this.bottomNavigationBar,
     this.topPadding = false,
     this.bottomPadding = false,
@@ -41,6 +45,9 @@ class ScreenX extends StatelessWidget {
                 key: scaffoldKey,
                 backgroundColor: ColorX.white,
                 drawer: drawer,
+                extendBody: true,
+                floatingActionButton: floatingActionButton,
+                floatingActionButtonLocation: floatingActionButtonLocation,
                 bottomNavigationBar: bottomNavigationBar,
                 body: Column(children: [
                   SizedBox(

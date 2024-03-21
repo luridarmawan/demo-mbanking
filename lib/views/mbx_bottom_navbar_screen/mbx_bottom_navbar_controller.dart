@@ -71,6 +71,36 @@ class MbxBottomNavBarController extends SuperController {
     }
   }
 
+  btnHomeClicked() {
+    tabBarIndex = 0;
+    StatusBarX.setLight();
+    update();
+  }
+
+  btnHistoryClicked() {
+    tabBarIndex = 1;
+    StatusBarX.setLight();
+    update();
+  }
+
+  btnQRISClicked() {
+    StatusBarX.setLight();
+    Get.to(MbxQRISScreen());
+    update();
+  }
+
+  btnNotificationsClicked() {
+    tabBarIndex = 3;
+    StatusBarX.setLight();
+    update();
+  }
+
+  btnAccountClicked() {
+    tabBarIndex = 4;
+    StatusBarX.setLight();
+    update();
+  }
+
   @override
   void onHidden() {}
 }

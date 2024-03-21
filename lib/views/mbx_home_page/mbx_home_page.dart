@@ -235,6 +235,9 @@ class MbxHomePage extends StatelessWidget {
                             })
                         : Container(),
                     SizedBox(height: 8.0),
+                    SizedBox(
+                      height: 140.0,
+                    )
                   ])),
             )));
   }
