@@ -88,7 +88,7 @@ class MbxHomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                        height: 90.0,
+                        height: 82.0,
                         child: ListView.separated(
                             padding: EdgeInsets.only(left: 12.0, right: 12.0),
                             physics: ClampingScrollPhysics(),
@@ -119,7 +119,7 @@ class MbxHomePage extends StatelessWidget {
                           shrinkWrap: true,
                           mainAxisSpacing: 0.0,
                           crossAxisSpacing: 0.0,
-                          childAspectRatio: 0.90,
+                          childAspectRatio: 0.88,
                           crossAxisCount: 4,
                           padding: EdgeInsets.all(12.0),
                           physics: ClampingScrollPhysics(),
@@ -180,7 +180,7 @@ class MbxHomePage extends StatelessWidget {
                           shrinkWrap: true,
                           mainAxisSpacing: 0.0,
                           crossAxisSpacing: 0.0,
-                          childAspectRatio: 0.90,
+                          childAspectRatio: 0.88,
                           crossAxisCount: 4,
                           padding: EdgeInsets.all(12.0),
                           physics: ClampingScrollPhysics(),

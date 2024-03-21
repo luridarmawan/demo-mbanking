@@ -38,10 +38,10 @@ class MbxLauncherCell extends StatelessWidget {
                         TextX(
                           title,
                           color: ColorX.white,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 11.0,
+                          fontWeight: FontWeight.w600,
                           textAlign: TextAlign.center,
-                          maxLines: 2,
+                          maxLines: 1,
                         ),
                         Spacer()
                       ],
