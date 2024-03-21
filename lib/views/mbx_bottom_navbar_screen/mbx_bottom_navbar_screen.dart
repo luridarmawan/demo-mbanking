@@ -1,6 +1,5 @@
 import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_notification_page/mbx_notification_page.dart';
-
 import '../../widgets/all_widgets.dart';
 import '../mbx_history_page/mbx_history_page.dart';
 import '../mbx_home_page/mbx_home_page.dart';
@@ -27,6 +26,8 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 ],
               ),
               floatingActionButton: ButtonX(
+                borderWidth: 5.0,
+                borderColor: ColorX.theme.lighten(0.42),
                 backgroundColor: ColorX.theme,
                 width: 70.0,
                 height: 70.0,
@@ -42,9 +43,8 @@ class MbxBottomNavBarScreen extends StatelessWidget {
               bottomNavigationBar: BottomAppBar(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 height: 60.0,
-                color: ColorX.white.darken(0.001),
-                shape: const CircularNotchedRectangle(),
-                notchMargin: 5,
+                elevation: 0.0,
+                color: ColorX.theme.lighten(0.42),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -18,6 +18,7 @@ class MbxHomePage extends StatelessWidget {
             lightStatusBar: true,
             bottomPadding: false,
             bodyView: Material(
+              color: ColorX.theme,
               child: Scrollbar(
                   child: ListView(
                       padding: EdgeInsets.zero,
@@ -76,168 +77,192 @@ class MbxHomePage extends StatelessWidget {
                             )
                           ],
                         )),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 12.0, top: 12.0, right: 12.0, bottom: 4.0),
-                      child: TextX(
-                        'REKENING',
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w700,
-                        color: ColorX.black,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    SizedBox(
-                        height: 82.0,
-                        child: ListView.separated(
-                            padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                            physics: ClampingScrollPhysics(),
-                            scrollDirection: Axis.horizontal,
-                            separatorBuilder: (context, index) {
-                              return ContainerX(width: 8.0);
-                            },
-                            itemCount: MbxProfileVM.profile.accounts.length,
-                            itemBuilder: (context, index) {
-                              return Material(
-                                  color: ColorX.transparent,
-                                  child: InkWell(
-                                      highlightColor: ColorX.highlight,
-                                      onTap: () {
-                                        //Get.to(DemoImageScreen(url: movie.poster));
-                                      },
-                                      child: MbxAccountCell(MbxProfileVM
-                                          .profile.accounts[index])));
-                            })),
-                    SizedBox(height: 12.0),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: 12.0, top: 4.0, right: 12.0),
-                      child: ContainerX(
-                        backgroundColor: ColorX.theme,
-                        cornerRadius: 12.0,
-                        child: GridView.count(
-                          shrinkWrap: true,
-                          mainAxisSpacing: 0.0,
-                          crossAxisSpacing: 0.0,
-                          childAspectRatio: 0.88,
-                          crossAxisCount: 4,
-                          padding: EdgeInsets.all(12.0),
-                          physics: ClampingScrollPhysics(),
+                    ContainerX(
+                        backgroundColor: ColorX.white,
+                        topLeftRadius: 16.0,
+                        topRightRadius: 16.0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            MbxLauncherCell(
-                                color: ColorX.green,
-                                faIcon: FontAwesomeIcons.arrowRightArrowLeft,
-                                title: 'Transfer'),
-                            MbxLauncherCell(
-                                color: ColorX.blue,
-                                faIcon: FontAwesomeIcons.sackDollar,
-                                title: 'Tarik Tunai'),
-                            MbxLauncherCell(
-                                color: ColorX.teal,
-                                faIcon: FontAwesomeIcons.landmark,
-                                title: 'Deposito'),
-                            MbxLauncherCell(
-                                color: ColorX.yellow,
-                                faIcon: FontAwesomeIcons.handHoldingDollar,
-                                title: 'Paylater'),
-                            MbxLauncherCell(
-                                color: ColorX.red,
-                                faIcon: FontAwesomeIcons.qrcode,
-                                title: 'QRIS'),
-                            MbxLauncherCell(
-                                color: ColorX.green,
-                                faIcon: FontAwesomeIcons.houseFlag,
-                                title: 'Bayar'),
-                            MbxLauncherCell(
-                                color: ColorX.blue,
-                                faIcon: FontAwesomeIcons.circleDollarToSlot,
-                                title: 'Top Up'),
-                            MbxLauncherCell(
-                                color: ColorX.gray,
-                                faIcon: FontAwesomeIcons.ellipsis,
-                                title: 'Lainnya'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 12.0, top: 8.0, right: 12.0, bottom: 4.0),
-                      child: TextX(
-                        'FAVORIT',
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w700,
-                        color: ColorX.black,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                      child: ContainerX(
-                        backgroundColor: ColorX.theme.lighten(0.10),
-                        cornerRadius: 12.0,
-                        child: GridView.count(
-                          shrinkWrap: true,
-                          mainAxisSpacing: 0.0,
-                          crossAxisSpacing: 0.0,
-                          childAspectRatio: 0.88,
-                          crossAxisCount: 4,
-                          padding: EdgeInsets.all(12.0),
-                          physics: ClampingScrollPhysics(),
-                          children: [
-                            MbxLauncherCell(
-                                color: ColorX.yellow,
-                                faIcon: FontAwesomeIcons.solidLightbulb,
-                                title: 'Listrik PLN'),
-                            MbxLauncherCell(
-                                color: ColorX.red,
-                                faIcon: FontAwesomeIcons.mobile,
-                                title: 'Pulsa'),
-                            MbxLauncherCell(
-                                color: ColorX.blue,
-                                faIcon: FontAwesomeIcons.water,
-                                title: 'PAM'),
-                            MbxLauncherCell(
-                                color: ColorX.teal,
-                                faIcon: FontAwesomeIcons.shield,
-                                title: 'BPJS'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 12.0, top: 8.0, right: 12.0, bottom: 4.0),
-                      child: TextX(
-                        'PROMO & BERITA',
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w700,
-                        color: ColorX.black,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    controller.movieListVM.list.length > 0
-                        ? CarouselSlider.builder(
-                            options: CarouselOptions(
-                              padEnds: false,
-                              autoPlay: true,
-                              viewportFraction: 0.70,
-                              height: 150.0,
-                              onPageChanged: (index, reason) {
-                                controller.setPageIndex(index);
-                              },
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 12.0,
+                                  right: 12.0,
+                                  bottom: 4.0),
+                              child: TextX(
+                                'REKENING',
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w700,
+                                color: ColorX.black,
+                                textAlign: TextAlign.start,
+                              ),
                             ),
-                            itemCount: controller.movieListVM.list.length,
-                            itemBuilder: (BuildContext context, int index,
-                                int pageViewIndex) {
-                              return MbxPromoCell(
-                                  controller.movieListVM.list[index]);
-                            })
-                        : Container(),
-                    SizedBox(height: 8.0),
-                    SizedBox(
-                      height: 140.0,
-                    )
+                            SizedBox(
+                                height: 82.0,
+                                child: ListView.separated(
+                                    padding: EdgeInsets.only(
+                                        left: 12.0, right: 12.0),
+                                    physics: ClampingScrollPhysics(),
+                                    scrollDirection: Axis.horizontal,
+                                    separatorBuilder: (context, index) {
+                                      return ContainerX(width: 8.0);
+                                    },
+                                    itemCount:
+                                        MbxProfileVM.profile.accounts.length,
+                                    itemBuilder: (context, index) {
+                                      return Material(
+                                          color: ColorX.transparent,
+                                          child: InkWell(
+                                              highlightColor: ColorX.highlight,
+                                              onTap: () {
+                                                //Get.to(DemoImageScreen(url: movie.poster));
+                                              },
+                                              child: MbxAccountCell(MbxProfileVM
+                                                  .profile.accounts[index])));
+                                    })),
+                            SizedBox(height: 12.0),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 12.0, top: 4.0, right: 12.0),
+                              child: ContainerX(
+                                backgroundColor: ColorX.theme,
+                                cornerRadius: 12.0,
+                                child: GridView.count(
+                                  shrinkWrap: true,
+                                  mainAxisSpacing: 0.0,
+                                  crossAxisSpacing: 0.0,
+                                  childAspectRatio: 0.88,
+                                  crossAxisCount: 4,
+                                  padding: EdgeInsets.all(12.0),
+                                  physics: ClampingScrollPhysics(),
+                                  children: [
+                                    MbxLauncherCell(
+                                        color: ColorX.green,
+                                        faIcon: FontAwesomeIcons
+                                            .arrowRightArrowLeft,
+                                        title: 'Transfer'),
+                                    MbxLauncherCell(
+                                        color: ColorX.blue,
+                                        faIcon: FontAwesomeIcons.sackDollar,
+                                        title: 'Tarik Tunai'),
+                                    MbxLauncherCell(
+                                        color: ColorX.teal,
+                                        faIcon: FontAwesomeIcons.landmark,
+                                        title: 'Deposito'),
+                                    MbxLauncherCell(
+                                        color: ColorX.yellow,
+                                        faIcon:
+                                            FontAwesomeIcons.handHoldingDollar,
+                                        title: 'Paylater'),
+                                    MbxLauncherCell(
+                                        color: ColorX.red,
+                                        faIcon: FontAwesomeIcons.qrcode,
+                                        title: 'QRIS'),
+                                    MbxLauncherCell(
+                                        color: ColorX.green,
+                                        faIcon: FontAwesomeIcons.houseFlag,
+                                        title: 'Bayar'),
+                                    MbxLauncherCell(
+                                        color: ColorX.blue,
+                                        faIcon:
+                                            FontAwesomeIcons.circleDollarToSlot,
+                                        title: 'Top Up'),
+                                    MbxLauncherCell(
+                                        color: ColorX.gray,
+                                        faIcon: FontAwesomeIcons.ellipsis,
+                                        title: 'Lainnya'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 8.0,
+                                  right: 12.0,
+                                  bottom: 4.0),
+                              child: TextX(
+                                'FAVORIT',
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w700,
+                                color: ColorX.black,
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                              child: ContainerX(
+                                backgroundColor: ColorX.theme.lighten(0.10),
+                                cornerRadius: 12.0,
+                                child: GridView.count(
+                                  shrinkWrap: true,
+                                  mainAxisSpacing: 0.0,
+                                  crossAxisSpacing: 0.0,
+                                  childAspectRatio: 0.88,
+                                  crossAxisCount: 4,
+                                  padding: EdgeInsets.all(12.0),
+                                  physics: ClampingScrollPhysics(),
+                                  children: [
+                                    MbxLauncherCell(
+                                        color: ColorX.yellow,
+                                        faIcon: FontAwesomeIcons.solidLightbulb,
+                                        title: 'Listrik PLN'),
+                                    MbxLauncherCell(
+                                        color: ColorX.red,
+                                        faIcon: FontAwesomeIcons.mobile,
+                                        title: 'Pulsa'),
+                                    MbxLauncherCell(
+                                        color: ColorX.blue,
+                                        faIcon: FontAwesomeIcons.water,
+                                        title: 'PAM'),
+                                    MbxLauncherCell(
+                                        color: ColorX.teal,
+                                        faIcon: FontAwesomeIcons.shield,
+                                        title: 'BPJS'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 8.0,
+                                  right: 12.0,
+                                  bottom: 4.0),
+                              child: TextX(
+                                'PROMO & BERITA',
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w700,
+                                color: ColorX.black,
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                            controller.movieListVM.list.length > 0
+                                ? CarouselSlider.builder(
+                                    options: CarouselOptions(
+                                      padEnds: false,
+                                      autoPlay: true,
+                                      viewportFraction: 0.70,
+                                      height: 150.0,
+                                      onPageChanged: (index, reason) {
+                                        controller.setPageIndex(index);
+                                      },
+                                    ),
+                                    itemCount:
+                                        controller.movieListVM.list.length,
+                                    itemBuilder: (BuildContext context,
+                                        int index, int pageViewIndex) {
+                                      return MbxPromoCell(
+                                          controller.movieListVM.list[index]);
+                                    })
+                                : Container(),
+                            SizedBox(height: 8.0),
+                            SizedBox(
+                              height: 140.0,
+                            )
+                          ],
+                        ))
                   ])),
             )));
   }

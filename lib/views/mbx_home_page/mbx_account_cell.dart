@@ -1,5 +1,4 @@
 import 'package:demombanking/utils/all_utils.dart';
-
 import '../../models/mbx_account_model.dart';
 import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
