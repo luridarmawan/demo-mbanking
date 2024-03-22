@@ -63,7 +63,6 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                   ],
                 ),
               ),
-              ContainerX(height: 24.0),
               ContainerX(height: 8.0),
               GridView.count(
                 shrinkWrap: true,
