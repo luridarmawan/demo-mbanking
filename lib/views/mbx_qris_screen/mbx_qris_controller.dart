@@ -3,7 +3,8 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 
 class MbxQRISController extends GetxController {
   Barcode? capture;
-
+  MobileScannerController cameraController = MobileScannerController();
+  var flashlight = false;
   @override
   void onReady() {
     super.onReady();
@@ -11,5 +12,13 @@ class MbxQRISController extends GetxController {
 
   btnBackClicked() {
     Get.back();
+  }
+
+  btnImageClicked() {}
+
+  btnFlashlightClicked() {
+    cameraController.toggleTorch();
+    flashlight = !flashlight;
+    update();
   }
 }

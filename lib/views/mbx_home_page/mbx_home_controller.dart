@@ -3,7 +3,6 @@ import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
 import 'package:demombanking/viewmodels/mbx_promo_list_vm.dart';
 import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_controller.dart';
 import 'package:demombanking/views/mbx_theme_sheet/mbx_theme_sheet.dart';
-import 'package:get/get.dart';
 import '../../utils/all_utils.dart';
 import '../../widgets/all_widgets.dart';
 
