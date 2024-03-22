@@ -65,50 +65,59 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
               ),
               ContainerX(height: 24.0),
               ContainerX(height: 8.0),
-              Visibility(
-                visible: controller.error.isNotEmpty,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 48.0, right: 48.0),
-                  child: TextX(
-                    controller.error,
-                    color: ColorX.red,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    textAlign: TextAlign.center,
-                    maxLines: 3,
-                  ),
-                ),
-              ),
               GridView.count(
                 shrinkWrap: true,
                 mainAxisSpacing: 0.0,
                 crossAxisSpacing: 0.0,
-                childAspectRatio: 0.88,
-                crossAxisCount: 4,
+                childAspectRatio: 1.2,
+                crossAxisCount: 5,
                 padding: EdgeInsets.all(12.0),
                 physics: ClampingScrollPhysics(),
                 children: [
                   MbxThemeCell(
-                    color: Colors.blue,
-                  ),
-                  MbxThemeCell(color: Colors.red),
-                  MbxThemeCell(
-                    color: Colors.green,
+                    color: Color(0xfff44336),
                   ),
                   MbxThemeCell(
-                    color: Colors.orange,
+                    color: Color(0xffe81e63),
                   ),
                   MbxThemeCell(
-                    color: Colors.pink,
+                    color: Color(0xff9c27b0),
                   ),
                   MbxThemeCell(
-                    color: Colors.teal,
+                    color: Color(0xff673ab7),
                   ),
                   MbxThemeCell(
-                    color: Colors.purple,
+                    color: Color(0xff3f51b5),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff672EBA),
+                    color: Color(0xff2196f3),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff03a9f4),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff00bcd4),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff009688),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff4caf50),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff8bc34a),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xffcddc39),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xffffeb3b),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xffffc107),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xffff9800),
                   ),
                 ],
               ),

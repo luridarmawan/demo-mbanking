@@ -22,7 +22,7 @@ Future<void> main() async {
   if (theme.isNotEmpty) {
     ColorX.theme = hexToColor(await MbxUserPreferencesVM.getTheme());
   } else {
-    ColorX.theme = Color(0xff672EBA);
+    ColorX.theme = Color(0xfff44336);
     final hex = '#${ColorX.theme.value.toRadixString(16)}';
     MbxUserPreferencesVM.setTheme(hex);
   }

@@ -25,7 +25,7 @@ class MbxAccountCell extends StatelessWidget {
             children: [
               SizedBox(height: 8.0),
               ContainerX(
-                backgroundColor: ColorX.theme.lighten(0.1),
+                backgroundColor: ColorX.theme.lighten(0.05),
                 padding: EdgeInsets.only(
                     left: 8.0, top: 2.0, right: 8.0, bottom: 2.0),
                 cornerRadius: 6.0,
