@@ -110,17 +110,17 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                     color: Color(0xffcddc39),
                   ),
                   MbxThemeCell(
-                    color: Color(0xffffeb3b),
-                  ),
-                  MbxThemeCell(
                     color: Color(0xffffc107),
                   ),
                   MbxThemeCell(
                     color: Color(0xffff9800),
                   ),
+                  MbxThemeCell(
+                    color: Color(0xff646d74),
+                  ),
                 ],
               ),
-              ContainerX(height: 24.0),
+              ContainerX(height: 12.0),
             ])));
   }
 }
