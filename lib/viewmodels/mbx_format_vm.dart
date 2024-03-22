@@ -1,12 +1,21 @@
 import 'package:intl/intl.dart';
 
 class MbxFormatVM {
-  static String currencyIDR({required value, bool prefix = true}) {
+  static String currencyIDR(
+      {required value, bool prefix = true, bool masked = false}) {
     final currencyFormatter = NumberFormat('#,##0', 'ID');
     if (prefix == true) {
-      return 'IDR ${currencyFormatter.format(value)}';
+      if (masked) {
+        return 'IDR ***.***';
+      } else {
+        return 'IDR ${currencyFormatter.format(value)}';
+      }
     } else {
-      return '${currencyFormatter.format(value)}';
+      if (masked) {
+        return '***.***';
+      } else {
+        return '${currencyFormatter.format(value)}';
+      }
     }
   }
 

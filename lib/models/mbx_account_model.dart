@@ -5,6 +5,7 @@ class MbxAccountModel {
   int balance = 0;
   int id = 0;
   String name = '';
+  bool visible = false;
 
   MbxAccountModel();
 

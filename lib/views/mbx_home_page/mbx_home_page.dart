@@ -99,7 +99,7 @@ class MbxHomePage extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                                height: 82.0,
+                                height: 78.0,
                                 child: ListView.separated(
                                     padding: EdgeInsets.only(
                                         left: 12.0, right: 12.0),
@@ -118,8 +118,14 @@ class MbxHomePage extends StatelessWidget {
                                               onTap: () {
                                                 //Get.to(DemoImageScreen(url: movie.poster));
                                               },
-                                              child: MbxAccountCell(MbxProfileVM
-                                                  .profile.accounts[index])));
+                                              child: MbxAccountCell(
+                                                account: MbxProfileVM
+                                                    .profile.accounts[index],
+                                                onClicked: () {
+                                                  controller
+                                                      .btnEyeClicked(index);
+                                                },
+                                              )));
                                     })),
                             SizedBox(height: 12.0),
                             Padding(

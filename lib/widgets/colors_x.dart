@@ -14,5 +14,6 @@ class ColorX {
   static const Color highlight = Color(0xffE3E3E3);
   //static const Color theme = Color(0xff672EBA);
 //  static const Color theme = Colors.blue;
-  static const Color theme = Colors.red;
+//  static const Color theme = Colors.red;
+  static const Color theme = Colors.green;
 }
