@@ -1,8 +1,10 @@
 import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
 import 'package:demombanking/viewmodels/mbx_promo_list_vm.dart';
+import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_controller.dart';
+import 'package:demombanking/views/mbx_theme_sheet/mbx_theme_sheet.dart';
 import 'package:get/get.dart';
 import '../../utils/all_utils.dart';
-import '../demo_pin_sheet/demo_pin_sheet.dart';
+import '../../widgets/all_widgets.dart';
 
 class MbxHomeController extends GetxController {
   var movieListVM = MbxPromoListVM();
@@ -19,10 +21,18 @@ class MbxHomeController extends GetxController {
   }
 
   btnThemeClicked() {
-    final sheet = DemoPinSheet();
+    final sheet = MbxThemeSheet();
     sheet.show().then((value) {
-      LoggerX.log('PIN: $value');
+      LoggerX.log('hex: $value');
+      ColorX.theme = hexToColor(value);
+      update();
+
+      Get.find<MbxBottomNavBarController>().update();
     });
+  }
+
+  Color hexToColor(String code) {
+    return new Color(int.parse(code.substring(3, 9), radix: 16) + 0xFF000000);
   }
 
   btnEyeClicked(int index) {

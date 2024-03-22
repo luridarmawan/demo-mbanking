@@ -1,12 +1,12 @@
 import '../../widgets/all_widgets.dart';
-import 'demo_pin_sheet_controller.dart';
+import 'mbx_pin_sheet_controller.dart';
 
 // ignore: must_be_immutable
-class DemoPinSheet extends GetWidget<DemoPinSheetController> {
+class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
   TextEditingController pinController = TextEditingController();
 
-  DemoPinSheet({this.title = 'Enter your PIN'});
+  MbxPinSheet({this.title = 'Enter your PIN'});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -19,8 +19,8 @@ class DemoPinSheet extends GetWidget<DemoPinSheetController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DemoPinSheetController>(
-        init: DemoPinSheetController(),
+    return GetBuilder<MbxPinSheetController>(
+        init: MbxPinSheetController(),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,

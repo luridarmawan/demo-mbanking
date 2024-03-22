@@ -1,6 +1,6 @@
 import '../../widgets/all_widgets.dart';
 
-class DemoPinSheetController extends GetxController {
+class MbxThemeSheetController extends GetxController {
   String code = '';
   String error = '';
 

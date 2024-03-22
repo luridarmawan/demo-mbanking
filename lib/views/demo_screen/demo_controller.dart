@@ -22,7 +22,7 @@ import '../demo_onboarding_screen/demo_onboarding_screen.dart';
 import '../demo_otp_screen/demo_otp_screen.dart';
 import '../demo_piechart_screen/demo_piechart_screen.dart';
 import '../demo_pin_screen/demo_pin_screen.dart';
-import '../demo_pin_sheet/demo_pin_sheet.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_profile_page/mbx_profile_page.dart';
 import '../demo_qr_code_screen/demo_qr_code_screen.dart';
 import '../demo_qr_scan_screen/demo_qr_scan_screen.dart';
@@ -80,7 +80,7 @@ class DemoController extends SuperController {
   }
 
   btnPinSheetClicked() {
-    final sheet = DemoPinSheet();
+    final sheet = MbxPinSheet();
     sheet.show().then((value) {
       LoggerX.log('PIN: $value');
     });

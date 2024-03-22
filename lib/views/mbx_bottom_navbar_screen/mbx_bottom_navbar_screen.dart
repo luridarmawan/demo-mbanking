@@ -27,7 +27,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
               ),
               floatingActionButton: ButtonX(
                 borderWidth: 5.0,
-                borderColor: ColorX.theme.lighten(0.42),
+                borderColor: ColorX.theme.lighten(0.4),
                 backgroundColor: ColorX.theme,
                 width: 70.0,
                 height: 70.0,
@@ -44,7 +44,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 height: 60.0,
                 elevation: 0.0,
-                color: ColorX.theme.lighten(0.42),
+                color: ColorX.theme.lighten(0.4),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

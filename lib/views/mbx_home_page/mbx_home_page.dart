@@ -84,7 +84,7 @@ class MbxHomePage extends StatelessWidget {
                                             cornerRadius: 12.0,
                                             child: Center(
                                                 child: ContainerX(
-                                              backgroundColor: ColorX.red,
+                                              backgroundColor: ColorX.theme,
                                               width: 32.0,
                                               height: 32.0,
                                               cornerRadius: 16.0,
@@ -94,6 +94,7 @@ class MbxHomePage extends StatelessWidget {
                                           ),
                                         )),
                                     ButtonX(
+                                      backgroundColor: ColorX.transparent,
                                       faIcon: FontAwesomeIcons.powerOff,
                                       faColor: ColorX.white,
                                       width: 42.0,
