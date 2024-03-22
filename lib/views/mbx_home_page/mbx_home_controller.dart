@@ -1,3 +1,4 @@
+import 'package:demombanking/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
 import 'package:demombanking/viewmodels/mbx_promo_list_vm.dart';
 import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_controller.dart';
@@ -24,15 +25,12 @@ class MbxHomeController extends GetxController {
     final sheet = MbxThemeSheet();
     sheet.show().then((value) {
       LoggerX.log('hex: $value');
+      MbxUserPreferencesVM.setTheme(value);
       ColorX.theme = hexToColor(value);
       update();
 
       Get.find<MbxBottomNavBarController>().update();
     });
-  }
-
-  Color hexToColor(String code) {
-    return new Color(int.parse(code.substring(3, 9), radix: 16) + 0xFF000000);
   }
 
   btnEyeClicked(int index) {

@@ -18,6 +18,14 @@ Future<void> main() async {
     await MbxUserPreferencesVM.resetAll();
   }
 
+  final theme = await MbxUserPreferencesVM.getTheme();
+  if (theme.isNotEmpty) {
+    ColorX.theme = hexToColor(await MbxUserPreferencesVM.getTheme());
+  } else {
+    ColorX.theme = Color(0xff672EBA);
+    final hex = '#${ColorX.theme.value.toRadixString(16)}';
+    MbxUserPreferencesVM.setTheme(hex);
+  }
   await MbxProfileVM.load();
 
   Widget firstScreen;

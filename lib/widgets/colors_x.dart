@@ -17,3 +17,7 @@ class ColorX {
 //  static Color theme = Colors.red;
   //static Color theme = Colors.blue;
 }
+
+Color hexToColor(String code) {
+  return new Color(int.parse(code.substring(3, 9), radix: 16) + 0xFF000000);
+}

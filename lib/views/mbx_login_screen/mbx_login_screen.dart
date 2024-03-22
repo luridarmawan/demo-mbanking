@@ -68,6 +68,7 @@ class MbxLoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 24.0, top: 8.0, right: 24.0, bottom: 8.0),
                   child: ButtonX(
+                    backgroundColor: ColorX.theme,
                     title: 'Login',
                     enabled: controller.loginEnabled,
                     onClicked: () {

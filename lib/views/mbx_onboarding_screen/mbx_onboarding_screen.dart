@@ -90,6 +90,7 @@ class MbxOnboardingScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
                     child: ButtonX(
+                      backgroundColor: ColorX.theme,
                       title: 'Mulai',
                       onClicked: () {
                         controller.btnStartClicked();
