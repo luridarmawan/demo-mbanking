@@ -229,7 +229,7 @@ class MbxHomePage extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(left: 12.0, right: 12.0),
                               child: ContainerX(
-                                backgroundColor: ColorX.theme.lighten(0.05),
+                                backgroundColor: ColorX.theme.darken(0.03),
                                 cornerRadius: 12.0,
                                 child: GridView.count(
                                   shrinkWrap: true,

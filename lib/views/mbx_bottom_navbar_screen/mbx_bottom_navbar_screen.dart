@@ -44,7 +44,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 height: 60.0,
                 elevation: 0.0,
-                color: ColorX.theme.lighten(0.4),
+                color: ColorX.theme.lighten(0.45),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
