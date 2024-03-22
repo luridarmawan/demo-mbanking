@@ -66,12 +66,41 @@ class MbxHomePage extends StatelessWidget {
                                   color: ColorX.white,
                                 ),
                                 Spacer(),
-                                ButtonX(
-                                  faIcon: FontAwesomeIcons.powerOff,
-                                  faColor: ColorX.white,
-                                  width: 42.0,
-                                  height: 42.0,
-                                  onClicked: () {},
+                                Row(
+                                  children: [
+                                    Material(
+                                        color: ColorX.transparent,
+                                        child: InkWell(
+                                          customBorder: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0)),
+                                          highlightColor: ColorX.highlight,
+                                          onTap: () {
+                                            controller.btnThemeClicked();
+                                          },
+                                          child: ContainerX(
+                                            width: 42.0,
+                                            height: 42.0,
+                                            cornerRadius: 12.0,
+                                            child: Center(
+                                                child: ContainerX(
+                                              backgroundColor: ColorX.red,
+                                              width: 32.0,
+                                              height: 32.0,
+                                              cornerRadius: 16.0,
+                                              borderWidth: 4.0,
+                                              borderColor: ColorX.white,
+                                            )),
+                                          ),
+                                        )),
+                                    ButtonX(
+                                      faIcon: FontAwesomeIcons.powerOff,
+                                      faColor: ColorX.white,
+                                      width: 42.0,
+                                      height: 42.0,
+                                      onClicked: () {},
+                                    )
+                                  ],
                                 )
                               ],
                             )

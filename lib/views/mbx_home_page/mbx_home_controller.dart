@@ -1,6 +1,8 @@
 import 'package:demombanking/viewmodels/mbx_profile_vm.dart';
 import 'package:demombanking/viewmodels/mbx_promo_list_vm.dart';
 import 'package:get/get.dart';
+import '../../utils/all_utils.dart';
+import '../demo_pin_sheet/demo_pin_sheet.dart';
 
 class MbxHomeController extends GetxController {
   var movieListVM = MbxPromoListVM();
@@ -13,6 +15,13 @@ class MbxHomeController extends GetxController {
       if (resp.statusCode == 200) {
         update();
       }
+    });
+  }
+
+  btnThemeClicked() {
+    final sheet = DemoPinSheet();
+    sheet.show().then((value) {
+      LoggerX.log('PIN: $value');
     });
   }
 
