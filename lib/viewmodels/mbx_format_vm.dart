@@ -1,22 +1,32 @@
 import 'package:intl/intl.dart';
 
 class MbxFormatVM {
-  static String currencyIDR(
-      {required value, bool prefix = true, bool masked = false}) {
+  static String currencyRP(int value,
+      {required bool prefix, required bool mutation, required bool masked}) {
     final currencyFormatter = NumberFormat('#,##0', 'ID');
-    if (prefix == true) {
-      if (masked) {
-        return 'IDR ***.***';
-      } else {
-        return 'IDR ${currencyFormatter.format(value)}';
-      }
+    var result = '';
+    if (masked) {
+      result = '***.***';
     } else {
-      if (masked) {
-        return '***.***';
+      if (mutation) {
+        result = currencyFormatter.format(value.abs());
       } else {
-        return '${currencyFormatter.format(value)}';
+        result = currencyFormatter.format(value);
       }
     }
+    if (prefix) {
+      result = 'Rp $result';
+    }
+    if (mutation) {
+      if (value < 0) {
+        result = '- $result';
+      } else if (value > 0) {
+        result = '+ $result';
+      } else {
+        result = '$result';
+      }
+    }
+    return result;
   }
 
   static String currencyUSD({required value, bool prefix = true}) {
@@ -28,10 +38,8 @@ class MbxFormatVM {
     }
   }
 
-  static String accountMasking(
-      {required String value,
-      required String prefix,
-      required int visibleDigits}) {
-    return '$prefix${value.substring(value.length - visibleDigits)}';
+  static String accountMasking(String account,
+      {required String prefix, required int visibleDigits}) {
+    return '$prefix${account.substring(account.length - visibleDigits)}';
   }
 }

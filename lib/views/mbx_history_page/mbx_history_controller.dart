@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import '../../viewmodels/demo_movie_list_vm.dart';
+
+import '../../viewmodels/mbx_history_list_vm.dart';
 
 class MbxHistoryController extends GetxController {
-  var movieListVM = DemoMovieListVM();
+  var historyListVM = MbxHistoryListVM();
 
   @override
   void onReady() {
@@ -16,7 +17,7 @@ class MbxHistoryController extends GetxController {
 
   nextPage() {
     update();
-    movieListVM.nextPage().then((resp) {
+    historyListVM.nextPage().then((resp) {
       update();
     });
   }

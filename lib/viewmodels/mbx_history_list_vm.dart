@@ -1,11 +1,9 @@
-import 'dart:async';
-import '../models/demo_movie_model.dart';
+import '../models/mbx_history_model.dart';
 import 'mbx_apis.dart';
 
 class MbxHistoryListVM {
   var loading = false;
-  List<DemoMovieModel> list = [];
-  List<DemoMovieModel> filtered = [];
+  List<MbxHistoryModel> list = [];
 
   clear() {
     list = [];
@@ -14,37 +12,20 @@ class MbxHistoryListVM {
   Future<MbxApiResponse> nextPage() {
     loading = true;
     return MbxApi.get(
-            endpoint: '/movies',
+            endpoint: '/history',
             params: {},
             headers: {},
-            contractFile: 'lib/contracts/MbxPromoListContract.json',
+            contractFile: 'lib/contracts/MbxHistoryListContract.json',
             contract: true)
         .then((resp) async {
       loading = false;
       if (resp.statusCode == 200) {
         for (var item in resp.jason['data'].jasonListValue) {
-          var movie = DemoMovieModel.fromJason(item);
-          list.add(movie);
+          var history = MbxHistoryModel(item);
+          list.add(history);
         }
       }
       return resp;
     });
-  }
-
-  sort() {
-    list.sort((a, b) => a.title.compareTo(b.title));
-  }
-
-  setFilter(String keyword) {
-    filtered = [];
-    for (var item in list) {
-      if (keyword.isEmpty) {
-        filtered.add(item);
-      } else {
-        if (item.title.toLowerCase().contains(keyword.toLowerCase())) {
-          filtered.add(item);
-        }
-      }
-    }
   }
 }

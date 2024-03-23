@@ -85,18 +85,16 @@ class MbxAccountCell extends StatelessWidget {
               TextX(
                 account.visible
                     ? account.account
-                    : MbxFormatVM.accountMasking(
-                        value: account.account,
-                        prefix: '******',
-                        visibleDigits: 4),
+                    : MbxFormatVM.accountMasking(account.account,
+                        prefix: '******', visibleDigits: 4),
                 color: ColorX.gray,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 textAlign: TextAlign.start,
               ),
               TextX(
-                MbxFormatVM.currencyIDR(
-                    value: account.balance, masked: !account.visible),
+                MbxFormatVM.currencyRP(account.balance,
+                    prefix: true, mutation: false, masked: !account.visible),
                 color: ColorX.black,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w700,

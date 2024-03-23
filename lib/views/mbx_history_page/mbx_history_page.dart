@@ -1,5 +1,4 @@
 import '../../widgets/all_widgets.dart';
-import '../demo_image_screen/demo_image_screen.dart';
 import 'mbx_history_controller.dart';
 import 'mbx_history_cell.dart';
 
@@ -12,15 +11,15 @@ class MbxHistoryPage extends StatelessWidget {
         init: MbxHistoryController(),
         builder: (controller) => ScreenX(
               lightStatusBar: true,
-              loading: controller.movieListVM.list.isEmpty &&
-                  controller.movieListVM.loading,
+              loading: controller.historyListVM.list.isEmpty &&
+                  controller.historyListVM.loading,
               headerView: NavigationBarX(
                 title: 'Riwayat',
               ),
               bottomPadding: false,
               bodyView: NotificationListener<ScrollNotification>(
                   onNotification: (ScrollNotification scrollInfo) {
-                    if (controller.movieListVM.loading == false &&
+                    if (controller.historyListVM.loading == false &&
                         scrollInfo.metrics.pixels ==
                             scrollInfo.metrics.maxScrollExtent) {
                       controller.nextPage();
@@ -36,25 +35,23 @@ class MbxHistoryPage extends StatelessWidget {
                             physics: ClampingScrollPhysics(),
                             separatorBuilder: (context, index) {
                               return Padding(
-                                  padding: EdgeInsets.only(left: 16.0),
+                                  padding: EdgeInsets.only(left: 60.0),
                                   child: ContainerX(
                                     height: 1.0,
                                     width: double.infinity,
                                     backgroundColor: ColorX.lightGray,
                                   ));
                             },
-                            itemCount: controller.movieListVM.list.length,
+                            itemCount: controller.historyListVM.list.length,
                             itemBuilder: (context, index) {
-                              final movie = controller.movieListVM.list[index];
+                              final history =
+                                  controller.historyListVM.list[index];
                               return Material(
                                   color: ColorX.transparent,
                                   child: InkWell(
                                       highlightColor: ColorX.highlight,
-                                      onTap: () {
-                                        Get.to(
-                                            DemoImageScreen(url: movie.poster));
-                                      },
-                                      child: MbxHistoryCell(movie)));
+                                      onTap: () {},
+                                      child: MbxHistoryCell(history)));
                             })),
                   )),
             ));

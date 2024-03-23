@@ -1,11 +1,13 @@
-import '../../models/demo_movie_model.dart';
+import 'package:demombanking/utils/all_utils.dart';
+
+import '../../models/mbx_history_model.dart';
 import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxHistoryCell extends StatelessWidget {
-  final DemoMovieModel movie;
-  MbxHistoryCell(this.movie);
+  final MbxHistoryModel history;
+  MbxHistoryCell(this.history);
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +15,21 @@ class MbxHistoryCell extends StatelessWidget {
         padding:
             EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageX(
-              url: movie.poster,
-              width: 84.0,
-              height: 84.0,
-              cornerRadius: 12.0,
-              fit: BoxFit.cover,
+            Padding(
+              padding: EdgeInsets.only(top: 6.0),
+              child: ImageX(
+                backgroundColor: ColorX.theme.darken(0.05),
+                faIcon: history.amount < 0
+                    ? FontAwesomeIcons.arrowUp
+                    : FontAwesomeIcons.arrowDown,
+                color: ColorX.white,
+                width: 24.0,
+                height: 24.0,
+                cornerRadius: 16.0,
+                padding: EdgeInsets.all(4.0),
+              ),
             ),
             SizedBox(width: 12.0),
             Expanded(
@@ -29,23 +37,40 @@ class MbxHistoryCell extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextX(
-                    movie.title,
-                    color: ColorX.black,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w700,
-                    textAlign: TextAlign.start,
-                    maxLines: 2048,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: TextX(
+                          history.title,
+                          color: ColorX.black,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                          textAlign: TextAlign.start,
+                          maxLines: 3,
+                        ),
+                      ),
+                      SizedBox(width: 8.0),
+                      TextX(
+                        MbxFormatVM.currencyRP(history.amount,
+                            prefix: true, mutation: true, masked: false),
+                        color: history.amount > 0 ? ColorX.green : ColorX.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w700,
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                      )
+                    ],
                   ),
                   SizedBox(height: 4.0),
                   TextX(
-                    MbxFormatVM.currencyUSD(value: movie.revenue),
+                    history.description,
                     color: ColorX.black,
-                    fontSize: 17.0,
+                    fontSize: 15.0,
                     fontWeight: FontWeight.w400,
                     textAlign: TextAlign.start,
-                    maxLines: 2048,
-                  )
+                    maxLines: 3,
+                  ),
                 ],
               ),
             ),
