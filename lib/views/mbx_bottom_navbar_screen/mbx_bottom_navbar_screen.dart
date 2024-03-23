@@ -12,6 +12,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
   MbxBottomNavBarScreen({this.tabBarIndex = 0});
   @override
   Widget build(BuildContext context) {
+    final tabWidth = (MediaQuery.of(Get.context!).size.width - 24.0) / 5.0;
     return GetBuilder<MbxBottomNavBarController>(
         init: MbxBottomNavBarController(tabBarIndex: tabBarIndex),
         builder: (controller) => ScreenX(
@@ -41,21 +42,21 @@ class MbxBottomNavBarScreen extends StatelessWidget {
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
               bottomNavigationBar: BottomAppBar(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 height: 60.0,
                 elevation: 0.0,
                 color: ColorX.theme.lighten(0.45),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Material(
-                        color: ColorX.transparent,
-                        child: InkWell(
-                            highlightColor: ColorX.highlight,
-                            onTap: () {
-                              controller.btnHomeClicked();
-                            },
+                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWellX(
+                        highlightColor: ColorX.theme.lighten(0.35),
+                        onClicked: () {
+                          controller.btnHomeClicked();
+                        },
+                        child: ContainerX(
+                            width: tabWidth,
                             child: Center(
                               child: Wrap(
                                 direction: Axis.vertical,
@@ -78,13 +79,13 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                                 ],
                               ),
                             ))),
-                    Material(
-                        color: ColorX.transparent,
-                        child: InkWell(
-                            highlightColor: ColorX.highlight,
-                            onTap: () {
-                              controller.btnHistoryClicked();
-                            },
+                    InkWellX(
+                        highlightColor: ColorX.theme.lighten(0.35),
+                        onClicked: () {
+                          controller.btnHistoryClicked();
+                        },
+                        child: ContainerX(
+                            width: tabWidth,
                             child: Center(
                               child: Wrap(
                                 direction: Axis.vertical,
@@ -107,14 +108,16 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                                 ],
                               ),
                             ))),
-                    ContainerX(),
-                    Material(
-                        color: ColorX.transparent,
-                        child: InkWell(
-                            highlightColor: ColorX.highlight,
-                            onTap: () {
-                              controller.btnNotificationsClicked();
-                            },
+                    ContainerX(
+                      width: tabWidth,
+                    ),
+                    InkWellX(
+                        highlightColor: ColorX.theme.lighten(0.35),
+                        onClicked: () {
+                          controller.btnNotificationsClicked();
+                        },
+                        child: ContainerX(
+                            width: tabWidth,
                             child: Center(
                               child: Wrap(
                                 direction: Axis.vertical,
@@ -137,13 +140,13 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                                 ],
                               ),
                             ))),
-                    Material(
-                        color: ColorX.transparent,
-                        child: InkWell(
-                            highlightColor: ColorX.highlight,
-                            onTap: () {
-                              controller.btnAccountClicked();
-                            },
+                    InkWellX(
+                        highlightColor: ColorX.theme.lighten(0.35),
+                        onClicked: () {
+                          controller.btnAccountClicked();
+                        },
+                        child: ContainerX(
+                            width: tabWidth,
                             child: Center(
                               child: Wrap(
                                 direction: Axis.vertical,
