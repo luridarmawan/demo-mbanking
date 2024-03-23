@@ -42,4 +42,10 @@ class MbxFormatVM {
       {required String prefix, required int visibleDigits}) {
     return '$prefix${account.substring(account.length - visibleDigits)}';
   }
+
+  static String longDateTime(String dt) {
+    DateTime now = DateTime.parse(dt).toLocal();
+    var formatter = DateFormat('dd MMM yyyy hh:mm');
+    return formatter.format(now);
+  }
 }

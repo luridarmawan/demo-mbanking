@@ -61,11 +61,20 @@ class MbxHistoryCell extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 4.0),
+                  SizedBox(height: 2.0),
                   TextX(
                     history.description,
                     color: ColorX.black,
                     fontSize: 15.0,
+                    fontWeight: FontWeight.w500,
+                    textAlign: TextAlign.start,
+                    maxLines: 3,
+                  ),
+                  SizedBox(height: 2.0),
+                  TextX(
+                    MbxFormatVM.longDateTime(history.created_at),
+                    color: ColorX.black,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.w400,
                     textAlign: TextAlign.start,
                     maxLines: 3,

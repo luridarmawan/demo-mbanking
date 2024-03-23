@@ -31,7 +31,8 @@ class MbxHistoryPage extends StatelessWidget {
                         child: ListView.separated(
                             padding: EdgeInsets.only(
                                 bottom:
-                                    MediaQuery.of(Get.context!).padding.bottom),
+                                    MediaQuery.of(Get.context!).padding.bottom +
+                                        100.0),
                             physics: ClampingScrollPhysics(),
                             separatorBuilder: (context, index) {
                               return Padding(
