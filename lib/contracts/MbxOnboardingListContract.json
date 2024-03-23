@@ -1,6 +1,6 @@
 {
 	"status": 200,
-	"message": "Movie list retrieved.",
+	"message": "Onboarding list retrieved.",
 	"data": [
 	  {
 		"onboarding_id": 1,
