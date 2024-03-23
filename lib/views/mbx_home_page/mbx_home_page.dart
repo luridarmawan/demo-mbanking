@@ -141,21 +141,15 @@ class MbxHomePage extends StatelessWidget {
                                     itemCount:
                                         MbxProfileVM.profile.accounts.length,
                                     itemBuilder: (context, index) {
-                                      return Material(
-                                          color: ColorX.transparent,
-                                          child: InkWell(
-                                              highlightColor: ColorX.highlight,
-                                              onTap: () {
-                                                //Get.to(DemoImageScreen(url: movie.poster));
-                                              },
-                                              child: MbxAccountCell(
-                                                account: MbxProfileVM
-                                                    .profile.accounts[index],
-                                                onClicked: () {
-                                                  controller
-                                                      .btnEyeClicked(index);
-                                                },
-                                              )));
+                                      return InkWellX(
+                                          cornerRadius: 12.0,
+                                          child: MbxAccountCell(
+                                            account: MbxProfileVM
+                                                .profile.accounts[index],
+                                            onClicked: () {
+                                              controller.btnEyeClicked(index);
+                                            },
+                                          ));
                                     })),
                             SizedBox(height: 12.0),
                             Padding(

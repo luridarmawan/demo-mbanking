@@ -19,6 +19,7 @@ export 'dialog_x.dart';
 export 'colors_x.dart';
 export 'container_x.dart';
 export 'image_x.dart';
+export 'inkwell_x.dart';
 export 'navigationbar_x.dart';
 export 'screen_x.dart';
 export 'statusbar_x.dart';

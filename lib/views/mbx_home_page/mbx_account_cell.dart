@@ -14,7 +14,7 @@ class MbxAccountCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return ContainerX(
       width: 180.0,
-      backgroundColor: ColorX.white,
+      backgroundColor: ColorX.transparent,
       borderWidth: 1.0,
       borderColor: ColorX.lightGray,
       cornerRadius: 12.0,
@@ -40,43 +40,25 @@ class MbxAccountCell extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: Material(
-                color: ColorX.transparent,
-                child: InkWell(
-                    highlightColor: ColorX.transparent,
-                    onTap: () {
-                      onClicked!();
-                    },
-                    child: Column(children: [
-                      SizedBox(height: 8.0),
-                      Row(
-                        children: [
-                          ImageX(
-                            faIcon: account.visible
-                                ? FontAwesomeIcons.eyeSlash
-                                : FontAwesomeIcons.eye,
-                            width: 32.0,
-                            height: 20.0,
-                          ),
-                          Spacer()
-                        ],
-                      )
-                    ]))),
+            child: InkWellX(
+                highlightColor: ColorX.transparent,
+                onClicked: onClicked,
+                child: Column(children: [
+                  SizedBox(height: 8.0),
+                  Row(
+                    children: [
+                      ImageX(
+                        faIcon: account.visible
+                            ? FontAwesomeIcons.eyeSlash
+                            : FontAwesomeIcons.eye,
+                        width: 32.0,
+                        height: 20.0,
+                      ),
+                      Spacer()
+                    ],
+                  )
+                ])),
           )
-
-          /*
-          ButtonX(
-            faIcon: account.visible
-                ? FontAwesomeIcons.eyeSlash
-                : FontAwesomeIcons.eye,
-            faColor: ColorX.black,
-            faWidth: 32.0,
-            faHeight: 16.0,
-            backgroundColor: ColorX.yellow,
-            width: 32.0,
-            height: 32.0,
-            onClicked: onClicked,
-          ) */
         ]),
         Row(children: [
           Wrap(
