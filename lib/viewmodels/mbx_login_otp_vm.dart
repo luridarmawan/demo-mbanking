@@ -17,7 +17,7 @@ class MbxLoginOtpVM {
             contract: true)
         .then((resp) async {
       if (resp.statusCode == 200) {
-        MbxProfileVM.profile.token = resp.jason['result']['token'].stringValue;
+        MbxProfileVM.profile.token = resp.jason['data']['token'].stringValue;
         MbxProfileVM.save();
       } else {}
       return resp;

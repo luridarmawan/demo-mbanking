@@ -1,11 +1,11 @@
 import 'dart:async';
-import '../models/mbx_onboarding_model.dart';
+import '../models/demo_movie_model.dart';
 import 'mbx_apis.dart';
 
-class MbxOnboardingVM {
+class MbxHistoryListVM {
   var loading = false;
-  List<MbxOnboardingModel> list = [];
-  List<MbxOnboardingModel> filtered = [];
+  List<DemoMovieModel> list = [];
+  List<DemoMovieModel> filtered = [];
 
   clear() {
     list = [];
@@ -17,13 +17,13 @@ class MbxOnboardingVM {
             endpoint: '/movies',
             params: {},
             headers: {},
-            contractFile: 'lib/contracts/MbxOnboardingContract.json',
+            contractFile: 'lib/contracts/MbxPromoListContract.json',
             contract: true)
         .then((resp) async {
       loading = false;
       if (resp.statusCode == 200) {
         for (var item in resp.jason['data'].jasonListValue) {
-          var movie = MbxOnboardingModel.fromJason(item);
+          var movie = DemoMovieModel.fromJason(item);
           list.add(movie);
         }
       }

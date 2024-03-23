@@ -22,7 +22,7 @@ class MbxPromoListVM {
         .then((resp) async {
       loading = false;
       if (resp.statusCode == 200) {
-        for (var item in resp.jason['result'].jasonListValue) {
+        for (var item in resp.jason['data'].jasonListValue) {
           var movie = DemoMovieModel.fromJason(item);
           list.add(movie);
         }

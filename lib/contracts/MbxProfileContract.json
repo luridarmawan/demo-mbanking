@@ -1,6 +1,6 @@
 {
 	"message": "Get profile success",
-	"result": {
+	"data": {
 	  "accounts": [
 		{
 		  "account": "10002000101",

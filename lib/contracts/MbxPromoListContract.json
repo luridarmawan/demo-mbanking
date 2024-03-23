@@ -1,7 +1,7 @@
 {
 	"status": 200,
 	"message": "Promo list retrieved.",
-	"result": [
+	"data": [
 	  {
 		"movie_id": 1,
 		"poster": "https://etimg.etb2bimg.com/photo/95591973.cms",

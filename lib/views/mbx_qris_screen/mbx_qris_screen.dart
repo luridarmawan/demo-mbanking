@@ -67,12 +67,6 @@ class MbxQRISScreen extends StatelessWidget {
                             controller.btnImageClicked();
                           },
                         ),
-                        Expanded(
-                          child: ImageX(
-                            url: 'lib/images/mbx_qris.png',
-                            fit: BoxFit.contain,
-                          ),
-                        ),
                         SizedBox(width: 8.0),
                         ButtonX(
                           borderWidth: 2.0,
@@ -92,6 +86,12 @@ class MbxQRISScreen extends StatelessWidget {
                           onClicked: () {
                             controller.btnFlashlightClicked();
                           },
+                        ),
+                        Expanded(
+                          child: ImageX(
+                            url: 'lib/images/mbx_qris.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ],
                     )),
