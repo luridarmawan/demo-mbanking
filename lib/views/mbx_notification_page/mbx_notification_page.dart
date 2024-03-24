@@ -1,5 +1,4 @@
 import '../../widgets/all_widgets.dart';
-import '../demo_image_screen/demo_image_screen.dart';
 import 'mbx_notification_controller.dart';
 import 'mbx_notification_cell.dart';
 
@@ -11,52 +10,60 @@ class MbxNotificationPage extends StatelessWidget {
     return GetBuilder<MbxNotificationController>(
         init: MbxNotificationController(),
         builder: (controller) => ScreenX(
-              lightStatusBar: true,
-              loading: controller.movieListVM.list.isEmpty &&
-                  controller.movieListVM.loading,
-              headerView: NavigationBarX(
-                title: 'Notifikasi',
-              ),
-              bottomPadding: false,
-              bodyView: NotificationListener<ScrollNotification>(
-                  onNotification: (ScrollNotification scrollInfo) {
-                    if (controller.movieListVM.loading == false &&
-                        scrollInfo.metrics.pixels ==
-                            scrollInfo.metrics.maxScrollExtent) {
-                      controller.nextPage();
-                    }
-                    return true;
-                  },
-                  child: Material(
-                    child: Scrollbar(
-                        child: ListView.separated(
-                            padding: EdgeInsets.only(
-                                bottom:
-                                    MediaQuery.of(Get.context!).padding.bottom),
-                            physics: ClampingScrollPhysics(),
-                            separatorBuilder: (context, index) {
-                              return Padding(
-                                  padding: EdgeInsets.only(left: 16.0),
-                                  child: ContainerX(
-                                    height: 1.0,
-                                    width: double.infinity,
-                                    backgroundColor: ColorX.lightGray,
-                                  ));
-                            },
-                            itemCount: controller.movieListVM.list.length,
-                            itemBuilder: (context, index) {
-                              final movie = controller.movieListVM.list[index];
-                              return Material(
-                                  color: ColorX.transparent,
-                                  child: InkWell(
-                                      highlightColor: ColorX.highlight,
-                                      onTap: () {
-                                        Get.to(
-                                            DemoImageScreen(url: movie.poster));
-                                      },
-                                      child: MbxNotificationCell(movie)));
-                            })),
-                  )),
-            ));
+            lightStatusBar: true,
+            loading: controller.notificationListVM.list.isEmpty &&
+                controller.notificationListVM.loading,
+            headerView: NavigationBarX(
+              title: 'Notifikasi',
+            ),
+            bottomPadding: false,
+            bodyView: ContainerX(
+                backgroundColor: ColorX.theme,
+                child: ContainerX(
+                  padding: EdgeInsets.only(top: 16.0),
+                  backgroundColor: ColorX.white,
+                  topLeftRadius: 16.0,
+                  topRightRadius: 16.0,
+                  child: NotificationListener<ScrollNotification>(
+                      onNotification: (ScrollNotification scrollInfo) {
+                        if (controller.notificationListVM.loading == false &&
+                            scrollInfo.metrics.pixels ==
+                                scrollInfo.metrics.maxScrollExtent) {
+                          controller.nextPage();
+                        }
+                        return true;
+                      },
+                      child: Material(
+                        child: Scrollbar(
+                            child: ListView.separated(
+                                padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(Get.context!)
+                                            .padding
+                                            .bottom +
+                                        100.0),
+                                physics: ClampingScrollPhysics(),
+                                separatorBuilder: (context, index) {
+                                  return Padding(
+                                      padding: EdgeInsets.only(left: 60.0),
+                                      child: ContainerX(
+                                        height: 1.0,
+                                        width: double.infinity,
+                                        backgroundColor: ColorX.lightGray,
+                                      ));
+                                },
+                                itemCount:
+                                    controller.notificationListVM.list.length,
+                                itemBuilder: (context, index) {
+                                  final history =
+                                      controller.notificationListVM.list[index];
+                                  return Material(
+                                      color: ColorX.transparent,
+                                      child: InkWell(
+                                          highlightColor: ColorX.highlight,
+                                          onTap: () {},
+                                          child: MbxNotificationCell(history)));
+                                })),
+                      )),
+                ))));
   }
 }

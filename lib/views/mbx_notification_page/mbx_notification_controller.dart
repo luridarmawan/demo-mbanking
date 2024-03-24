@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import '../../viewmodels/demo_movie_list_vm.dart';
+
+import '../../viewmodels/mbx_notification_list_vm.dart';
 
 class MbxNotificationController extends GetxController {
-  var movieListVM = DemoMovieListVM();
+  var notificationListVM = MbxNotificationVM();
 
   @override
   void onReady() {
@@ -16,7 +17,7 @@ class MbxNotificationController extends GetxController {
 
   nextPage() {
     update();
-    movieListVM.nextPage().then((resp) {
+    notificationListVM.nextPage().then((resp) {
       update();
     });
   }

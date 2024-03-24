@@ -1,5 +1,3 @@
-import 'package:demombanking/views/mbx_history_page/mbx_history_page.dart';
-
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_profile_controller.dart';
@@ -147,7 +145,7 @@ class MbxProfilePage extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(8.0)),
                                         onTap: () {
-                                          Get.back();
+                                          controller.btnTncClicked();
                                         },
                                         child: ContainerX(
                                             padding: EdgeInsets.only(
@@ -209,7 +207,7 @@ class MbxProfilePage extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(8.0)),
                                         onTap: () {
-                                          Get.back();
+                                          controller.btnPrivacyPolicyClicked();
                                         },
                                         child: ContainerX(
                                             padding: EdgeInsets.only(

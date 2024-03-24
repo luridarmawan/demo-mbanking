@@ -1,3 +1,4 @@
+import 'package:demombanking/views/demo_html_screen/demo_html_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
@@ -16,6 +17,14 @@ class MbxProfileController extends GetxController {
     MbxProfileVM.request().then((resp) {
       update();
     });
+  }
+
+  btnTncClicked() {
+    Get.to(DemoHtmlScreen());
+  }
+
+  btnPrivacyPolicyClicked() {
+    Get.to(DemoHtmlScreen());
   }
 
   btnLogoutClicked() {

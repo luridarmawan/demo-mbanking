@@ -15,6 +15,8 @@ class ImageX extends StatelessWidget {
   final String placeholder;
   final Color backgroundColor;
   final EdgeInsets padding;
+  final double borderWidth;
+  final Color borderColor;
 
   const ImageX({
     Key? key,
@@ -31,60 +33,45 @@ class ImageX extends StatelessWidget {
     this.placeholder = '',
     this.backgroundColor = ColorX.transparent,
     this.padding = const EdgeInsets.all(0.0),
+    this.borderWidth = 0.0,
+    this.borderColor = ColorX.transparent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (url.trim().toLowerCase().startsWith('http://') ||
         url.trim().toLowerCase().startsWith('https://')) {
-      return ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(
-                  topLeftRadius > 0.0 ? topLeftRadius : cornerRadius),
-              topRight: Radius.circular(
-                  topRightRadius > 0.0 ? topLeftRadius : cornerRadius),
-              bottomLeft: Radius.circular(cornerRadius),
-              bottomRight: Radius.circular(cornerRadius)),
-          child: Container(
-            padding: padding,
-            color: backgroundColor,
-            child: url.isNotEmpty
-                ? imageNetwork(context)
-                : imagePlaceholder(context),
-          ));
+      return ContainerX(
+        padding: padding,
+        backgroundColor: backgroundColor,
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        cornerRadius: cornerRadius,
+        child:
+            url.isNotEmpty ? imageNetwork(context) : imagePlaceholder(context),
+      );
     } else if (url.trim().toLowerCase().startsWith('file:')) {
-      return ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(
-                  topLeftRadius > 0.0 ? topLeftRadius : cornerRadius),
-              topRight: Radius.circular(
-                  topRightRadius > 0.0 ? topLeftRadius : cornerRadius),
-              bottomLeft: Radius.circular(cornerRadius),
-              bottomRight: Radius.circular(cornerRadius)),
-          child: Container(
-            padding: padding,
-            color: backgroundColor,
-            child:
-                url.isNotEmpty ? imageFile(context) : imagePlaceholder(context),
-          ));
+      return ContainerX(
+        padding: padding,
+        backgroundColor: backgroundColor,
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        cornerRadius: cornerRadius,
+        child: url.isNotEmpty ? imageFile(context) : imagePlaceholder(context),
+      );
     } else {
-      return ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(
-                  topLeftRadius > 0.0 ? topLeftRadius : cornerRadius),
-              topRight: Radius.circular(
-                  topRightRadius > 0.0 ? topLeftRadius : cornerRadius),
-              bottomLeft: Radius.circular(cornerRadius),
-              bottomRight: Radius.circular(cornerRadius)),
-          child: Container(
-            padding: padding,
-            color: backgroundColor,
-            child: url.isNotEmpty
-                ? imageAsset(context, url)
-                : faIcon != null
-                    ? imageAwesome(context, faIcon!)
-                    : imagePlaceholder(context),
-          ));
+      return ContainerX(
+        padding: padding,
+        backgroundColor: backgroundColor,
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        cornerRadius: cornerRadius,
+        child: url.isNotEmpty
+            ? imageAsset(context, url)
+            : faIcon != null
+                ? imageAwesome(context, faIcon!)
+                : imagePlaceholder(context),
+      );
     }
   }
 
