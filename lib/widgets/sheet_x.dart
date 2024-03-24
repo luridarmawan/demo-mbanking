@@ -56,7 +56,10 @@ class SheetX {
                 child: Expanded(
                   child: ButtonX(
                     title: leftBtnTitle,
-                    backgroundColor: ColorX.green,
+                    titleColor: ColorX.white,
+                    borderWidth: 1.0,
+                    borderColor: ColorX.theme,
+                    backgroundColor: ColorX.theme,
                     onClicked: onLeftBtnClicked,
                   ),
                 ),
@@ -69,7 +72,10 @@ class SheetX {
                 child: Expanded(
                   child: ButtonX(
                     title: rightBtnTitle,
-                    backgroundColor: ColorX.red,
+                    titleColor: ColorX.black,
+                    backgroundColor: ColorX.white,
+                    borderWidth: 1.0,
+                    borderColor: ColorX.gray,
                     onClicked: onRightBtnClicked ?? () => {},
                   ),
                 ),

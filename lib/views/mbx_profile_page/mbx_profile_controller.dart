@@ -28,10 +28,20 @@ class MbxProfileController extends GetxController {
   }
 
   btnLogoutClicked() {
-    Get.loading();
-    MbxLogoutVM.request().then((resp) {
-      Get.back();
-      MbxProfileVM.logout();
-    });
+    SheetX.showMessage(
+        title: 'Keluar',
+        message: 'Apakah anda yakin ?',
+        leftBtnTitle: 'Ya',
+        onLeftBtnClicked: () {
+          Get.loading();
+          MbxLogoutVM.request().then((resp) {
+            Get.back();
+            MbxProfileVM.logout();
+          });
+        },
+        rightBtnTitle: 'Batal',
+        onRightBtnClicked: () {
+          Get.back();
+        });
   }
 }
