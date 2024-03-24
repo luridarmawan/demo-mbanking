@@ -65,7 +65,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                 shrinkWrap: true,
                 mainAxisSpacing: 0.0,
                 crossAxisSpacing: 0.0,
-                childAspectRatio: 1.2,
+                childAspectRatio: 1.0,
                 crossAxisCount: 5,
                 padding: EdgeInsets.all(12.0),
                 physics: ClampingScrollPhysics(),

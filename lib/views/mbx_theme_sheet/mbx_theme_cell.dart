@@ -8,23 +8,30 @@ class MbxThemeCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        color: ColorX.transparent,
-        child: InkWell(
-            customBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0)),
-            highlightColor: ColorX.highlight,
-            onTap: () {
-              final hex = '#${color.value.toRadixString(16)}';
-              Get.back(result: hex);
-            },
-            child: ContainerX(
-                child: Center(
-              child: ContainerX(
-                  width: 50.0,
-                  height: 50.0,
-                  cornerRadius: 25.0,
-                  backgroundColor: color),
-            ))));
+    return ContainerX(
+        child: Center(
+            child: Material(
+                color: ColorX.transparent,
+                child: InkWellX(
+                    cornerRadius: 29.0,
+                    highlightColor: ColorX.highlight,
+                    onClicked: () {
+                      final hex = '#${color.value.toRadixString(16)}';
+                      Get.back(result: hex);
+                    },
+                    child: ContainerX(
+                      padding: EdgeInsets.all(4.0),
+                      cornerRadius: 29.0,
+                      borderWidth:
+                          color.value == ColorX.theme.value ? 2.0 : 0.0,
+                      borderColor: color.value == ColorX.theme.value
+                          ? ColorX.black
+                          : ColorX.transparent,
+                      child: ContainerX(
+                          width: 50.0,
+                          height: 50.0,
+                          cornerRadius: 25.0,
+                          backgroundColor: color),
+                    )))));
   }
 }
