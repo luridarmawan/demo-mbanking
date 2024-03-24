@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_history_page/mbx_history_page.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_profile_controller.dart';
@@ -71,7 +73,8 @@ class MbxProfilePage extends StatelessWidget {
                         customBorder: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         onTap: () {
-                          Get.back();
+                          //Get.back();
+                          Get.to(MbxHistoryPage());
                         },
                         child: ContainerX(
                             padding: EdgeInsets.only(

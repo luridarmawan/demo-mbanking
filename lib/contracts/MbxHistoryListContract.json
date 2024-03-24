@@ -21,7 +21,7 @@
 	  {
 		"amount": -25000000,
 		"created_at": "2024-03-21 16:00:10",
-		"description": "Transfer BI FAST ke BANK EXPOR - GITA SAVITRI 500200400932",
+		"description": "Transfer BI FAST ke BANK XYZ - GITA 500200400932",
 		"id": 1,
 		"title": "Transfer Rupiah",
 		"type": "transfer"
@@ -37,7 +37,7 @@
 	  {
 		"amount": 1000000,
 		"created_at": "2024-03-21 16:00:10",
-		"description": "Transfer BI FAST dari BANK PERMATA - YUNITA ANGGRAENI 100200300123",
+		"description": "Transfer BI FAST dari BANK ABC - YUNITA 100200300123",
 		"id": 1,
 		"title": "Transfer Rupiah",
 		"type": "transfer"
@@ -53,7 +53,7 @@
 	  {
 		"amount": 50000,
 		"created_at": "2024-03-21 16:00:10",
-		"description": "Transfer BI FAST dari BANK ACB - DINA LORENZA 200300200123",
+		"description": "Transfer BI FAST dari BANK ACB - ANTON 200300200123",
 		"id": 1,
 		"title": "Transfer Rupiah",
 		"type": "transfer"
