@@ -21,7 +21,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 children: <Widget>[
                   MbxHomePage(),
                   MbxHistoryPage(),
-                  ContainerX(backgroundColor: ColorX.teal),
+                  ContainerX(backgroundColor: ColorX.white),
                   MbxNotificationPage(),
                   MbxProfilePage(),
                 ],
