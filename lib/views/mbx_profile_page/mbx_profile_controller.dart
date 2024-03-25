@@ -1,4 +1,5 @@
 import 'package:demombanking/views/demo_html_screen/demo_html_screen.dart';
+import 'package:demombanking/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
@@ -20,7 +21,7 @@ class MbxProfileController extends GetxController {
   }
 
   btnTncClicked() {
-    Get.to(DemoHtmlScreen());
+    Get.to(MbxTncScreen());
   }
 
   btnPrivacyPolicyClicked() {
