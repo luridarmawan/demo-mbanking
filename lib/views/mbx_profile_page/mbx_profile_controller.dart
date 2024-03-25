@@ -1,9 +1,9 @@
-import 'package:demombanking/views/demo_html_screen/demo_html_screen.dart';
 import 'package:demombanking/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 
 class MbxProfileController extends GetxController {
   var version = '';
@@ -25,7 +25,7 @@ class MbxProfileController extends GetxController {
   }
 
   btnPrivacyPolicyClicked() {
-    Get.to(DemoHtmlScreen());
+    Get.to(MbxPrivacyPolicyScreen());
   }
 
   btnLogoutClicked() {
