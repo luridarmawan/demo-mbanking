@@ -12,7 +12,6 @@ class MbxNewsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    //newsDetailVM.news = news;
     reload();
     newsDetailVM.request().then((resp) {
       news.content = newsDetailVM.news.content;
