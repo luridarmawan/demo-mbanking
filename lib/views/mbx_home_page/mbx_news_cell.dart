@@ -1,13 +1,11 @@
-import 'package:demombanking/views/mbx_news_screen/mbx_news_screen.dart';
-
-import '../../models/demo_movie_model.dart';
+import '../../models/mbx_news_model.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_html_screen/demo_html_screen.dart';
+import '../mbx_news_screen/mbx_news_screen.dart';
 
 // ignore: must_be_immutable
-class MbxPromoCell extends StatelessWidget {
-  final DemoMovieModel movie;
-  MbxPromoCell(this.movie);
+class MbxNewsCell extends StatelessWidget {
+  final MbxNewsModel news;
+  MbxNewsCell(this.news);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class MbxPromoCell extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ImageX(
-                      url: movie.poster,
+                      url: news.poster,
                       width: double.infinity,
                       height: 100.0,
                       cornerRadius: 12.0,
@@ -34,7 +32,7 @@ class MbxPromoCell extends StatelessWidget {
                     ),
                     SizedBox(height: 4.0),
                     TextX(
-                      movie.title,
+                      news.title,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500,
                       color: ColorX.gray,

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_home_page/mbx_account_cell.dart';
+import 'package:demombanking/views/mbx_home_page/mbx_news_cell.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
@@ -261,14 +262,14 @@ class MbxHomePage extends StatelessWidget {
                                   right: 12.0,
                                   bottom: 4.0),
                               child: TextX(
-                                'PROMO & BERITA',
+                                'BERITA',
                                 fontSize: 13.0,
                                 fontWeight: FontWeight.w700,
                                 color: ColorX.black,
                                 textAlign: TextAlign.start,
                               ),
                             ),
-                            controller.movieListVM.list.length > 0
+                            controller.newsListVM.list.length > 0
                                 ? CarouselSlider.builder(
                                     options: CarouselOptions(
                                       padEnds: false,
@@ -280,11 +281,11 @@ class MbxHomePage extends StatelessWidget {
                                       },
                                     ),
                                     itemCount:
-                                        controller.movieListVM.list.length,
+                                        controller.newsListVM.list.length,
                                     itemBuilder: (BuildContext context,
                                         int index, int pageViewIndex) {
-                                      return MbxPromoCell(
-                                          controller.movieListVM.list[index]);
+                                      return MbxNewsCell(
+                                          controller.newsListVM.list[index]);
                                     })
                                 : Container(),
                             SizedBox(height: 8.0),
