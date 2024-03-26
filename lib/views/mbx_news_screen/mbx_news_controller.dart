@@ -12,9 +12,10 @@ class MbxNewsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    newsDetailVM.news = news;
+    //newsDetailVM.news = news;
     reload();
     newsDetailVM.request().then((resp) {
+      news.content = newsDetailVM.news.content;
       reload();
     });
   }
@@ -26,9 +27,9 @@ class MbxNewsController extends GetxController {
   reload() {
     update();
     buildHtmlAndFonts('''
-          <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${newsDetailVM.news.title}</span>
+          <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${news.title}</span>
           <br><br>
-          <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${newsDetailVM.news.content}</span>
+          <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${news.content}</span>
         ''').then((value) {
       webController.loadHtmlString(value);
     });
