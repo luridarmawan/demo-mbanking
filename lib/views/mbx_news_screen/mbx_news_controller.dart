@@ -1,28 +1,37 @@
+import 'package:demombanking/models/mbx_news_model.dart';
 import '../../viewmodels/mbx_news_detail_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxNewsController extends GetxController {
+  final MbxNewsModel news;
   final newsDetailVM = MbxNewsDetailVM();
   final webController = WebViewController();
+
+  MbxNewsController(this.news);
 
   @override
   void onReady() {
     super.onReady();
-    update();
+    newsDetailVM.news = news;
+    reload();
     newsDetailVM.request().then((resp) {
-      update();
-      buildHtmlAndFonts('''
-          <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${newsDetailVM.news.title}</span>
-          <br><br>
-          <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${newsDetailVM.news.content}</span>
-        ''').then((value) {
-        webController.loadHtmlString(value);
-      });
+      reload();
     });
   }
 
   btnBackClicked() {
     Get.back();
+  }
+
+  reload() {
+    update();
+    buildHtmlAndFonts('''
+          <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${newsDetailVM.news.title}</span>
+          <br><br>
+          <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${newsDetailVM.news.content}</span>
+        ''').then((value) {
+      webController.loadHtmlString(value);
+    });
   }
 
   static Future<String> buildHtmlAndFonts(String html) async {
