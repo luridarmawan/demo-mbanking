@@ -34,7 +34,7 @@ class MbxNewsScreen extends StatelessWidget {
                   backgroundColor: ColorX.white,
                   topLeftRadius: 12.0,
                   topRightRadius: 12.0,
-                  child: controller.tncVM.loading
+                  child: controller.newsDetailVM.loading
                       ? Center(
                           child: CircularProgressIndicator(
                               valueColor:
