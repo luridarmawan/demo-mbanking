@@ -6,7 +6,6 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
 import 'mbx_launcher_cell.dart';
-import 'mbx_promo_cell.dart';
 
 class MbxHomePage extends StatelessWidget {
   MbxHomePage({Key? key}) : super(key: key);

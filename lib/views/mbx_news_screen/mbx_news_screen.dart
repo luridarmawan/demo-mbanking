@@ -12,35 +12,27 @@ class MbxNewsScreen extends StatelessWidget {
     return GetBuilder<MbxNewsController>(
         init: MbxNewsController(),
         builder: (controller) => ScreenX(
-            lightStatusBar: true,
-            headerView: NavigationBarX(
-              title: 'BERITA',
-              leftBtn: ImageX(
-                faIcon: FontAwesomeIcons.arrowLeft,
-                width: 20.0,
-                height: 20.0,
-                color: ColorX.white,
-                fit: BoxFit.contain,
-              ),
-              leftAction: () {
-                controller.btnBackClicked();
-              },
-            ),
-            bottomPadding: false,
-            bodyView: ContainerX(
-                backgroundColor: ColorX.theme,
-                child: ContainerX(
-                  padding: EdgeInsets.only(top: 12.0),
+              lightStatusBar: true,
+              bottomPadding: false,
+              bodyView: ContainerX(
                   backgroundColor: ColorX.white,
-                  topLeftRadius: 12.0,
-                  topRightRadius: 12.0,
                   child: controller.newsDetailVM.loading
                       ? Center(
                           child: CircularProgressIndicator(
                               valueColor:
                                   AlwaysStoppedAnimation<Color>(ColorX.gray)),
                         )
-                      : WebViewWidget(controller: controller.webController),
-                ))));
+                      : Column(children: [
+                          ImageX(
+                            url: news.image,
+                            width: MediaQuery.of(Get.context!).size.width,
+                            height: MediaQuery.of(Get.context!).size.width *
+                                MbxNewsModel.imageAspectRatio,
+                          ),
+                          Expanded(
+                              child: WebViewWidget(
+                                  controller: controller.webController))
+                        ])),
+            ));
   }
 }

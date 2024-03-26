@@ -1,5 +1,3 @@
-import 'package:demombanking/models/mbx_news_model.dart';
-import 'package:demombanking/views/mbx_news_screen/mbx_news_screen.dart';
 
 import '../../models/demo_movie_model.dart';
 import '../../widgets/all_widgets.dart';
