@@ -1,3 +1,4 @@
+import 'package:demombanking/models/mbx_news_model.dart';
 import 'package:demombanking/views/mbx_news_screen/mbx_news_screen.dart';
 
 import '../../models/demo_movie_model.dart';
@@ -20,7 +21,7 @@ class MbxPromoCell extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0)),
               highlightColor: ColorX.highlight,
               onTap: () {
-                Get.to(MbxNewsScreen());
+                Get.to(DemoHtmlScreen());
               },
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

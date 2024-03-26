@@ -18,13 +18,13 @@ class MbxNewsCell extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0)),
               highlightColor: ColorX.highlight,
               onTap: () {
-                Get.to(MbxNewsScreen());
+                Get.to(MbxNewsScreen(news: news));
               },
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ImageX(
-                      url: news.poster,
+                      url: news.image,
                       width: double.infinity,
                       height: 100.0,
                       cornerRadius: 12.0,
