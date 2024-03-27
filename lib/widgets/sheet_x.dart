@@ -17,7 +17,7 @@ class SheetX {
         avoidingKeyboard: false,
         contentMaxHeight: MediaQuery.of(Get.context!).size.height * 0.70,
         contentWidget: Padding(
-          padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
           child: Column(
             children: [
               Visibility(
@@ -48,7 +48,7 @@ class SheetX {
           ),
         ),
         footerWidget: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(16.0),
           child: Row(
             children: <Widget>[
               Visibility(
@@ -66,7 +66,7 @@ class SheetX {
               ),
               Visibility(
                   visible: leftBtnTitle.isNotEmpty && rightBtnTitle.isNotEmpty,
-                  child: const SizedBox(width: 4.0)),
+                  child: const SizedBox(width: 8.0)),
               Visibility(
                 visible: rightBtnTitle.isNotEmpty,
                 child: Expanded(

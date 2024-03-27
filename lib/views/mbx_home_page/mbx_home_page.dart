@@ -68,31 +68,26 @@ class MbxHomePage extends StatelessWidget {
                                 Spacer(),
                                 Row(
                                   children: [
-                                    Material(
-                                        color: ColorX.transparent,
-                                        child: InkWell(
-                                          customBorder: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0)),
-                                          highlightColor: ColorX.highlight,
-                                          onTap: () {
-                                            controller.btnThemeClicked();
-                                          },
-                                          child: ContainerX(
-                                            width: 42.0,
-                                            height: 42.0,
-                                            cornerRadius: 12.0,
-                                            child: Center(
-                                                child: ContainerX(
-                                              backgroundColor: ColorX.theme,
-                                              width: 32.0,
-                                              height: 32.0,
-                                              cornerRadius: 16.0,
-                                              borderWidth: 4.0,
-                                              borderColor: ColorX.white,
-                                            )),
-                                          ),
+                                    InkWellX(
+                                      cornerRadius: 8.0,
+                                      onClicked: () {
+                                        controller.btnThemeClicked();
+                                      },
+                                      child: ContainerX(
+                                        width: 42.0,
+                                        height: 42.0,
+                                        cornerRadius: 12.0,
+                                        child: Center(
+                                            child: ContainerX(
+                                          backgroundColor: ColorX.theme,
+                                          width: 32.0,
+                                          height: 32.0,
+                                          cornerRadius: 16.0,
+                                          borderWidth: 4.0,
+                                          borderColor: ColorX.white,
                                         )),
+                                      ),
+                                    ),
                                     ButtonX(
                                       backgroundColor: ColorX.transparent,
                                       faIcon: FontAwesomeIcons.powerOff,

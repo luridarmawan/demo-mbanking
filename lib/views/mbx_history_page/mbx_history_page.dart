@@ -55,12 +55,9 @@ class MbxHistoryPage extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   final history =
                                       controller.historyListVM.list[index];
-                                  return Material(
-                                      color: ColorX.transparent,
-                                      child: InkWell(
-                                          highlightColor: ColorX.highlight,
-                                          onTap: () {},
-                                          child: MbxHistoryCell(history)));
+                                  return InkWellX(
+                                      onClicked: () {},
+                                      child: MbxHistoryCell(history));
                                 })),
                       )),
                 ))));

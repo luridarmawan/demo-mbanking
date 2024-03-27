@@ -54,9 +54,8 @@ class ButtonX extends StatelessWidget {
           Radius.circular(cornerRadius),
         ),
         color: enabled == true ? backgroundColor : disabledBackgroundColor,
-        child: InkWell(
-            splashFactory: NoSplash.splashFactory,
-            onTap: enabled == true ? onClicked : null,
+        child: InkWellX(
+            onClicked: enabled == true ? onClicked : null,
             child: Container(
               width: width,
               height: height,

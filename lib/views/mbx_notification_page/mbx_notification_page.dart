@@ -56,12 +56,9 @@ class MbxNotificationPage extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   final history =
                                       controller.notificationListVM.list[index];
-                                  return Material(
-                                      color: ColorX.transparent,
-                                      child: InkWell(
-                                          highlightColor: ColorX.highlight,
-                                          onTap: () {},
-                                          child: MbxNotificationCell(history)));
+                                  return InkWellX(
+                                      onClicked: () {},
+                                      child: MbxNotificationCell(history));
                                 })),
                       )),
                 ))));

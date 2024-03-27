@@ -48,7 +48,6 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 color: ColorX.theme.lighten(0.45),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWellX(
                         highlightColor: ColorX.theme.lighten(0.35),

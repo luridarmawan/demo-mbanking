@@ -9,38 +9,33 @@ class MbxNewsCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        color: ColorX.transparent,
-        child: Padding(
-            padding: EdgeInsets.only(left: 12.0),
-            child: InkWell(
-              customBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0)),
-              highlightColor: ColorX.highlight,
-              onTap: () {
-                Get.to(MbxNewsScreen(news: news));
-              },
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ImageX(
-                      url: news.image,
-                      width: double.infinity,
-                      height: 100.0,
-                      cornerRadius: 12.0,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(height: 4.0),
-                    TextX(
-                      news.title,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w500,
-                      color: ColorX.gray,
-                      textAlign: TextAlign.start,
-                      maxLines: 3,
-                    ),
-                    Spacer()
-                  ]),
-            )));
+    return Padding(
+        padding: EdgeInsets.only(left: 12.0),
+        child: InkWellX(
+          cornerRadius: 12.0,
+          onClicked: () {
+            Get.to(MbxNewsScreen(news: news));
+          },
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            ImageX(
+              url: news.image,
+              width: double.infinity,
+              height: 100.0,
+              cornerRadius: 12.0,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: 4.0),
+            TextX(
+              news.title,
+              fontSize: 15.0,
+              fontWeight: FontWeight.w500,
+              color: ColorX.gray,
+              textAlign: TextAlign.start,
+              maxLines: 3,
+            ),
+            Spacer()
+          ]),
+        ));
   }
 }

@@ -9,8 +9,8 @@ class InkWellX extends StatelessWidget {
 
   const InkWellX({
     Key? key,
-    this.backgroundColor = ColorX.transparent,
-    this.highlightColor = ColorX.highlight,
+    this.backgroundColor,
+    this.highlightColor,
     this.cornerRadius = 0.0,
     this.onClicked,
     this.child,
@@ -19,8 +19,9 @@ class InkWellX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: backgroundColor,
+        color: ColorX.transparent,
         child: InkWell(
+            splashFactory: NoSplash.splashFactory,
             customBorder: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(cornerRadius)),
             highlightColor: highlightColor,

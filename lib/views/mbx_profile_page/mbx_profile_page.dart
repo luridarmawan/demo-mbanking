@@ -70,253 +70,232 @@ class MbxProfilePage extends StatelessWidget {
                             topRightRadius: 16.0,
                             child: Column(children: [
                               ContainerX(
-                                  padding: EdgeInsets.only(
-                                      left: 12.0,
-                                      top: 0.0,
-                                      right: 12.0,
-                                      bottom: 0.0),
-                                  child: Material(
-                                    color: ColorX.transparent,
-                                    child: InkWell(
-                                        highlightColor: ColorX.highlight,
-                                        customBorder: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0)),
-                                        onTap: () {
-                                          Get.back();
-                                        },
-                                        child: ContainerX(
-                                            padding: EdgeInsets.only(
-                                                left: 8.0,
-                                                top: 8.0,
-                                                right: 8.0,
-                                                bottom: 8.0),
-                                            child: Row(
-                                              children: [
-                                                ContainerX(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  cornerRadius: 20.0,
-                                                  backgroundColor: ColorX.theme
-                                                      .withOpacity(0.1),
-                                                  child: Center(
-                                                    child: ImageX(
-                                                      faIcon:
-                                                          FontAwesomeIcons.gear,
-                                                      width: 20.0,
-                                                      height: 20.0,
-                                                      color: ColorX.black,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 8.0,
-                                                ),
-                                                TextX(
-                                                  'Settings',
-                                                  fontSize: 17.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: ColorX.black,
-                                                ),
-                                                Spacer(),
-                                                ImageX(
-                                                  faIcon: FontAwesomeIcons
-                                                      .chevronRight,
-                                                  width: 13.0,
-                                                  height: 13.0,
+                                padding: EdgeInsets.only(
+                                    left: 12.0,
+                                    top: 0.0,
+                                    right: 12.0,
+                                    bottom: 0.0),
+                                child: InkWellX(
+                                    cornerRadius: 8.0,
+                                    onClicked: () {
+                                      Get.back();
+                                    },
+                                    child: ContainerX(
+                                        padding: EdgeInsets.only(
+                                            left: 8.0,
+                                            top: 8.0,
+                                            right: 8.0,
+                                            bottom: 8.0),
+                                        child: Row(
+                                          children: [
+                                            ContainerX(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              cornerRadius: 20.0,
+                                              backgroundColor:
+                                                  ColorX.theme.withOpacity(0.1),
+                                              child: Center(
+                                                child: ImageX(
+                                                  faIcon: FontAwesomeIcons.gear,
+                                                  width: 20.0,
+                                                  height: 20.0,
                                                   color: ColorX.black,
                                                   fit: BoxFit.contain,
-                                                )
-                                              ],
-                                            ))),
-                                  )),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 8.0,
+                                            ),
+                                            TextX(
+                                              'Settings',
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorX.black,
+                                            ),
+                                            Spacer(),
+                                            ImageX(
+                                              faIcon:
+                                                  FontAwesomeIcons.chevronRight,
+                                              width: 13.0,
+                                              height: 13.0,
+                                              color: ColorX.black,
+                                              fit: BoxFit.contain,
+                                            )
+                                          ],
+                                        ))),
+                              ),
                               ContainerX(
-                                  padding: EdgeInsets.only(
-                                      left: 12.0,
-                                      top: 0.0,
-                                      right: 12.0,
-                                      bottom: 0.0),
-                                  child: Material(
-                                    color: ColorX.transparent,
-                                    child: InkWell(
-                                        highlightColor: ColorX.highlight,
-                                        customBorder: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0)),
-                                        onTap: () {
-                                          controller.btnTncClicked();
-                                        },
-                                        child: ContainerX(
-                                            padding: EdgeInsets.only(
-                                                left: 8.0,
-                                                top: 8.0,
-                                                right: 8.0,
-                                                bottom: 8.0),
-                                            child: Row(
-                                              children: [
-                                                ContainerX(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  cornerRadius: 20.0,
-                                                  backgroundColor: ColorX.theme
-                                                      .withOpacity(0.1),
-                                                  child: Center(
-                                                    child: ImageX(
-                                                      faIcon: FontAwesomeIcons
-                                                          .shieldHalved,
-                                                      width: 20.0,
-                                                      height: 20.0,
-                                                      color: ColorX.black,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 8.0,
-                                                ),
-                                                TextX(
-                                                  'Syarat & Ketentuan',
-                                                  fontSize: 17.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: ColorX.black,
-                                                ),
-                                                Spacer(),
-                                                ImageX(
+                                padding: EdgeInsets.only(
+                                    left: 12.0,
+                                    top: 0.0,
+                                    right: 12.0,
+                                    bottom: 0.0),
+                                child: InkWellX(
+                                    cornerRadius: 8.0,
+                                    onClicked: () {
+                                      controller.btnTncClicked();
+                                    },
+                                    child: ContainerX(
+                                        padding: EdgeInsets.only(
+                                            left: 8.0,
+                                            top: 8.0,
+                                            right: 8.0,
+                                            bottom: 8.0),
+                                        child: Row(
+                                          children: [
+                                            ContainerX(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              cornerRadius: 20.0,
+                                              backgroundColor:
+                                                  ColorX.theme.withOpacity(0.1),
+                                              child: Center(
+                                                child: ImageX(
                                                   faIcon: FontAwesomeIcons
-                                                      .chevronRight,
-                                                  width: 13.0,
-                                                  height: 13.0,
+                                                      .shieldHalved,
+                                                  width: 20.0,
+                                                  height: 20.0,
                                                   color: ColorX.black,
                                                   fit: BoxFit.contain,
-                                                )
-                                              ],
-                                            ))),
-                                  )),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 8.0,
+                                            ),
+                                            TextX(
+                                              'Syarat & Ketentuan',
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorX.black,
+                                            ),
+                                            Spacer(),
+                                            ImageX(
+                                              faIcon:
+                                                  FontAwesomeIcons.chevronRight,
+                                              width: 13.0,
+                                              height: 13.0,
+                                              color: ColorX.black,
+                                              fit: BoxFit.contain,
+                                            )
+                                          ],
+                                        ))),
+                              ),
                               ContainerX(
-                                  padding: EdgeInsets.only(
-                                      left: 12.0,
-                                      top: 0.0,
-                                      right: 12.0,
-                                      bottom: 0.0),
-                                  child: Material(
-                                    color: ColorX.transparent,
-                                    child: InkWell(
-                                        highlightColor: ColorX.highlight,
-                                        customBorder: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0)),
-                                        onTap: () {
-                                          controller.btnPrivacyPolicyClicked();
-                                        },
-                                        child: ContainerX(
-                                            padding: EdgeInsets.only(
-                                                left: 8.0,
-                                                top: 8.0,
-                                                right: 8.0,
-                                                bottom: 8.0),
-                                            child: Row(
-                                              children: [
-                                                ContainerX(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  cornerRadius: 20.0,
-                                                  backgroundColor: ColorX.theme
-                                                      .withOpacity(0.1),
-                                                  child: Center(
-                                                    child: ImageX(
-                                                      faIcon: FontAwesomeIcons
-                                                          .shieldHalved,
-                                                      width: 20.0,
-                                                      height: 20.0,
-                                                      color: ColorX.black,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 8.0,
-                                                ),
-                                                TextX(
-                                                  'Kebijakan Privasi',
-                                                  fontSize: 17.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: ColorX.black,
-                                                ),
-                                                Spacer(),
-                                                ImageX(
+                                padding: EdgeInsets.only(
+                                    left: 12.0,
+                                    top: 0.0,
+                                    right: 12.0,
+                                    bottom: 0.0),
+                                child: InkWellX(
+                                    cornerRadius: 8.0,
+                                    onClicked: () {
+                                      controller.btnPrivacyPolicyClicked();
+                                    },
+                                    child: ContainerX(
+                                        padding: EdgeInsets.only(
+                                            left: 8.0,
+                                            top: 8.0,
+                                            right: 8.0,
+                                            bottom: 8.0),
+                                        child: Row(
+                                          children: [
+                                            ContainerX(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              cornerRadius: 20.0,
+                                              backgroundColor:
+                                                  ColorX.theme.withOpacity(0.1),
+                                              child: Center(
+                                                child: ImageX(
                                                   faIcon: FontAwesomeIcons
-                                                      .chevronRight,
-                                                  width: 13.0,
-                                                  height: 13.0,
+                                                      .shieldHalved,
+                                                  width: 20.0,
+                                                  height: 20.0,
                                                   color: ColorX.black,
                                                   fit: BoxFit.contain,
-                                                )
-                                              ],
-                                            ))),
-                                  )),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 8.0,
+                                            ),
+                                            TextX(
+                                              'Kebijakan Privasi',
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorX.black,
+                                            ),
+                                            Spacer(),
+                                            ImageX(
+                                              faIcon:
+                                                  FontAwesomeIcons.chevronRight,
+                                              width: 13.0,
+                                              height: 13.0,
+                                              color: ColorX.black,
+                                              fit: BoxFit.contain,
+                                            )
+                                          ],
+                                        ))),
+                              ),
                               ContainerX(
-                                  padding: EdgeInsets.only(
-                                      left: 12.0,
-                                      top: 0.0,
-                                      right: 12.0,
-                                      bottom: 0.0),
-                                  child: Material(
-                                    color: ColorX.transparent,
-                                    child: InkWell(
-                                        highlightColor: ColorX.highlight,
-                                        customBorder: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0)),
-                                        onTap: () {
-                                          controller.btnLogoutClicked();
-                                        },
-                                        child: ContainerX(
-                                            padding: EdgeInsets.only(
-                                                left: 8.0,
-                                                top: 8.0,
-                                                right: 8.0,
-                                                bottom: 8.0),
-                                            child: Row(
-                                              children: [
-                                                ContainerX(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  cornerRadius: 20.0,
-                                                  backgroundColor: ColorX.theme
-                                                      .withOpacity(0.1),
-                                                  child: Center(
-                                                    child: ImageX(
-                                                      faIcon: FontAwesomeIcons
-                                                          .powerOff,
-                                                      width: 20.0,
-                                                      height: 20.0,
-                                                      color: ColorX.black,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 8.0,
-                                                ),
-                                                TextX(
-                                                  'Keluar',
-                                                  fontSize: 17.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: ColorX.black,
-                                                ),
-                                                Spacer(),
-                                                ImageX(
-                                                  faIcon: FontAwesomeIcons
-                                                      .chevronRight,
-                                                  width: 13.0,
-                                                  height: 13.0,
+                                padding: EdgeInsets.only(
+                                    left: 12.0,
+                                    top: 0.0,
+                                    right: 12.0,
+                                    bottom: 0.0),
+                                child: InkWellX(
+                                    cornerRadius: 8.0,
+                                    onClicked: () {
+                                      controller.btnLogoutClicked();
+                                    },
+                                    child: ContainerX(
+                                        padding: EdgeInsets.only(
+                                            left: 8.0,
+                                            top: 8.0,
+                                            right: 8.0,
+                                            bottom: 8.0),
+                                        child: Row(
+                                          children: [
+                                            ContainerX(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              cornerRadius: 20.0,
+                                              backgroundColor:
+                                                  ColorX.theme.withOpacity(0.1),
+                                              child: Center(
+                                                child: ImageX(
+                                                  faIcon:
+                                                      FontAwesomeIcons.powerOff,
+                                                  width: 20.0,
+                                                  height: 20.0,
                                                   color: ColorX.black,
                                                   fit: BoxFit.contain,
-                                                )
-                                              ],
-                                            ))),
-                                  )),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 8.0,
+                                            ),
+                                            TextX(
+                                              'Keluar',
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorX.black,
+                                            ),
+                                            Spacer(),
+                                            ImageX(
+                                              faIcon:
+                                                  FontAwesomeIcons.chevronRight,
+                                              width: 13.0,
+                                              height: 13.0,
+                                              color: ColorX.black,
+                                              fit: BoxFit.contain,
+                                            )
+                                          ],
+                                        ))),
+                              ),
                               Spacer(),
                               Padding(
                                 padding: EdgeInsets.all(24.0),

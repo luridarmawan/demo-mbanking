@@ -67,8 +67,8 @@ class TextFieldX extends StatelessWidget {
           data: Theme.of(context).copyWith(
             splashColor: ColorX.transparent,
           ),
-          child: InkWell(
-            onTap: () => rightAction != null ? rightAction!() : null,
+          child: InkWellX(
+            onClicked: () => rightAction != null ? rightAction!() : null,
             child: rightIcon,
           ),
         ),
