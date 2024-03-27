@@ -1,3 +1,5 @@
+import 'package:demombanking/widgets/container_x.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_profile_controller.dart';
@@ -19,7 +21,7 @@ class MbxProfilePage extends StatelessWidget {
                     padding: EdgeInsets.all(12.0),
                     child: Column(
                       children: [
-                        SizedBox(
+                        ContainerX(
                             height: MediaQuery.of(Get.context!).padding.top),
                         ContainerX(
                             backgroundColor: ColorX.white,
@@ -41,7 +43,7 @@ class MbxProfilePage extends StatelessWidget {
                               height: 100.0,
                               cornerRadius: 50.0,
                             ))),
-                        SizedBox(height: 8.0),
+                        ContainerX(height: 8.0),
                         TextX(
                           MbxProfileVM.profile.name.isEmpty
                               ? '-'
@@ -50,6 +52,7 @@ class MbxProfilePage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: ColorX.white,
                         ),
+                        ContainerX(height: 2.0,)
                         TextX(
                           MbxProfileVM.profile.email.isEmpty
                               ? '-'

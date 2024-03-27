@@ -5,9 +5,13 @@ class MbxLauncherCell extends StatelessWidget {
   final Color color;
   final IconData faIcon;
   final String title;
+  final Color titleColor;
 
   MbxLauncherCell(
-      {required this.color, required this.faIcon, required this.title});
+      {required this.color,
+      required this.faIcon,
+      required this.title,
+      required this.titleColor});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,7 @@ class MbxLauncherCell extends StatelessWidget {
                     ),
                     TextX(
                       title,
-                      color: ColorX.white,
+                      color: titleColor,
                       fontSize: 11.0,
                       fontWeight: FontWeight.w600,
                       textAlign: TextAlign.center,

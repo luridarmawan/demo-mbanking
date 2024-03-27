@@ -94,7 +94,9 @@ class MbxHomePage extends StatelessWidget {
                                       faColor: ColorX.white,
                                       width: 42.0,
                                       height: 42.0,
-                                      onClicked: () {},
+                                      onClicked: () {
+                                        controller.btnLockClicked();
+                                      },
                                     )
                                   ],
                                 )
@@ -166,37 +168,45 @@ class MbxHomePage extends StatelessWidget {
                                         color: ColorX.green,
                                         faIcon: FontAwesomeIcons
                                             .arrowRightArrowLeft,
-                                        title: 'Transfer'),
+                                        title: 'Transfer',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.blue,
                                         faIcon: FontAwesomeIcons.sackDollar,
-                                        title: 'Tarik Tunai'),
+                                        title: 'Tarik Tunai',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.teal,
                                         faIcon: FontAwesomeIcons.landmark,
-                                        title: 'Deposito'),
+                                        title: 'Deposito',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.yellow,
                                         faIcon:
                                             FontAwesomeIcons.handHoldingDollar,
-                                        title: 'Paylater'),
+                                        title: 'Paylater',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.red,
                                         faIcon: FontAwesomeIcons.qrcode,
-                                        title: 'QRIS'),
+                                        title: 'QRIS',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.green,
                                         faIcon: FontAwesomeIcons.houseFlag,
-                                        title: 'Bayar'),
+                                        title: 'Bayar',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.blue,
                                         faIcon:
                                             FontAwesomeIcons.circleDollarToSlot,
-                                        title: 'Top Up'),
+                                        title: 'Top Up',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.gray,
                                         faIcon: FontAwesomeIcons.ellipsis,
-                                        title: 'Lainnya'),
+                                        title: 'Lainnya',
+                                        titleColor: ColorX.white),
                                   ],
                                 ),
                               ),
@@ -232,19 +242,23 @@ class MbxHomePage extends StatelessWidget {
                                     MbxLauncherCell(
                                         color: ColorX.yellow,
                                         faIcon: FontAwesomeIcons.solidLightbulb,
-                                        title: 'Listrik PLN'),
+                                        title: 'Listrik PLN',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.red,
                                         faIcon: FontAwesomeIcons.mobile,
-                                        title: 'Pulsa'),
+                                        title: 'Pulsa',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.blue,
                                         faIcon: FontAwesomeIcons.water,
-                                        title: 'PAM'),
+                                        title: 'PAM',
+                                        titleColor: ColorX.white),
                                     MbxLauncherCell(
                                         color: ColorX.teal,
                                         faIcon: FontAwesomeIcons.shield,
-                                        title: 'BPJS'),
+                                        title: 'BPJS',
+                                        titleColor: ColorX.white),
                                   ],
                                 ),
                               ),

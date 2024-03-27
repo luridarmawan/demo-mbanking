@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_lock_screen/mbx_lock_screen.dart';
+
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_preferences_vm+users.dart';
@@ -30,6 +32,11 @@ class MbxHomeController extends GetxController {
 
       Get.find<MbxBottomNavBarController>().update();
     });
+  }
+
+  btnLockClicked() {
+    Get.deleteAll();
+    Get.offAll(MbxLockScreen());
   }
 
   btnEyeClicked(int index) {

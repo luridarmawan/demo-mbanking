@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_lock_screen/mbx_lock_screen.dart';
+
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
@@ -33,7 +35,7 @@ Future<void> main() async {
   if (MbxProfileVM.profile.token.isEmpty) {
     firstScreen = MbxOnboardingScreen();
   } else {
-    firstScreen = MbxBottomNavBarScreen();
+    firstScreen = MbxLockScreen();
   }
 
   SystemChrome.setPreferredOrientations([
