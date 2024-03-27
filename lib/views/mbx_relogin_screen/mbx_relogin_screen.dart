@@ -2,13 +2,13 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_home_page/mbx_launcher_cell.dart';
 import '../mbx_home_page/mbx_theme_button.dart';
-import 'mbx_lock_controller.dart';
+import 'mbx_relogin_controller.dart';
 
-class MbxLockScreen extends StatelessWidget {
+class MbxReloginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxLockController>(
-        init: MbxLockController(),
+    return GetBuilder<MbxReloginController>(
+        init: MbxReloginController(),
         builder: (controller) => ScreenX(
               lightStatusBar: true,
               topPadding: false,

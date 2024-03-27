@@ -1,52 +1,46 @@
+import 'package:demombanking/widgets/all_widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_vm.dart';
+import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../widgets/all_widgets.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
+import 'mbx_login_screen.dart';
 import '../mbx_otp_sheet/mbx_otp_sheet.dart';
 
-class MbxLoginController extends SuperController {
+class MbLoginController extends GetxController {
+  final PageController pageController = PageController();
+  var onboardingVM = MbxOnboardingListVM();
   final txtPhoneController = TextEditingController();
   final txtPhoneNode = FocusNode();
   var txtPhoneError = '';
   var loginEnabled = false;
+  var version = '';
 
   @override
   void onReady() {
     super.onReady();
-    txtPhoneError = '';
-    update();
-    FocusScope.of(Get.context!).requestFocus(txtPhoneNode);
-  }
+    PackageInfo.fromPlatform().then((info) {
+      version = 'Version ${info.version}.${info.buildNumber}';
+      update();
+    });
 
-  btnBackClicked() {
-    Get.back();
-  }
-
-  @override
-  void onDetached() {
-    LoggerX.log('[MbxLoginController] onDetached');
-  }
-
-  @override
-  void onInactive() {
-    LoggerX.log('[MbxLoginController] onInactive');
-  }
-
-  @override
-  void onPaused() {
-    LoggerX.log('[MbxLoginController] onPaused');
-  }
-
-  @override
-  Future<void> onResumed() async {
-    LoggerX.log('[MbxLoginController] onResumed');
-    //await MbxAntiJailbreakVM.check();
+    onboardingVM.nextPage().then((resp) {
+      if (resp.statusCode == 200) {
+        update();
+      }
+    });
   }
 
   txtPhoneOnChanged(String value) {
     loginEnabled = !value.isEmpty;
     update();
+  }
+
+  btnStartClicked() {
+    Get.to(MbxLoginScreen());
   }
 
   btnLoginClicked() {
@@ -83,7 +77,4 @@ class MbxLoginController extends SuperController {
       } else {}
     });
   }
-
-  @override
-  void onHidden() {}
 }

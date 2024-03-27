@@ -2,7 +2,7 @@ import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_lock_screen/mbx_lock_screen.dart';
+import '../mbx_relogin_screen/mbx_relogin_screen.dart';
 
 class MbxHomeController extends GetxController {
   final scrollController = ScrollController();
@@ -27,7 +27,7 @@ class MbxHomeController extends GetxController {
 
   btnLockClicked() {
     Get.deleteAll();
-    Get.offAll(MbxLockScreen());
+    Get.offAll(MbxReloginScreen());
   }
 
   btnEyeClicked(int index) {

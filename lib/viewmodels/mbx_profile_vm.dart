@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import '../models/mbx_profile_model.dart';
 import '../utils/all_utils.dart';
-import '../views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
+import '../views/mbx_login_screen/mbx_login_screen.dart';
 import '../widgets/all_widgets.dart';
 import 'mbx_apis.dart';
 import 'mbx_preferences_vm+users.dart';
@@ -45,7 +45,7 @@ class MbxProfileVM {
     profile = MbxProfileModel();
     save();
     Get.deleteAll();
-    Get.offAll(MbxOnboardingScreen());
+    Get.offAll(MbxLoginScreen());
     LoggerX.log('[Profile] logout');
   }
 

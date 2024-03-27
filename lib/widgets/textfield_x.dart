@@ -59,7 +59,7 @@ class TextFieldX extends StatelessWidget {
 
   Widget rightContainerButton(BuildContext context) {
     return ContainerX(
-      width: 38.0 - (borderWidth * 1),
+      width: height - (borderWidth * 1),
       height: height - (borderWidth * 2),
       child: Material(
         color: ColorX.transparent,

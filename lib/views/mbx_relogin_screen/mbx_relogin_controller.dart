@@ -9,7 +9,7 @@ import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 
-class MbxLockController extends GetxController {
+class MbxReloginController extends GetxController {
   var version = '';
 
   @override
