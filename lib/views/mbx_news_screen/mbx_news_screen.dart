@@ -1,4 +1,3 @@
-import 'package:demombanking/utils/all_utils.dart';
 import '../../models/mbx_news_model.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_news_controller.dart';

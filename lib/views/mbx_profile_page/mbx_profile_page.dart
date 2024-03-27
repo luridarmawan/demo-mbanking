@@ -52,7 +52,9 @@ class MbxProfilePage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: ColorX.white,
                         ),
-                        ContainerX(height: 2.0,)
+                        ContainerX(
+                          height: 2.0,
+                        ),
                         TextX(
                           MbxProfileVM.profile.email.isEmpty
                               ? '-'

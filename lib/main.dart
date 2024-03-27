@@ -1,11 +1,9 @@
-import 'package:demombanking/views/mbx_lock_screen/mbx_lock_screen.dart';
-
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
 import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
-import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
+import 'views/mbx_lock_screen/mbx_lock_screen.dart';
 import 'views/mbx_onboarding_screen/mbx_onboarding_screen.dart';
 import 'widgets/all_widgets.dart';
 
