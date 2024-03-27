@@ -20,9 +20,9 @@ class MbxThemeCell extends StatelessWidget {
                 child: ContainerX(
                   padding: EdgeInsets.all(4.0),
                   cornerRadius: 29.0,
-                  borderWidth: color.value == ColorX.theme.value ? 2.0 : 0.0,
+                  borderWidth: 2.0,
                   borderColor: color.value == ColorX.theme.value
-                      ? ColorX.black
+                      ? ColorX.theme
                       : ColorX.transparent,
                   child: ContainerX(
                       width: 50.0,
