@@ -13,9 +13,9 @@ class TextX extends StatelessWidget {
   const TextX(
     this.text, {
     Key? key,
-    this.fontFamily = 'Roboto',
     this.color = ColorX.black,
     this.fontSize = 17.0,
+    this.fontFamily = 'Roboto',
     this.fontWeight = FontWeight.w400,
     this.textAlign = TextAlign.start,
     this.underline = false,

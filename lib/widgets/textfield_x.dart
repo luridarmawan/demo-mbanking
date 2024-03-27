@@ -3,6 +3,9 @@ import 'all_widgets.dart';
 class TextFieldX extends StatelessWidget {
   final String hint;
   final bool obscureText;
+  final double fontSize;
+  final String fontFamily;
+  final FontWeight fontWeight;
   final double cornerRadius;
   final double borderWidth;
   final Color borderColor;
@@ -21,6 +24,9 @@ class TextFieldX extends StatelessWidget {
     Key? key,
     required this.hint,
     required this.obscureText,
+    this.fontSize = 17.0,
+    this.fontFamily = 'Roboto',
+    this.fontWeight = FontWeight.w400,
     this.cornerRadius = 8.0,
     this.borderWidth = 1.0,
     this.borderColor = ColorX.lightGray,
@@ -102,7 +108,12 @@ class TextFieldX extends StatelessWidget {
               onChanged: onChanged,
               focusNode: focusNode,
               obscureText: obscureText,
-              style: const TextStyle(fontSize: 17.0, color: ColorX.black),
+              style: TextStyle(
+                  color: ColorX.black,
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  fontFamily: fontFamily,
+                  decoration: TextDecoration.none),
               keyboardType: multiline ? TextInputType.multiline : keyboardType,
               textInputAction:
                   multiline ? TextInputAction.newline : TextInputAction.done,
@@ -116,8 +127,12 @@ class TextFieldX extends StatelessWidget {
                 isDense: true,
                 border: InputBorder.none,
                 hintText: hint,
-                hintStyle:
-                    const TextStyle(fontSize: 17.0, color: ColorX.lightGray),
+                hintStyle: TextStyle(
+                    color: ColorX.lightGray,
+                    fontSize: fontSize,
+                    fontWeight: fontWeight,
+                    fontFamily: fontFamily,
+                    decoration: TextDecoration.none),
               ),
             ),
           ),
