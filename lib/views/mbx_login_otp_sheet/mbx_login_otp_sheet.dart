@@ -1,3 +1,5 @@
+import 'package:demombanking/utils/all_utils.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_login_otp_sheet_controller.dart';
 
@@ -64,7 +66,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 1
+                    backgroundColor: controller.code.length >= 1
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -75,7 +77,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 2
+                    backgroundColor: controller.code.length >= 2
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -86,7 +88,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 3
+                    backgroundColor: controller.code.length >= 3
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -97,7 +99,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 4
+                    backgroundColor: controller.code.length >= 4
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -108,7 +110,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 5
+                    backgroundColor: controller.code.length >= 5
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -119,7 +121,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                   ),
                   SizedBox(width: 8.0),
                   ContainerX(
-                    backgroundColor: controller.otp.length >= 6
+                    backgroundColor: controller.code.length >= 6
                         ? ColorX.gray
                         : ColorX.transparent,
                     width: 12.0,
@@ -159,7 +161,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '1',
                           fontSize: 24.0,
@@ -175,7 +177,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '2',
                           fontSize: 24.0,
@@ -191,7 +193,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '3',
                           fontSize: 24.0,
@@ -212,7 +214,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '4',
                           fontSize: 24.0,
@@ -228,7 +230,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '5',
                           fontSize: 24.0,
@@ -244,7 +246,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '6',
                           fontSize: 24.0,
@@ -265,7 +267,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '7',
                           fontSize: 24.0,
@@ -281,7 +283,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '8',
                           fontSize: 24.0,
@@ -297,7 +299,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '9',
                           fontSize: 24.0,
@@ -320,7 +322,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '',
                           fontSize: 24.0,
@@ -336,7 +338,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '0',
                           fontSize: 24.0,
@@ -354,7 +356,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                           cornerRadius: 32.0,
                           borderWidth: 1.0,
                           borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
+                          backgroundColor: ColorX.theme.lighten(0.45),
                           titleColor: ColorX.black,
                           title: '',
                           fontSize: 24.0,

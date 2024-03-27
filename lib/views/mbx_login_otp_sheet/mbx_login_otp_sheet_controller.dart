@@ -3,7 +3,7 @@ import '../../widgets/all_widgets.dart';
 
 class MbxLoginOtpSheetController extends GetxController {
   final String phone;
-  String otp = '';
+  String code = '';
   String error = '';
 
   MbxLoginOtpSheetController({required this.phone});
@@ -13,9 +13,9 @@ class MbxLoginOtpSheetController extends GetxController {
   }
 
   btnKeypadClicked(String digit) {
-    if (otp.length < 6) {
-      otp = otp + digit;
-      if (otp.length == 6) {
+    if (code.length < 6) {
+      code = code + digit;
+      if (code.length == 6) {
         submit();
       }
     }
@@ -25,8 +25,8 @@ class MbxLoginOtpSheetController extends GetxController {
   btnFingerprintClicked() {}
 
   btnBackspaceClicked() {
-    if (otp.length > 0) {
-      otp = otp.substring(0, otp.length - 1);
+    if (code.length > 0) {
+      code = code.substring(0, code.length - 1);
     }
     update();
   }
@@ -36,17 +36,17 @@ class MbxLoginOtpSheetController extends GetxController {
   }
 
   clear(String error) {
-    otp = '';
+    code = '';
     this.error = error;
     update();
   }
 
   submit() {
     Get.loading();
-    MbxLoginOtpVM.request(phone: phone, otp: otp).then((resp) {
+    MbxLoginOtpVM.request(phone: phone, otp: code).then((resp) {
       Get.back();
       if (resp.statusCode == 200) {
-        Get.back(result: otp);
+        Get.back(result: code);
       } else {}
     });
   }
