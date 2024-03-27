@@ -1,9 +1,8 @@
 import 'package:demombanking/widgets/all_widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_vm.dart';
+import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
@@ -18,6 +17,7 @@ class MbLoginController extends GetxController {
   var txtPhoneError = '';
   var loginEnabled = false;
   var version = '';
+  var pageIndex = 0;
 
   @override
   void onReady() {
@@ -41,6 +41,11 @@ class MbLoginController extends GetxController {
 
   btnStartClicked() {
     Get.to(MbxLoginScreen());
+  }
+
+  setPageIndex(int index) {
+    pageIndex = index;
+    update();
   }
 
   btnLoginClicked() {
