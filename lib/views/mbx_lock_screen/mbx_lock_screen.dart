@@ -9,11 +9,11 @@ class MbxLockScreen extends StatelessWidget {
     return GetBuilder<MbxLockController>(
         init: MbxLockController(),
         builder: (controller) => ScreenX(
-              lightStatusBar: false,
-              topPadding: true,
-              bottomPadding: true,
+              lightStatusBar: true,
+              topPadding: false,
+              bottomPadding: false,
               bodyView: ContainerX(
-                  backgroundColor: ColorX.white,
+                  backgroundColor: ColorX.theme,
                   padding: EdgeInsets.all(24.0),
                   child: Column(
                     children: [
@@ -23,12 +23,10 @@ class MbxLockScreen extends StatelessWidget {
                             height: double.infinity,
                             child: Center(
                                 child: ContainerX(
+                                    backgroundColor: ColorX.white,
                                     padding: EdgeInsets.all(12.0),
-                                    borderColor: ColorX.lightGray,
-                                    borderWidth: 1.0,
                                     cornerRadius: 12.0,
                                     child: Wrap(
-                                      //direction: Axis.vertical,
                                       crossAxisAlignment:
                                           WrapCrossAlignment.center,
                                       alignment: WrapAlignment.center,
@@ -118,7 +116,7 @@ class MbxLockScreen extends StatelessWidget {
                           controller.version,
                           fontSize: 13.0,
                           fontWeight: FontWeight.w500,
-                          color: ColorX.black,
+                          color: ColorX.white,
                         ),
                       ),
                     ],
