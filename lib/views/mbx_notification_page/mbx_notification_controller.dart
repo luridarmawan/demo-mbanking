@@ -1,8 +1,8 @@
-import 'package:get/get.dart';
-
 import '../../viewmodels/mbx_notification_list_vm.dart';
+import '../../widgets/all_widgets.dart';
 
 class MbxNotificationController extends GetxController {
+  final scrollController = ScrollController();
   var notificationListVM = MbxNotificationVM();
 
   @override

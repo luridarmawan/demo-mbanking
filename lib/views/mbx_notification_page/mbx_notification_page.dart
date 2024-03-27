@@ -35,7 +35,9 @@ class MbxNotificationPage extends StatelessWidget {
                       },
                       child: Material(
                         child: Scrollbar(
+                            controller: controller.scrollController,
                             child: ListView.separated(
+                                controller: controller.scrollController,
                                 padding: EdgeInsets.only(
                                     bottom: MediaQuery.of(Get.context!)
                                             .padding

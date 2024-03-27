@@ -1,8 +1,8 @@
-import 'package:get/get.dart';
-
 import '../../viewmodels/mbx_history_list_vm.dart';
+import '../../widgets/all_widgets.dart';
 
 class MbxHistoryController extends GetxController {
+  final scrollController = ScrollController();
   var historyListVM = MbxHistoryListVM();
 
   @override

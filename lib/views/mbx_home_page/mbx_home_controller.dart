@@ -5,6 +5,7 @@ import '../../widgets/all_widgets.dart';
 import '../mbx_lock_screen/mbx_lock_screen.dart';
 
 class MbxHomeController extends GetxController {
+  final scrollController = ScrollController();
   var newsListVM = MbxNewsListVM();
   var pageIndex = 0;
 
