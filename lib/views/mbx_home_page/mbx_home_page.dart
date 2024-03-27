@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_home_page/mbx_account_cell.dart';
 import 'package:demombanking/views/mbx_home_page/mbx_news_cell.dart';
+import 'package:demombanking/views/mbx_home_page/mbx_theme_button.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
@@ -68,25 +69,10 @@ class MbxHomePage extends StatelessWidget {
                                 Spacer(),
                                 Row(
                                   children: [
-                                    InkWellX(
-                                      cornerRadius: 8.0,
+                                    MbxThemeButton(
                                       onClicked: () {
                                         controller.btnThemeClicked();
                                       },
-                                      child: ContainerX(
-                                        width: 42.0,
-                                        height: 42.0,
-                                        cornerRadius: 12.0,
-                                        child: Center(
-                                            child: ContainerX(
-                                          backgroundColor: ColorX.theme,
-                                          width: 32.0,
-                                          height: 32.0,
-                                          cornerRadius: 16.0,
-                                          borderWidth: 4.0,
-                                          borderColor: ColorX.white,
-                                        )),
-                                      ),
                                     ),
                                     ButtonX(
                                       backgroundColor: ColorX.transparent,

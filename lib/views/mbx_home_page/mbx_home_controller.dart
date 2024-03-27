@@ -1,12 +1,8 @@
-import 'package:demombanking/views/mbx_lock_screen/mbx_lock_screen.dart';
-
-import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
-import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
+import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_controller.dart';
-import '../mbx_theme_sheet/mbx_theme_sheet.dart';
+import '../mbx_lock_screen/mbx_lock_screen.dart';
 
 class MbxHomeController extends GetxController {
   var newsListVM = MbxNewsListVM();
@@ -23,14 +19,8 @@ class MbxHomeController extends GetxController {
   }
 
   btnThemeClicked() {
-    final sheet = MbxThemeSheet();
-    sheet.show().then((value) {
-      LoggerX.log('hex: $value');
-      MbxUserPreferencesVM.setTheme(value);
-      ColorX.theme = hexToColor(value);
+    MbxThemeVM.change().then((value) {
       update();
-
-      Get.find<MbxBottomNavBarController>().update();
     });
   }
 
