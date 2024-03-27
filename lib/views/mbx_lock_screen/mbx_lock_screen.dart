@@ -1,6 +1,7 @@
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_home_page/mbx_launcher_cell.dart';
+import '../mbx_home_page/mbx_theme_button.dart';
 import 'mbx_lock_controller.dart';
 
 class MbxLockScreen extends StatelessWidget {
@@ -14,11 +15,27 @@ class MbxLockScreen extends StatelessWidget {
               bottomPadding: false,
               bodyView: ContainerX(
                   backgroundColor: ColorX.theme,
-                  padding: EdgeInsets.all(24.0),
                   child: Column(
                     children: [
+                      ContainerX(
+                          height: MediaQuery.of(Get.context!).padding.top),
+                      ContainerX(
+                        padding: EdgeInsets.only(
+                            left: 24.0, top: 12.0, right: 24.0, bottom: 0.0),
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            MbxThemeButton(
+                              onClicked: () {
+                                controller.btnThemeClicked();
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
                       Expanded(
                         child: ContainerX(
+                            padding: EdgeInsets.all(24.0),
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
