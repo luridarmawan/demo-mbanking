@@ -1,6 +1,9 @@
+import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
+import 'package:demombanking/views/mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
 import 'package:demombanking/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import '../../viewmodels/mbx_login_vm.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -22,8 +25,19 @@ class MbxLockController extends GetxController {
   }
 
   btnLoginClicked() {
-    Get.deleteAll();
-    Get.offAll(MbxBottomNavBarScreen());
+    final sheet = MbxLoginOtpSheet(
+      phone: '',
+    );
+    sheet.show().then((value) {
+      LoggerX.log('OTP: $value');
+      if (value != null) {
+        Get.loading();
+        MbxProfileVM.request().then((resp) {
+          Get.deleteAll();
+          Get.offAll(MbxBottomNavBarScreen());
+        });
+      }
+    });
   }
 
   btnTncClicked() {

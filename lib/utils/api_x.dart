@@ -35,7 +35,7 @@ class ApiXResponse {
 
 class ApiX {
   static int timeoutInSecs = 120;
-  static int contractDelay = 1000;
+  static int contractDelay = 500;
 
   static ApiXResponse apiNoInternetResponse() {
     ApiXResponse resp = ApiXResponse();
