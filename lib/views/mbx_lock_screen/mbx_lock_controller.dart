@@ -1,6 +1,6 @@
 import 'package:demombanking/utils/all_utils.dart';
 import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
-import 'package:demombanking/views/mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
+import 'package:demombanking/views/mbx_otp_sheet/mbx_otp_sheet.dart';
 import 'package:demombanking/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../viewmodels/mbx_login_vm.dart';
@@ -25,7 +25,8 @@ class MbxLockController extends GetxController {
   }
 
   btnLoginClicked() {
-    final sheet = MbxLoginOtpSheet(
+    final sheet = MbxOtpSheet(
+      title: 'Masukkan PIN',
       phone: '',
     );
     sheet.show().then((value) {

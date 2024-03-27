@@ -3,7 +3,7 @@ import '../../viewmodels/mbx_login_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
-import '../mbx_login_otp_sheet/mbx_login_otp_sheet.dart';
+import '../mbx_otp_sheet/mbx_otp_sheet.dart';
 
 class MbxLoginController extends SuperController {
   final txtPhoneController = TextEditingController();
@@ -65,7 +65,8 @@ class MbxLoginController extends SuperController {
     MbxLoginVM.request(phone: txtPhoneController.text).then((resp) {
       Get.back();
       if (resp.statusCode == 200) {
-        final sheet = MbxLoginOtpSheet(
+        final sheet = MbxOtpSheet(
+          title: 'Masukkan OTP',
           phone: txtPhoneController.text,
         );
         sheet.show().then((value) {

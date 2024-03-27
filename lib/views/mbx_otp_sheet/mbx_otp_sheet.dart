@@ -1,15 +1,14 @@
-import 'package:demombanking/utils/all_utils.dart';
-import 'package:demombanking/views/mbx_login_otp_sheet/mbx_otp_button.dart';
-
 import '../../widgets/all_widgets.dart';
-import 'mbx_login_otp_sheet_controller.dart';
+import 'mbx_otp_sheet_controller.dart';
+import 'mbx_otp_button.dart';
 
 // ignore: must_be_immutable
-class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
+class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
+  final String title;
   final String phone;
   TextEditingController pinController = TextEditingController();
 
-  MbxLoginOtpSheet({required this.phone});
+  MbxOtpSheet({required this.title, required this.phone});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -22,8 +21,8 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxLoginOtpSheetController>(
-        init: MbxLoginOtpSheetController(phone: phone),
+    return GetBuilder<MbxOtpSheetController>(
+        init: MbxOtpSheetController(phone: phone),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,
@@ -51,7 +50,7 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                     ),
                     Expanded(
                       child: TextX(
-                        'Verifikasi OTP',
+                        title,
                         color: ColorX.black,
                         fontSize: 17.0,
                         fontWeight: FontWeight.w600,

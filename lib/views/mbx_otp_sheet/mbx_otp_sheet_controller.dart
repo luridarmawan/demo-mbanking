@@ -1,12 +1,12 @@
 import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../widgets/all_widgets.dart';
 
-class MbxLoginOtpSheetController extends GetxController {
+class MbxOtpSheetController extends GetxController {
   final String phone;
   String code = '';
   String error = '';
 
-  MbxLoginOtpSheetController({required this.phone});
+  MbxOtpSheetController({required this.phone});
 
   btnCloseClicked() {
     Get.back();
