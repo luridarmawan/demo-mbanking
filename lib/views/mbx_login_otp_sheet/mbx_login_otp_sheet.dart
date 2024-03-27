@@ -1,4 +1,5 @@
 import 'package:demombanking/utils/all_utils.dart';
+import 'package:demombanking/views/mbx_login_otp_sheet/mbx_otp_button.dart';
 
 import '../../widgets/all_widgets.dart';
 import 'mbx_login_otp_sheet_controller.dart';
@@ -155,212 +156,100 @@ class MbxLoginOtpSheet extends GetWidget<MbxLoginOtpSheetController> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '1',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('1');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '2',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('2');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '3',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('3');
                           },
-                        )
+                        ),
                       ],
                     ),
                     SizedBox(height: 12.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '4',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('4');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '5',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('5');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '6',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('6');
                           },
-                        )
+                        ),
                       ],
                     ),
                     SizedBox(height: 12.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '7',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('7');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '8',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('8');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '9',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('9');
                           },
-                        )
+                        ),
                       ],
                     ),
                     SizedBox(height: 12.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
+                        MbxOtpButton(
                           faIcon: FontAwesomeIcons.fingerprint,
-                          faColor: ColorX.black,
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
-                          title: '',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnFingerprintClicked();
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
+                        MbxOtpButton(
                           title: '0',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('0');
                           },
                         ),
                         SizedBox(width: 24.0),
-                        ButtonX(
+                        MbxOtpButton(
                           faIcon: FontAwesomeIcons.deleteLeft,
-                          faColor: ColorX.black,
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme.lighten(0.4),
-                          titleColor: ColorX.black,
-                          title: '',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnBackspaceClicked();
                           },
