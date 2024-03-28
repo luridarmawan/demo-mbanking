@@ -1,13 +1,11 @@
-import 'package:demombanking/utils/all_utils.dart';
-import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
-import 'package:demombanking/views/mbx_otp_sheet/mbx_otp_sheet.dart';
-import 'package:demombanking/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
+import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
+import '../mbx_otp_sheet/mbx_otp_sheet.dart';
 
 class MbxReloginController extends GetxController {
   var version = '';
@@ -47,15 +45,7 @@ class MbxReloginController extends GetxController {
     });
   }
 
-  btnTncClicked() {
-    Get.to(MbxTncScreen());
-  }
-
-  btnPrivacyPolicyClicked() {
-    Get.to(MbxPrivacyPolicyScreen());
-  }
-
-  btnLogoutClicked() {
+  btnSwitchAccountClicked() {
     SheetX.showMessage(
         title: 'Keluar',
         message: 'Apakah anda yakin ?',
