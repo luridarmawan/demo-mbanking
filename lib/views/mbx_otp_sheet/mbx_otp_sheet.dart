@@ -14,7 +14,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
-        cornerRadius: 32.0,
+        cornerRadius: 16.0,
         avoidingKeyboard: false,
         widget: this);
   }

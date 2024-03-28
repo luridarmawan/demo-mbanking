@@ -13,7 +13,7 @@ class SheetX {
       bool autoClose = true}) {
     return SheetX.showContent(
         backgroundColor: ColorX.white,
-        cornerRadius: 24.0,
+        cornerRadius: 16.0,
         avoidingKeyboard: false,
         contentMaxHeight: MediaQuery.of(Get.context!).size.height * 0.70,
         contentWidget: Padding(
@@ -157,7 +157,7 @@ class SheetX {
       bool autoClose = true}) {
     return SheetX.showWithGrip(
         backgroundColor: ColorX.white,
-        cornerRadius: 24.0,
+        cornerRadius: cornerRadius,
         avoidingKeyboard: avoidingKeyboard,
         widget: Column(children: [
           ConstrainedBox(

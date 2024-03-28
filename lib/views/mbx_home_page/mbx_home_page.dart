@@ -262,7 +262,8 @@ class MbxHomePage extends StatelessWidget {
                                   ),
                                 ),
                                 Visibility(
-                                  visible: true,
+                                  visible:
+                                      controller.newsListVM.list.length > 0,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -281,28 +282,23 @@ class MbxHomePage extends StatelessWidget {
                                           textAlign: TextAlign.start,
                                         ),
                                       ),
-                                      controller.newsListVM.list.length > 0
-                                          ? CarouselSlider.builder(
-                                              options: CarouselOptions(
-                                                padEnds: false,
-                                                autoPlay: true,
-                                                viewportFraction: 0.70,
-                                                height: 150.0,
-                                                onPageChanged: (index, reason) {
-                                                  controller
-                                                      .setPageIndex(index);
-                                                },
-                                              ),
-                                              itemCount: controller
-                                                  .newsListVM.list.length,
-                                              itemBuilder:
-                                                  (BuildContext context,
-                                                      int index,
-                                                      int pageViewIndex) {
-                                                return MbxNewsCell(controller
-                                                    .newsListVM.list[index]);
-                                              })
-                                          : Container(),
+                                      CarouselSlider.builder(
+                                          options: CarouselOptions(
+                                            padEnds: false,
+                                            autoPlay: true,
+                                            viewportFraction: 0.70,
+                                            height: 150.0,
+                                            onPageChanged: (index, reason) {
+                                              controller.setPageIndex(index);
+                                            },
+                                          ),
+                                          itemCount:
+                                              controller.newsListVM.list.length,
+                                          itemBuilder: (BuildContext context,
+                                              int index, int pageViewIndex) {
+                                            return MbxNewsCell(controller
+                                                .newsListVM.list[index]);
+                                          }),
                                     ],
                                   ),
                                 ),
