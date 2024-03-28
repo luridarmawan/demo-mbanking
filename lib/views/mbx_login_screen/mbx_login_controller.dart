@@ -2,9 +2,9 @@ import 'package:demombanking/widgets/all_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_vm.dart';
-import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
+import '../../viewmodels/mbx_theme_vm.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'mbx_login_screen.dart';
 import '../mbx_otp_sheet/mbx_otp_sheet.dart';
@@ -31,6 +31,12 @@ class MbLoginController extends GetxController {
       if (resp.statusCode == 200) {
         update();
       }
+    });
+  }
+
+  btnThemeClicked() {
+    MbxThemeVM.change().then((value) {
+      update();
     });
   }
 
