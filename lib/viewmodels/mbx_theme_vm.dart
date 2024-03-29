@@ -7,9 +7,9 @@ class MbxThemeVM {
   static Future<T?> change<T>() async {
     final sheet = MbxThemeSheet();
     final value = await sheet.show();
-    await MbxUserPreferencesVM.setTheme(value);
-    ColorX.theme = hexToColor(value);
     try {
+      await MbxUserPreferencesVM.setTheme(value);
+      ColorX.theme = hexToColor(value);
       final controller = Get.find<MbxBottomNavBarController>();
       controller.update();
     } catch (e) {}

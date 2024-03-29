@@ -27,14 +27,6 @@ class SheetX {
                   const SizedBox(height: 12.0),
                 ]),
               ),
-              TextX(
-                title,
-                color: ColorX.black,
-                fontSize: 17.0,
-                fontWeight: FontWeight.w700,
-                textAlign: TextAlign.center,
-                maxLines: 2048,
-              ),
               const SizedBox(height: 8.0),
               TextX(
                 message,
@@ -83,7 +75,8 @@ class SheetX {
             ],
           ),
         ),
-        autoClose: autoClose);
+        autoClose: autoClose,
+        title: title);
   }
 
   static Future<T?> show<T>(
@@ -128,20 +121,67 @@ class SheetX {
       required double cornerRadius,
       required bool avoidingKeyboard,
       required Widget widget,
+      String title = '',
       bool autoClose = true}) {
     return SheetX.show(
         backgroundColor: backgroundColor,
         cornerRadius: cornerRadius,
         avoidingKeyboard: avoidingKeyboard,
-        widget: Column(mainAxisSize: MainAxisSize.min, children: [
-          const SizedBox(height: 16.0),
+        widget: Wrap(children: [
           ContainerX(
-            backgroundColor: ColorX.gray.withOpacity(0.3),
-            width: 54.0,
-            height: 4.0,
-            cornerRadius: 2.0,
-          ),
-          const SizedBox(height: 16.0),
+              backgroundColor: ColorX.theme,
+              width: double.infinity,
+              topLeftRadius: 16.0,
+              topRightRadius: 16.0,
+              child: Wrap(
+                children: [
+                  Expanded(
+                      child: ContainerX(
+                    padding: EdgeInsets.only(
+                        left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
+                    child: Row(
+                      children: [
+                        ButtonX(
+                          backgroundColor: ColorX.transparent,
+                          faIcon: FontAwesomeIcons.xmark,
+                          faWidth: 16.0,
+                          faHeight: 16.0,
+                          faColor: ColorX.white,
+                          width: 28.0,
+                          height: 28.0,
+                          cornerRadius: 14.0,
+                          borderWidth: 1.0,
+                          borderColor: ColorX.white,
+                          onClicked: () {
+                            Get.back();
+                          },
+                        ),
+                        ContainerX(width: 8.0),
+                        Expanded(
+                          child: TextX(
+                            title,
+                            color: ColorX.white,
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w600,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        ContainerX(width: 8.0),
+                        SizedBox(width: 28.0, height: 28.0),
+                      ],
+                    ),
+                  )),
+                  ContainerX(
+                    backgroundColor: ColorX.theme,
+                    width: double.infinity,
+                    height: 16.0,
+                    child: ContainerX(
+                        backgroundColor: ColorX.white,
+                        topLeftRadius: 16.0,
+                        topRightRadius: 16.0),
+                  ),
+                ],
+              )),
           widget
         ]),
         autoClose: autoClose);
@@ -154,7 +194,8 @@ class SheetX {
       required double contentMaxHeight,
       required Widget contentWidget,
       required Widget footerWidget,
-      bool autoClose = true}) {
+      bool autoClose = true,
+      String title = ''}) {
     return SheetX.showWithGrip(
         backgroundColor: ColorX.white,
         cornerRadius: cornerRadius,
@@ -172,6 +213,7 @@ class SheetX {
           footerWidget,
           SizedBox(height: MediaQuery.of(Get.context!).padding.bottom)
         ]),
+        title: title,
         autoClose: autoClose);
   }
 }

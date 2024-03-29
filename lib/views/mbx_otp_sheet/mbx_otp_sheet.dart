@@ -16,7 +16,8 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
         avoidingKeyboard: false,
-        widget: this);
+        widget: this,
+        title: 'Masukkan OTP');
   }
 
   @override
@@ -28,40 +29,6 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
             topLeftRadius: 32.0,
             topRightRadius: 32.0,
             child: Wrap(children: [
-              ContainerX(height: 8.0),
-              Container(
-                margin: EdgeInsets.only(left: 32.0, right: 32.0),
-                child: Row(
-                  children: [
-                    ButtonX(
-                      backgroundColor: ColorX.transparent,
-                      faIcon: FontAwesomeIcons.xmark,
-                      faWidth: 16.0,
-                      faHeight: 16.0,
-                      faColor: ColorX.gray,
-                      width: 32.0,
-                      height: 32.0,
-                      cornerRadius: 25.0,
-                      borderWidth: 1.0,
-                      borderColor: ColorX.gray,
-                      onClicked: () {
-                        controller.btnCloseClicked();
-                      },
-                    ),
-                    Expanded(
-                      child: TextX(
-                        title,
-                        color: ColorX.black,
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.w600,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(width: 32.0, height: 32.0),
-                  ],
-                ),
-              ),
-              ContainerX(height: 24.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
