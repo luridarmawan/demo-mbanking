@@ -24,6 +24,14 @@ class MbxQRISScreen extends StatelessWidget {
                   }
                 },
               ),
+              ContainerX(
+                  child: Center(
+                child: ContainerX(
+                    width: MediaQuery.of(Get.context!).size.width - 48.0,
+                    height: MediaQuery.of(Get.context!).size.width - 48.0,
+                    borderWidth: 1.0,
+                    borderColor: ColorX.white),
+              )),
               Positioned(
                 left: 24.0,
                 right: 24.0,
