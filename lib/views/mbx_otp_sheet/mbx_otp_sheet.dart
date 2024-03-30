@@ -1,16 +1,15 @@
-import 'package:demombanking/views/mbx_otp_sheet/mbx_otp_dot.dart';
-
 import '../../widgets/all_widgets.dart';
+import 'mbx_otp_dot.dart';
 import 'mbx_otp_sheet_controller.dart';
 import 'mbx_otp_button.dart';
 
 // ignore: must_be_immutable
 class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   final String title;
-  final String phone;
+  final String description;
   TextEditingController pinController = TextEditingController();
 
-  MbxOtpSheet({required this.title, required this.phone});
+  MbxOtpSheet({required this.title, required this.description});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -18,18 +17,33 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
         widget: this,
-        title: 'Masukkan OTP');
+        title: title);
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxOtpSheetController>(
-        init: MbxOtpSheetController(phone: phone),
+        init: MbxOtpSheetController(phone: ''),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,
             topRightRadius: 32.0,
-            child: Wrap(children: [
+            child: Wrap(alignment: WrapAlignment.center, children: [
+              Visibility(
+                visible: description.isNotEmpty,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 48.0, right: 48.0),
+                  child: TextX(
+                    description,
+                    color: ColorX.black,
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w400,
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                  ),
+                ),
+              ),
+              ContainerX(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -71,8 +71,8 @@ class MbLoginController extends GetxController {
       Get.back();
       if (resp.statusCode == 200) {
         final sheet = MbxOtpSheet(
-          title: 'Masukkan OTP',
-          phone: txtPhoneController.text,
+          title: 'OTP',
+          description: 'Masukkan kode OTP yang anda terima melalui SMS.',
         );
         sheet.show().then((value) {
           LoggerX.log('OTP: $value');

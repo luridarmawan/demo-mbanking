@@ -30,11 +30,11 @@ class MbxReloginController extends GetxController {
 
   btnLoginClicked() {
     final sheet = MbxOtpSheet(
-      title: 'Masukkan PIN',
-      phone: '',
+      title: 'PIN',
+      description: 'Masukkan nomor pin M-banking/ATM kartu debit anda.',
     );
     sheet.show().then((value) {
-      LoggerX.log('OTP: $value');
+      LoggerX.log('PIN: $value');
       if (value != null) {
         Get.loading();
         MbxProfileVM.request().then((resp) {
