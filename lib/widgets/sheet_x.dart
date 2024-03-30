@@ -135,8 +135,7 @@ class SheetX {
               topRightRadius: 16.0,
               child: Wrap(
                 children: [
-                  Expanded(
-                      child: ContainerX(
+                  ContainerX(
                     padding: EdgeInsets.only(
                         left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
                     child: Row(
@@ -170,7 +169,7 @@ class SheetX {
                         SizedBox(width: 28.0, height: 28.0),
                       ],
                     ),
-                  )),
+                  ),
                   ContainerX(
                     backgroundColor: ColorX.theme,
                     width: double.infinity,
