@@ -15,7 +15,6 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
-        avoidingKeyboard: false,
         widget: this,
         title: 'Masukkan OTP');
   }

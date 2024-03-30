@@ -1,5 +1,3 @@
-import 'package:demombanking/widgets/container_x.dart';
-
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_profile_controller.dart';

@@ -14,7 +14,6 @@ class SheetX {
     return SheetX.showContent(
         backgroundColor: ColorX.white,
         cornerRadius: 16.0,
-        avoidingKeyboard: false,
         contentMaxHeight: MediaQuery.of(Get.context!).size.height * 0.70,
         contentWidget: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0),
@@ -82,11 +81,9 @@ class SheetX {
   static Future<T?> show<T>(
       {required Color backgroundColor,
       required double cornerRadius,
-      required bool avoidingKeyboard,
       required Widget widget,
       bool autoClose = true}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    //if (avoidingKeyboard == true) {
     return Get.bottomSheet(
         isDismissible: autoClose,
         isScrollControlled: true,
@@ -98,36 +95,17 @@ class SheetX {
               topRight: Radius.circular(cornerRadius)),
         ),
         widget);
-    /*
-    } else {
-      return showModalBottomSheet(
-          backgroundColor: ColorX.white,
-          isDismissible: autoClose,
-          isScrollControlled: true,
-          useSafeArea: false,
-          context: Get.context!,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(cornerRadius),
-                topRight: Radius.circular(cornerRadius)),
-          ),
-          builder: (context) {
-            return widget;
-          }); 
-    } */
   }
 
   static Future<T?> showWithGrip<T>(
       {required Color backgroundColor,
       required double cornerRadius,
-      required bool avoidingKeyboard,
       required Widget widget,
       String title = '',
       bool autoClose = true}) {
     return SheetX.show(
         backgroundColor: backgroundColor,
         cornerRadius: cornerRadius,
-        avoidingKeyboard: avoidingKeyboard,
         widget: Wrap(children: [
           ContainerX(
               backgroundColor: ColorX.theme,
@@ -190,7 +168,6 @@ class SheetX {
   static Future<T?> showContent<T>(
       {required Color backgroundColor,
       required double cornerRadius,
-      required bool avoidingKeyboard,
       required double contentMaxHeight,
       required Widget contentWidget,
       required Widget footerWidget,
@@ -199,7 +176,6 @@ class SheetX {
     return SheetX.showWithGrip(
         backgroundColor: ColorX.white,
         cornerRadius: cornerRadius,
-        avoidingKeyboard: avoidingKeyboard,
         widget: Column(children: [
           ConstrainedBox(
             constraints: BoxConstraints(

@@ -12,7 +12,6 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
     return SheetX.showWithGrip(
         backgroundColor: ColorX.white,
         cornerRadius: 32.0,
-        avoidingKeyboard: false,
         widget: this);
   }
 
