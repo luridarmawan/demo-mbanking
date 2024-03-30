@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_otp_sheet/mbx_otp_dot.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_otp_sheet_controller.dart';
 import 'mbx_otp_button.dart';
@@ -31,71 +33,17 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 1
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 1),
                   ContainerX(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 2
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 3),
                   ContainerX(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 3
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 3),
                   ContainerX(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 4
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 4),
                   ContainerX(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 5
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 5),
                   ContainerX(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 6
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxOtpDot(on: controller.code.length >= 6),
                 ],
               ),
               ContainerX(height: 16.0),
