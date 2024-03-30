@@ -16,19 +16,17 @@ class MbxOtpButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ButtonX(
-        width: 64.0,
-        height: 64.0,
-        cornerRadius: 32.0,
-        borderWidth: 1.0,
-        borderColor: ColorX.theme,
-        backgroundColor: ColorX.theme.lighten(0.4),
-        titleColor: ColorX.black,
-        title: title,
-        faIcon: faIcon,
-        faColor: ColorX.black,
-        fontSize: 24.0,
-        fontWeight: FontWeight.w700,
-        onClicked: onClicked);
+    return Expanded(
+        child: ButtonX(
+            height: 48.0,
+            cornerRadius: 8.0,
+            backgroundColor: ColorX.theme.lighten(0.4),
+            titleColor: ColorX.black,
+            title: title,
+            faIcon: faIcon,
+            faColor: ColorX.black,
+            fontSize: 24.0,
+            fontWeight: FontWeight.w700,
+            onClicked: onClicked));
   }
 }

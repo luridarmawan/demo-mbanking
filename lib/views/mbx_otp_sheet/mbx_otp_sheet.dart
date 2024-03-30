@@ -99,7 +99,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                   ),
                 ],
               ),
-              ContainerX(height: 8.0),
+              ContainerX(height: 16.0),
               Visibility(
                 visible: controller.error.isNotEmpty,
                 child: Padding(
@@ -116,11 +116,11 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
               ),
               ContainerX(
                 backgroundColor: ColorX.transparent,
+                padding: EdgeInsets.only(
+                    left: 16.0, top: 0.0, right: 16.0, bottom: 16.0),
                 child: Column(
                   children: [
-                    SizedBox(height: 24.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MbxOtpButton(
                           title: '1',
@@ -128,14 +128,14 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                             controller.btnKeypadClicked('1');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '2',
                           onClicked: () {
                             controller.btnKeypadClicked('2');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '3',
                           onClicked: () {
@@ -144,9 +144,8 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    SizedBox(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MbxOtpButton(
                           title: '4',
@@ -154,14 +153,14 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                             controller.btnKeypadClicked('4');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '5',
                           onClicked: () {
                             controller.btnKeypadClicked('5');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '6',
                           onClicked: () {
@@ -170,9 +169,8 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    SizedBox(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MbxOtpButton(
                           title: '7',
@@ -180,14 +178,14 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                             controller.btnKeypadClicked('7');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '8',
                           onClicked: () {
                             controller.btnKeypadClicked('8');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '9',
                           onClicked: () {
@@ -196,9 +194,8 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    SizedBox(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MbxOtpButton(
                           faIcon: FontAwesomeIcons.fingerprint,
@@ -206,14 +203,14 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                             controller.btnFingerprintClicked();
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           title: '0',
                           onClicked: () {
                             controller.btnKeypadClicked('0');
                           },
                         ),
-                        SizedBox(width: 24.0),
+                        SizedBox(width: 4.0),
                         MbxOtpButton(
                           faIcon: FontAwesomeIcons.deleteLeft,
                           onClicked: () {
@@ -222,7 +219,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    SizedBox(height: 4.0),
                     ButtonX(
                       title: 'Kirim Ulang?',
                       titleColor: ColorX.black,
@@ -231,16 +228,14 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                       backgroundColor: ColorX.transparent,
                       width: 120.0,
                       height: 32.0,
-                      cornerRadius: 16.0,
+                      cornerRadius: 8.0,
                       onClicked: () {
                         controller.btnResendClicked();
                       },
                     ),
-                    SizedBox(height: 24.0),
                   ],
                 ),
               ),
-              ContainerX(height: 24.0),
             ])));
   }
 }
