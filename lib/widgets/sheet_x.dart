@@ -86,18 +86,19 @@ class SheetX {
       required Widget widget,
       bool autoClose = true}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    if (avoidingKeyboard == true) {
-      return Get.bottomSheet(
-          isDismissible: autoClose,
-          isScrollControlled: true,
-          ignoreSafeArea: true,
-          backgroundColor: ColorX.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(cornerRadius),
-                topRight: Radius.circular(cornerRadius)),
-          ),
-          widget);
+    //if (avoidingKeyboard == true) {
+    return Get.bottomSheet(
+        isDismissible: autoClose,
+        isScrollControlled: true,
+        ignoreSafeArea: false,
+        backgroundColor: ColorX.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(cornerRadius),
+              topRight: Radius.circular(cornerRadius)),
+        ),
+        widget);
+    /*
     } else {
       return showModalBottomSheet(
           backgroundColor: ColorX.white,
@@ -112,8 +113,8 @@ class SheetX {
           ),
           builder: (context) {
             return widget;
-          });
-    }
+          }); 
+    } */
   }
 
   static Future<T?> showWithGrip<T>(
