@@ -5,7 +5,7 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
-import '../mbx_otp_sheet/mbx_otp_sheet.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxReloginController extends GetxController {
   var version = '';
@@ -29,7 +29,7 @@ class MbxReloginController extends GetxController {
   }
 
   btnLoginClicked() {
-    final sheet = MbxOtpSheet(
+    final sheet = MbxPinSheet(
       title: 'PIN',
       description: 'Masukkan nomor pin M-banking/ATM kartu debit anda.',
     );

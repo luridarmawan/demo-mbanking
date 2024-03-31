@@ -1,133 +1,66 @@
 import '../../widgets/all_widgets.dart';
+import 'mbx_pin_dot.dart';
 import 'mbx_pin_sheet_controller.dart';
+import 'mbx_pin_button.dart';
 
 // ignore: must_be_immutable
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
+  final String description;
   TextEditingController pinController = TextEditingController();
 
-  MbxPinSheet({this.title = 'Enter your PIN'});
+  MbxPinSheet({required this.title, required this.description});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white, cornerRadius: 32.0, widget: this);
+        backgroundColor: const Color.fromARGB(255, 130, 102, 102),
+        cornerRadius: 16.0,
+        widget: this,
+        title: title);
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxPinSheetController>(
-        init: MbxPinSheetController(),
+        init: MbxPinSheetController(phone: ''),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,
             topRightRadius: 32.0,
-            child: Wrap(children: [
-              ContainerX(height: 8.0),
-              Container(
-                margin: EdgeInsets.only(left: 32.0, right: 32.0),
-                child: Row(
-                  children: [
-                    ButtonX(
-                      backgroundColor: ColorX.transparent,
-                      faIcon: FontAwesomeIcons.xmark,
-                      faWidth: 16.0,
-                      faHeight: 16.0,
-                      faColor: ColorX.gray,
-                      width: 32.0,
-                      height: 32.0,
-                      cornerRadius: 25.0,
-                      borderWidth: 1.0,
-                      borderColor: ColorX.gray,
-                      onClicked: () {
-                        controller.btnCloseClicked();
-                      },
-                    ),
-                    Expanded(
-                      child: TextX(
-                        title,
-                        color: ColorX.black,
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.w600,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(width: 32.0, height: 32.0),
-                  ],
+            child: Wrap(alignment: WrapAlignment.center, children: [
+              Visibility(
+                visible: description.isNotEmpty,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 48.0, right: 48.0),
+                  child: TextX(
+                    description,
+                    color: ColorX.black,
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w400,
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                  ),
                 ),
               ),
-              ContainerX(height: 24.0),
+              ContainerX(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 1
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
-                  SizedBox(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 2
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
-                  SizedBox(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 3
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
-                  SizedBox(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 4
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
-                  SizedBox(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 5
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
-                  SizedBox(width: 8.0),
-                  ContainerX(
-                    backgroundColor: controller.code.length >= 6
-                        ? ColorX.gray
-                        : ColorX.transparent,
-                    width: 12.0,
-                    height: 12,
-                    cornerRadius: 6.0,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.gray,
-                  ),
+                  MbxPinDot(on: controller.code.length >= 1),
+                  ContainerX(width: 8.0),
+                  MbxPinDot(on: controller.code.length >= 3),
+                  ContainerX(width: 8.0),
+                  MbxPinDot(on: controller.code.length >= 3),
+                  ContainerX(width: 8.0),
+                  MbxPinDot(on: controller.code.length >= 4),
+                  ContainerX(width: 8.0),
+                  MbxPinDot(on: controller.code.length >= 5),
+                  ContainerX(width: 8.0),
+                  MbxPinDot(on: controller.code.length >= 6),
                 ],
               ),
-              ContainerX(height: 8.0),
+              ContainerX(height: 16.0),
               Visibility(
                 visible: controller.error.isNotEmpty,
                 child: Padding(
@@ -144,243 +77,128 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
               ),
               ContainerX(
                 backgroundColor: ColorX.transparent,
+                padding: EdgeInsets.only(
+                    left: 16.0, top: 0.0, right: 16.0, bottom: 0.0),
                 child: Column(
                   children: [
-                    SizedBox(height: 24.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        MbxInButton(
                           title: '1',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('1');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '2',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('2');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '3',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('3');
                           },
-                        )
+                        ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    ContainerX(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        MbxInButton(
                           title: '4',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('4');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '5',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('5');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '6',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('6');
                           },
-                        )
+                        ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    ContainerX(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        MbxInButton(
                           title: '7',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('7');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '8',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('8');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '9',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('9');
                           },
-                        )
+                        ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    ContainerX(height: 4.0),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonX(
+                        MbxInButton(
                           faIcon: FontAwesomeIcons.fingerprint,
-                          faColor: ColorX.black,
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
-                          title: '',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnFingerprintClicked();
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           title: '0',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnKeypadClicked('0');
                           },
                         ),
-                        SizedBox(width: 24.0),
-                        ButtonX(
+                        ContainerX(width: 4.0),
+                        MbxInButton(
                           faIcon: FontAwesomeIcons.deleteLeft,
-                          faColor: ColorX.black,
-                          width: 64.0,
-                          height: 64.0,
-                          cornerRadius: 32.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          backgroundColor: Color(0xffFAFAFA),
-                          titleColor: ColorX.black,
-                          title: '',
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w700,
                           onClicked: () {
                             controller.btnBackspaceClicked();
                           },
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.0),
+                    ContainerX(height: 4.0),
                     ButtonX(
-                      title: 'Forgot PIN?',
+                      title: 'Kirim Ulang?',
                       titleColor: ColorX.black,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
                       backgroundColor: ColorX.transparent,
                       width: 120.0,
                       height: 32.0,
-                      cornerRadius: 16.0,
+                      cornerRadius: 8.0,
                       onClicked: () {
-                        controller.btnForgotPinClicked();
+                        controller.btnResendClicked();
                       },
                     ),
-                    SizedBox(height: 24.0),
+                    ContainerX(
+                        height: MediaQuery.of(Get.context!).padding.bottom)
                   ],
                 ),
               ),
-              ContainerX(height: 24.0),
             ])));
   }
 }

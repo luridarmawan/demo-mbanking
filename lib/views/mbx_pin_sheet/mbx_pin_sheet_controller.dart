@@ -1,8 +1,12 @@
+import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
+  final String phone;
   String code = '';
   String error = '';
+
+  MbxPinSheetController({required this.phone});
 
   btnCloseClicked() {
     Get.back();
@@ -27,8 +31,8 @@ class MbxPinSheetController extends GetxController {
     update();
   }
 
-  btnForgotPinClicked() {
-    Get.back();
+  btnResendClicked() {
+    Get.back(result: '');
   }
 
   clear(String error) {
@@ -39,15 +43,11 @@ class MbxPinSheetController extends GetxController {
 
   submit() {
     Get.loading();
-    Future.delayed(Duration(milliseconds: 2000), () {
-      final hardcodedCode = '123456';
-      if (code == hardcodedCode) {
-        Get.back(result: code);
-      } else {
-        clear(
-            'PIN yang anda masukkan salah. PIN sebenarnya adalah $hardcodedCode.');
-      }
+    MbxLoginOtpVM.request(phone: phone, otp: code).then((resp) {
       Get.back();
+      if (resp.statusCode == 200) {
+        Get.back(result: code);
+      } else {}
     });
   }
 }
