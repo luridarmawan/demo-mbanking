@@ -47,17 +47,35 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MbxOtpDot(on: controller.code.length >= 1),
+                  MbxOtpDot(
+                    number:
+                        controller.code.length >= 1 ? controller.code[0] : '',
+                  ),
                   ContainerX(width: 8.0),
-                  MbxOtpDot(on: controller.code.length >= 3),
+                  MbxOtpDot(
+                      number: controller.code.length >= 2
+                          ? controller.code[1]
+                          : ''),
                   ContainerX(width: 8.0),
-                  MbxOtpDot(on: controller.code.length >= 3),
+                  MbxOtpDot(
+                      number: controller.code.length >= 3
+                          ? controller.code[2]
+                          : ''),
                   ContainerX(width: 8.0),
-                  MbxOtpDot(on: controller.code.length >= 4),
+                  MbxOtpDot(
+                      number: controller.code.length >= 4
+                          ? controller.code[3]
+                          : ''),
                   ContainerX(width: 8.0),
-                  MbxOtpDot(on: controller.code.length >= 5),
+                  MbxOtpDot(
+                      number: controller.code.length >= 5
+                          ? controller.code[4]
+                          : ''),
                   ContainerX(width: 8.0),
-                  MbxOtpDot(on: controller.code.length >= 6),
+                  MbxOtpDot(
+                      number: controller.code.length >= 6
+                          ? controller.code[5]
+                          : ''),
                 ],
               ),
               ContainerX(height: 16.0),
