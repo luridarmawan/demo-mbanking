@@ -18,98 +18,96 @@ class MbxHomePage extends StatelessWidget {
         builder: (controller) => ScreenX(
             lightStatusBar: true,
             bottomPadding: false,
-            bodyView: Material(
-              color: ColorX.theme,
-              child: Scrollbar(
-                  controller: controller.scrollController,
-                  child: ListView(
+            bodyView: Column(children: [
+              ContainerX(
+                  width: double.infinity,
+                  backgroundColor: ColorX.theme,
+                  padding: EdgeInsets.only(
+                      left: 24.0, top: 12.0, right: 24.0, bottom: 12.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQuery.of(Get.context!).padding.top),
+                      Row(
+                        children: [
+                          ContainerX(
+                              backgroundColor: ColorX.white,
+                              width: 46.0,
+                              height: 46.0,
+                              cornerRadius: 23.0,
+                              child: Center(
+                                  child: ImageX(
+                                faIcon: MbxProfileVM.profile.photo.isEmpty
+                                    ? FontAwesomeIcons.user
+                                    : null,
+                                color: MbxProfileVM.profile.photo.isEmpty
+                                    ? ColorX.gray
+                                    : null,
+                                url: MbxProfileVM.profile.photo,
+                                width: MbxProfileVM.profile.photo.isEmpty
+                                    ? 20.0
+                                    : 40.0,
+                                height: 40.0,
+                                cornerRadius: 20.0,
+                              ))),
+                          SizedBox(width: 8.0),
+                          TextX(
+                            MbxProfileVM.profile.name.isEmpty
+                                ? '-'
+                                : MbxProfileVM.profile.name,
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.w700,
+                            color: ColorX.white,
+                          ),
+                          Spacer(),
+                          Row(
+                            children: [
+                              MbxThemeButton(
+                                onClicked: () {
+                                  controller.btnThemeClicked();
+                                },
+                              ),
+                              ButtonX(
+                                backgroundColor: ColorX.transparent,
+                                faIcon: FontAwesomeIcons.powerOff,
+                                faColor: ColorX.white,
+                                width: 42.0,
+                                height: 42.0,
+                                onClicked: () {
+                                  controller.btnLockClicked();
+                                },
+                              )
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  )),
+              ContainerX(
+                backgroundColor: ColorX.theme,
+                width: double.infinity,
+                height: 16.0,
+                child: ContainerX(
+                    backgroundColor: ColorX.white,
+                    topLeftRadius: 16.0,
+                    topRightRadius: 16.0),
+              ),
+              Expanded(
+                child: ContainerX(
+                  backgroundColor: ColorX.white,
+                  child: Scrollbar(
                       controller: controller.scrollController,
-                      padding: EdgeInsets.zero,
-                      physics: ClampingScrollPhysics(),
-                      children: [
-                        ContainerX(
-                            width: double.infinity,
-                            backgroundColor: ColorX.theme,
-                            padding: EdgeInsets.only(
-                                left: 24.0,
-                                top: 12.0,
-                                right: 24.0,
-                                bottom: 12.0),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                    height: MediaQuery.of(Get.context!)
-                                        .padding
-                                        .top),
-                                Row(
-                                  children: [
-                                    ContainerX(
-                                        backgroundColor: ColorX.white,
-                                        width: 46.0,
-                                        height: 46.0,
-                                        cornerRadius: 23.0,
-                                        child: Center(
-                                            child: ImageX(
-                                          faIcon:
-                                              MbxProfileVM.profile.photo.isEmpty
-                                                  ? FontAwesomeIcons.user
-                                                  : null,
-                                          color:
-                                              MbxProfileVM.profile.photo.isEmpty
-                                                  ? ColorX.gray
-                                                  : null,
-                                          url: MbxProfileVM.profile.photo,
-                                          width:
-                                              MbxProfileVM.profile.photo.isEmpty
-                                                  ? 20.0
-                                                  : 40.0,
-                                          height: 40.0,
-                                          cornerRadius: 20.0,
-                                        ))),
-                                    SizedBox(width: 8.0),
-                                    TextX(
-                                      MbxProfileVM.profile.name.isEmpty
-                                          ? '-'
-                                          : MbxProfileVM.profile.name,
-                                      fontSize: 17.0,
-                                      fontWeight: FontWeight.w700,
-                                      color: ColorX.white,
-                                    ),
-                                    Spacer(),
-                                    Row(
-                                      children: [
-                                        MbxThemeButton(
-                                          onClicked: () {
-                                            controller.btnThemeClicked();
-                                          },
-                                        ),
-                                        ButtonX(
-                                          backgroundColor: ColorX.transparent,
-                                          faIcon: FontAwesomeIcons.powerOff,
-                                          faColor: ColorX.white,
-                                          width: 42.0,
-                                          height: 42.0,
-                                          onClicked: () {
-                                            controller.btnLockClicked();
-                                          },
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            )),
-                        ContainerX(
-                            backgroundColor: ColorX.white,
-                            topLeftRadius: 16.0,
-                            topRightRadius: 16.0,
-                            child: Column(
+                      child: ListView(
+                          controller: controller.scrollController,
+                          padding: EdgeInsets.zero,
+                          physics: ClampingScrollPhysics(),
+                          children: [
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(
                                       left: 12.0,
-                                      top: 12.0,
+                                      top: 0.0,
                                       right: 12.0,
                                       bottom: 4.0),
                                   child: TextX(
@@ -310,8 +308,10 @@ class MbxHomePage extends StatelessWidget {
                                         30.0 +
                                         12.0)
                               ],
-                            ))
-                      ])),
-            )));
+                            )
+                          ])),
+                ),
+              )
+            ])));
   }
 }

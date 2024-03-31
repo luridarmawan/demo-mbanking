@@ -32,7 +32,6 @@ class MbxLoginScreen extends StatelessWidget {
                                     padEnds: false,
                                     autoPlay: true,
                                     viewportFraction: 1.0,
-                                    //height: 150.0,
                                     height: double.infinity,
                                     onPageChanged: (index, reason) {
                                       controller.setPageIndex(index);

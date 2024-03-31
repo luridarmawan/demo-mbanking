@@ -27,8 +27,8 @@ class MbxTncScreen extends StatelessWidget {
                 child: ContainerX(
                   padding: EdgeInsets.only(top: 12.0),
                   backgroundColor: ColorX.white,
-                  topLeftRadius: 12.0,
-                  topRightRadius: 12.0,
+                  topLeftRadius: 16.0,
+                  topRightRadius: 16.0,
                   child: controller.tncVM.loading
                       ? Center(
                           child: CircularProgressIndicator(

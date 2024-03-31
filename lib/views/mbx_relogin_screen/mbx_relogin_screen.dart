@@ -47,7 +47,7 @@ class MbxReloginScreen extends StatelessWidget {
                                   ContainerX(
                                       backgroundColor: ColorX.white,
                                       padding: EdgeInsets.all(12.0),
-                                      cornerRadius: 12.0,
+                                      cornerRadius: 16.0,
                                       child: Wrap(
                                         crossAxisAlignment:
                                             WrapCrossAlignment.center,
