@@ -34,16 +34,22 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                 physics: ClampingScrollPhysics(),
                 children: [
                   MbxThemeCell(
-                    color: Color(0xfff44336),
+                    color: Color(0xffd12f31),
                   ),
                   MbxThemeCell(
                     color: Color(0xffe81e63),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff9c27b0),
+                    color: Color(0xffff9800),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff673ab7),
+                    color: Color(0xff009688),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff4caf50),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff8bc34a),
                   ),
                   MbxThemeCell(
                     color: Color(0xff3f51b5),
@@ -58,25 +64,19 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                     color: Color(0xff00bcd4),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff009688),
+                    color: Color(0xff9c27b0),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff4caf50),
+                    color: Color(0xff673ab7),
                   ),
                   MbxThemeCell(
-                    color: Color(0xff8bc34a),
-                  ),
-                  MbxThemeCell(
-                    color: Color(0xffcddc39),
-                  ),
-                  MbxThemeCell(
-                    color: Color(0xffffc107),
-                  ),
-                  MbxThemeCell(
-                    color: Color(0xffff9800),
+                    color: Color(0xff7a5249),
                   ),
                   MbxThemeCell(
                     color: Color(0xff646d74),
+                  ),
+                  MbxThemeCell(
+                    color: Color(0xff698b9b),
                   ),
                 ],
               ),
