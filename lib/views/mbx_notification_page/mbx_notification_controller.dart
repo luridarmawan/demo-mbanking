@@ -16,7 +16,7 @@ class MbxNotificationController extends GetxController {
   }
 
   nextPage() {
-    update();
+    if (notificationListVM.loading) return;
     notificationListVM.nextPage().then((resp) {
       update();
     });

@@ -56,6 +56,12 @@ class MbxNotificationPage extends StatelessWidget {
                                 itemCount:
                                     controller.notificationListVM.list.length,
                                 itemBuilder: (context, index) {
+                                  if (index ==
+                                      controller
+                                              .notificationListVM.list.length -
+                                          1) {
+                                    controller.nextPage();
+                                  }
                                   final history =
                                       controller.notificationListVM.list[index];
                                   return InkWellX(
