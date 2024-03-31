@@ -1,4 +1,5 @@
 import 'package:demombanking/utils/all_utils.dart';
+import 'package:demombanking/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_button.dart';
 import 'package:demombanking/views/mbx_notification_page/mbx_notification_page.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_history_page/mbx_history_page.dart';
@@ -49,162 +50,37 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    ContainerX(
-                      backgroundColor: controller.tabBarIndex == 0
-                          ? ColorX.theme.lighten(0.35)
-                          : ColorX.theme.lighten(0.45),
-                      child: InkWellX(
-                          highlightColor: ColorX.theme.lighten(0.40),
-                          onClicked: () {
-                            controller.btnHomeClicked();
-                          },
-                          child: ContainerX(
-                              width: tabWidth,
-                              child: Center(
-                                child: Wrap(
-                                  direction: Axis.vertical,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  children: [
-                                    ImageX(
-                                      faIcon: FontAwesomeIcons.house,
-                                      height: 20.0,
-                                      width: 20.0,
-                                      color: controller.tabBarIndex == 0
-                                          ? ColorX.black
-                                          : ColorX.gray,
-                                    ),
-                                    SizedBox(height: 2.0),
-                                    TextX(
-                                      'Beranda',
-                                      fontSize: 13.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: controller.tabBarIndex == 0
-                                          ? ColorX.black
-                                          : ColorX.gray,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
-                              ))),
-                    ),
-                    ContainerX(
-                        backgroundColor: controller.tabBarIndex == 1
-                            ? ColorX.theme.lighten(0.35)
-                            : ColorX.theme.lighten(0.45),
-                        child: InkWellX(
-                            highlightColor: ColorX.theme.lighten(0.40),
-                            onClicked: () {
-                              controller.btnHistoryClicked();
-                            },
-                            child: ContainerX(
-                                width: tabWidth,
-                                child: Center(
-                                  child: Wrap(
-                                    direction: Axis.vertical,
-                                    crossAxisAlignment:
-                                        WrapCrossAlignment.center,
-                                    children: [
-                                      ImageX(
-                                        faIcon:
-                                            FontAwesomeIcons.clockRotateLeft,
-                                        height: 20.0,
-                                        width: 20.0,
-                                        color: controller.tabBarIndex == 1
-                                            ? ColorX.black
-                                            : ColorX.gray,
-                                      ),
-                                      SizedBox(height: 2.0),
-                                      TextX(
-                                        'Riwayat',
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w500,
-                                        color: controller.tabBarIndex == 1
-                                            ? ColorX.black
-                                            : ColorX.gray,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                  ),
-                                )))),
+                    MbxButtonNavBarButton(
+                        title: 'Beranda',
+                        faIcon: FontAwesomeIcons.house,
+                        selected: controller.tabBarIndex == 0,
+                        onClicked: () {
+                          controller.btnHomeClicked();
+                        }),
+                    MbxButtonNavBarButton(
+                        title: 'Riwayat',
+                        faIcon: FontAwesomeIcons.clockRotateLeft,
+                        selected: controller.tabBarIndex == 1,
+                        onClicked: () {
+                          controller.btnHistoryClicked();
+                        }),
                     ContainerX(
                       width: tabWidth,
                     ),
-                    ContainerX(
-                      backgroundColor: controller.tabBarIndex == 3
-                          ? ColorX.theme.lighten(0.35)
-                          : ColorX.theme.lighten(0.45),
-                      child: InkWellX(
-                          highlightColor: ColorX.theme.lighten(0.40),
-                          onClicked: () {
-                            controller.btnNotificationsClicked();
-                          },
-                          child: ContainerX(
-                              width: tabWidth,
-                              child: Center(
-                                child: Wrap(
-                                  direction: Axis.vertical,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  children: [
-                                    ImageX(
-                                      faIcon: FontAwesomeIcons.bell,
-                                      height: 20.0,
-                                      width: 20.0,
-                                      color: controller.tabBarIndex == 3
-                                          ? ColorX.black
-                                          : ColorX.gray,
-                                    ),
-                                    SizedBox(height: 2.0),
-                                    TextX(
-                                      'Notifikasi',
-                                      fontSize: 13.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: controller.tabBarIndex == 3
-                                          ? ColorX.black
-                                          : ColorX.gray,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
-                              ))),
-                    ),
-                    ContainerX(
-                        backgroundColor: controller.tabBarIndex == 4
-                            ? ColorX.theme.lighten(0.35)
-                            : ColorX.theme.lighten(0.45),
-                        child: InkWellX(
-                            highlightColor: ColorX.theme.lighten(0.40),
-                            onClicked: () {
-                              controller.btnAccountClicked();
-                            },
-                            child: ContainerX(
-                                width: tabWidth,
-                                child: Center(
-                                  child: Wrap(
-                                    direction: Axis.vertical,
-                                    crossAxisAlignment:
-                                        WrapCrossAlignment.center,
-                                    children: [
-                                      ImageX(
-                                        faIcon: FontAwesomeIcons.user,
-                                        height: 20.0,
-                                        width: 20.0,
-                                        color: controller.tabBarIndex == 4
-                                            ? ColorX.black
-                                            : ColorX.gray,
-                                      ),
-                                      SizedBox(height: 2.0),
-                                      TextX(
-                                        'Akun',
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w500,
-                                        color: controller.tabBarIndex == 4
-                                            ? ColorX.black
-                                            : ColorX.gray,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                  ),
-                                )))),
+                    MbxButtonNavBarButton(
+                        title: 'Notifikasi',
+                        faIcon: FontAwesomeIcons.bell,
+                        selected: controller.tabBarIndex == 3,
+                        onClicked: () {
+                          controller.btnNotificationsClicked();
+                        }),
+                    MbxButtonNavBarButton(
+                        title: 'Akun',
+                        faIcon: FontAwesomeIcons.user,
+                        selected: controller.tabBarIndex == 4,
+                        onClicked: () {
+                          controller.btnAccountClicked();
+                        }),
                   ],
                 ),
               ),
