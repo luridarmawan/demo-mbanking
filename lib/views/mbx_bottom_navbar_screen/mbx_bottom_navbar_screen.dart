@@ -54,7 +54,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           ? ColorX.theme.lighten(0.35)
                           : ColorX.theme.lighten(0.45),
                       child: InkWellX(
-                          highlightColor: ColorX.theme.lighten(0.35),
+                          highlightColor: ColorX.theme.lighten(0.40),
                           onClicked: () {
                             controller.btnHomeClicked();
                           },
@@ -92,7 +92,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                             ? ColorX.theme.lighten(0.35)
                             : ColorX.theme.lighten(0.45),
                         child: InkWellX(
-                            highlightColor: ColorX.theme.lighten(0.35),
+                            highlightColor: ColorX.theme.lighten(0.40),
                             onClicked: () {
                               controller.btnHistoryClicked();
                             },
@@ -134,7 +134,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           ? ColorX.theme.lighten(0.35)
                           : ColorX.theme.lighten(0.45),
                       child: InkWellX(
-                          highlightColor: ColorX.theme.lighten(0.35),
+                          highlightColor: ColorX.theme.lighten(0.40),
                           onClicked: () {
                             controller.btnNotificationsClicked();
                           },
@@ -172,7 +172,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                             ? ColorX.theme.lighten(0.35)
                             : ColorX.theme.lighten(0.45),
                         child: InkWellX(
-                            highlightColor: ColorX.theme.lighten(0.35),
+                            highlightColor: ColorX.theme.lighten(0.40),
                             onClicked: () {
                               controller.btnAccountClicked();
                             },
