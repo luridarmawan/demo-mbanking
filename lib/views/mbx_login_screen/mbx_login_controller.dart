@@ -1,3 +1,4 @@
+import 'package:demombanking/views/mbx_pin_sheet/mbx_pin_sheet.dart';
 import 'package:demombanking/widgets/all_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
@@ -66,6 +67,10 @@ class MbLoginController extends GetxController {
       return;
     }
 
+    askOtp();
+  }
+
+  askOtp() {
     Get.loading();
     MbxLoginVM.request(phone: txtPhoneController.text).then((resp) {
       Get.back();
@@ -77,15 +82,28 @@ class MbLoginController extends GetxController {
         sheet.show().then((value) {
           LoggerX.log('OTP: $value');
           if (value != null) {
-            Get.loading();
-            MbxProfileVM.request().then((resp) {
-              Get.back();
-              Get.deleteAll();
-              Get.offAll(MbxBottomNavBarScreen());
-            });
+            askPin();
           }
         });
       } else {}
+    });
+  }
+
+  askPin() {
+    final sheet = MbxPinSheet(
+      title: 'PIN',
+      description: 'Masukkan nomor pin M-banking/ATM kartu debit anda.',
+    );
+    sheet.show().then((value) {
+      LoggerX.log('PIN: $value');
+      if (value != null) {
+        Get.loading();
+        MbxProfileVM.request().then((resp) {
+          Get.back();
+          Get.deleteAll();
+          Get.offAll(MbxBottomNavBarScreen());
+        });
+      }
     });
   }
 }

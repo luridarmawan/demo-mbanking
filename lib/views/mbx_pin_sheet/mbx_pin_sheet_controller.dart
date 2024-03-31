@@ -47,7 +47,9 @@ class MbxPinSheetController extends GetxController {
       Get.back();
       if (resp.statusCode == 200) {
         Get.back(result: code);
-      } else {}
+      } else {
+        Get.back();
+      }
     });
   }
 }
