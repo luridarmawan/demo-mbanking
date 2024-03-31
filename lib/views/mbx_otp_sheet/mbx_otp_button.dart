@@ -26,7 +26,7 @@ class MbxOtpButton extends StatelessWidget {
             faIcon: faIcon,
             faColor: ColorX.black,
             fontSize: 24.0,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w400,
             onClicked: onClicked));
   }
 }

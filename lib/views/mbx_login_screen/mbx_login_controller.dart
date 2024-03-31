@@ -92,7 +92,7 @@ class MbLoginController extends GetxController {
   askPin() {
     final sheet = MbxPinSheet(
       title: 'PIN',
-      description: 'Masukkan nomor pin M-banking/ATM kartu debit anda.',
+      description: 'Masukkan nomor pin m-banking atau ATM anda.',
     );
     sheet.show().then((value) {
       LoggerX.log('PIN: $value');
