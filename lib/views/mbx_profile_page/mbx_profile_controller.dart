@@ -20,6 +20,11 @@ class MbxProfileController extends GetxController {
     });
   }
 
+  toggleBiometric(bool value) {
+    MbxProfileVM.profile.biometric = value;
+    update();
+  }
+
   btnTncClicked() {
     Get.to(MbxTncScreen());
   }

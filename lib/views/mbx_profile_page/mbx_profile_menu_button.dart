@@ -4,9 +4,18 @@ class MbaxProfileMenuButton extends StatelessWidget {
   final String title;
   final IconData? faIcon;
   final GestureTapCallback? onClicked;
+  final bool toggle;
+  final void Function(bool)? onToggleChanged;
+  final bool toggleValue;
 
   MbaxProfileMenuButton(
-      {Key? key, this.title = '', this.faIcon = null, this.onClicked})
+      {Key? key,
+      this.title = '',
+      this.faIcon = null,
+      this.onClicked,
+      this.toggle = false,
+      this.onToggleChanged = null,
+      this.toggleValue = false})
       : super(key: key);
 
   @override
@@ -48,13 +57,28 @@ class MbaxProfileMenuButton extends StatelessWidget {
                     color: ColorX.black,
                   ),
                   Spacer(),
-                  ImageX(
-                    faIcon: FontAwesomeIcons.chevronRight,
-                    width: 13.0,
-                    height: 13.0,
-                    color: ColorX.black,
-                    fit: BoxFit.contain,
-                  )
+                  this.toggle
+                      ? Switch(
+                          value: toggleValue,
+                          onChanged: onToggleChanged,
+                          activeTrackColor: ColorX.lightGray,
+                          activeColor: ColorX.theme,
+                          inactiveTrackColor: ColorX.lightGray,
+                          inactiveThumbColor: ColorX.gray,
+                          trackOutlineColor:
+                              MaterialStateProperty.resolveWith<Color?>(
+                                  (_) => ColorX.transparent),
+                          trackOutlineWidth:
+                              MaterialStateProperty.resolveWith<double?>(
+                                  (_) => 0.0),
+                        )
+                      : ImageX(
+                          faIcon: FontAwesomeIcons.chevronRight,
+                          width: 13.0,
+                          height: 13.0,
+                          color: ColorX.black,
+                          fit: BoxFit.contain,
+                        )
                 ],
               ))),
     );

@@ -3,8 +3,10 @@ import 'mbx_account_model.dart';
 
 class MbxProfileModel {
   List<MbxAccountModel> accounts = [];
+  bool biometric = false;
   String email = '';
   String name = '';
+  String phone = '';
   String photo = '';
   String token = '';
 
@@ -15,8 +17,10 @@ class MbxProfileModel {
     for (final item in jason['accounts'].jasonListValue) {
       accounts.add(MbxAccountModel.fromJason(item));
     }
+    biometric = jason['biometric'].boolValue;
     email = jason['email'].stringValue;
     name = jason['name'].stringValue;
+    phone = jason['phone'].stringValue;
     photo = jason['photo'].stringValue;
     token = jason['token'].stringValue;
   }
@@ -28,8 +32,10 @@ class MbxProfileModel {
       accs.add(item.encode());
     }
     jason['accounts'] = accs;
+    jason['biometric'] = biometric;
     jason['email'] = email;
     jason['name'] = name;
+    jason['phone'] = phone;
     jason['photo'] = photo;
     jason['token'] = token;
     return jason;

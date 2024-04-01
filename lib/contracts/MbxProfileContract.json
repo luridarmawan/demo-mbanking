@@ -21,8 +21,10 @@
 		  "name": "PERSONAL LOAN"
 		}
 	  ],
+	  "biometric": false,
 	  "email": "juleha@example.com",
 	  "name": "Juleha",
+	  "phone": "0888123456789",
 	  "photo": "https://www.unwomen.org/sites/default/files/Headquarters/Images/Sections/Partnerships/GoodwillAmbassadors/UNwomen_AH_Photo_400px.jpg?h=375&la=en&w=300"
 	},
 	"status": 200

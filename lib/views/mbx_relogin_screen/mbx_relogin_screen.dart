@@ -87,9 +87,9 @@ class MbxReloginScreen extends StatelessWidget {
                                           ),
                                           ContainerX(height: 2.0),
                                           TextX(
-                                            MbxProfileVM.profile.email.isEmpty
+                                            MbxProfileVM.profile.phone.isEmpty
                                                 ? '-'
-                                                : MbxProfileVM.profile.email,
+                                                : MbxProfileVM.profile.phone,
                                             fontSize: 13.0,
                                             fontWeight: FontWeight.w400,
                                             color: ColorX.black,
