@@ -2,7 +2,9 @@ import 'package:demombanking/views/mbx_pin_sheet/mbx_pin_sheet.dart';
 import 'package:demombanking/widgets/all_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
+import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../viewmodels/mbx_login_phone_vm.dart';
+import '../../viewmodels/mbx_login_pin_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
@@ -71,19 +73,19 @@ class MbLoginController extends GetxController {
     MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
       Get.back();
       if (resp.statusCode == 200) {
-        askOtp();
+        askOtp(txtPhoneController.text);
       }
     });
   }
 
-  askOtp() {
+  askOtp(String phone) {
     MbxOtpSheet.show(
         title: 'OTP',
         description: 'Masukkan kode OTP yang anda terima melalui SMS.',
         onSubmit: (code) async {
           LoggerX.log('[OTP] entered: $code');
           Get.loading();
-          final resp = await MbxLoginPhoneVM.request(phone: '');
+          final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
           Get.back();
           if (resp.statusCode == 200) {
             return true;
@@ -93,19 +95,20 @@ class MbLoginController extends GetxController {
         }).then((code) {
       if ((code as String).isNotEmpty) {
         LoggerX.log('[OTP] verfied: $code');
-        askPin();
+        askPin(phone, code);
       }
     });
   }
 
-  askPin() {
+  askPin(String phone, String otp) {
     MbxPinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
         onSubmit: (code) async {
           LoggerX.log('[PIN] entered: $code');
           Get.loading();
-          final resp = await MbxLoginPhoneVM.request(phone: '');
+          final resp =
+              await MbxLoginPinVM.request(phone: phone, otp: otp, pin: code);
           Get.back();
           if (resp.statusCode == 200) {
             return true;
