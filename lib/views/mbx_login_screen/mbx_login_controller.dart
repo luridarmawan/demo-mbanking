@@ -77,10 +77,11 @@ class MbLoginController extends GetxController {
   }
 
   askOtp() {
-    final sheet = MbxOtpSheet(
+    MbxOtpSheet.show(
         title: 'OTP',
         description: 'Masukkan kode OTP yang anda terima melalui SMS.',
         onSubmit: (code) async {
+          LoggerX.log('OTP: $code');
           Get.loading();
           final resp = await MbxLoginPhoneVM.request(phone: '');
           Get.back();
@@ -89,12 +90,8 @@ class MbLoginController extends GetxController {
           } else {
             return false;
           }
-        });
-    sheet.show().then((value) {
-      LoggerX.log('OTP: $value');
-      if (value != null) {
-        askPin();
-      }
+        }).then((value) {
+      askPin();
     });
   }
 
