@@ -7,9 +7,14 @@ import 'mbx_otp_button.dart';
 class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   final String title;
   final String description;
+  final Future<bool> Function(String code)? onSubmit;
   TextEditingController pinController = TextEditingController();
 
-  MbxOtpSheet({required this.title, required this.description});
+  MbxOtpSheet({
+    required this.title,
+    required this.description,
+    required this.onSubmit,
+  });
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -23,7 +28,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxOtpSheetController>(
-        init: MbxOtpSheetController(phone: ''),
+        init: MbxOtpSheetController(onSubmit: onSubmit),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,

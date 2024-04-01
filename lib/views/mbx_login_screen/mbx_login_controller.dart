@@ -2,7 +2,7 @@ import 'package:demombanking/views/mbx_pin_sheet/mbx_pin_sheet.dart';
 import 'package:demombanking/widgets/all_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
-import '../../viewmodels/mbx_login_vm.dart';
+import '../../viewmodels/mbx_login_phone_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
@@ -67,25 +67,34 @@ class MbLoginController extends GetxController {
       return;
     }
 
-    askOtp();
+    Get.loading();
+    MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
+      Get.back();
+      if (resp.statusCode == 200) {
+        askOtp();
+      }
+    });
   }
 
   askOtp() {
-    Get.loading();
-    MbxLoginVM.request(phone: txtPhoneController.text).then((resp) {
-      Get.back();
-      if (resp.statusCode == 200) {
-        final sheet = MbxOtpSheet(
-          title: 'OTP',
-          description: 'Masukkan kode OTP yang anda terima melalui SMS.',
-        );
-        sheet.show().then((value) {
-          LoggerX.log('OTP: $value');
-          if (value != null) {
-            askPin();
+    final sheet = MbxOtpSheet(
+        title: 'OTP',
+        description: 'Masukkan kode OTP yang anda terima melalui SMS.',
+        onSubmit: (code) async {
+          Get.loading();
+          final resp = await MbxLoginPhoneVM.request(phone: '');
+          Get.back();
+          if (resp.statusCode == 200) {
+            return true;
+          } else {
+            return false;
           }
         });
-      } else {}
+    sheet.show().then((value) {
+      LoggerX.log('OTP: $value');
+      if (value != null) {
+        askPin();
+      }
     });
   }
 
