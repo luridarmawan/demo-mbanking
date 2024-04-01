@@ -1,3 +1,5 @@
+import 'package:demombanking/utils/all_utils.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_home_page/mbx_launcher_cell.dart';
@@ -135,6 +137,7 @@ class MbxReloginScreen extends StatelessWidget {
                                   ButtonX(
                                     width: 150.0,
                                     backgroundColor: ColorX.transparent,
+                                    highlightColor: ColorX.theme.lighten(0.1),
                                     title: 'Ganti Akun',
                                     titleColor: ColorX.white,
                                     onClicked: () {

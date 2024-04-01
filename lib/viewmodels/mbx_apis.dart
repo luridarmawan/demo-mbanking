@@ -3,12 +3,20 @@ import 'mbx_baseurl_vm.dart';
 import 'mbx_profile_vm.dart';
 
 class MbxApiResponse extends ApiXResponse {
+  int status = 0;
   MbxApiResponse(ApiXResponse resp) {
     headers = resp.headers;
     statusCode = resp.statusCode;
     body = resp.body;
     jason = resp.jason;
+    status = statusCode;
+    if (jason['status'].intValue != 0) {
+      status = jason['status'].intValue;
+    }
     message = resp.message;
+    if (jason['message'].stringValue.isNotEmpty) {
+      message = jason['message'].stringValue;
+    }
   }
 }
 
