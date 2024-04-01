@@ -35,9 +35,7 @@ class MbxPinSheetController extends GetxController {
     update();
   }
 
-  btnResendClicked() {
-    Get.back(result: '');
-  }
+  btnForgotClicked() {}
 
   clear(String error) {
     code = '';

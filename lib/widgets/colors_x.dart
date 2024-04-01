@@ -13,9 +13,6 @@ class ColorX {
   static const Color white = Colors.white;
   static const Color highlight = Color(0xffE3E3E3);
   static Color theme = Color(0xff672EBA);
-//  static Color theme = Colors.blue;
-//  static Color theme = Colors.red;
-  //static Color theme = Colors.blue;
 }
 
 Color hexToColor(String code) {

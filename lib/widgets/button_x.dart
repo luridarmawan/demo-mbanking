@@ -13,7 +13,7 @@ class ButtonX extends StatelessWidget {
   final double cornerRadius;
   final double borderWidth;
   final Color borderColor;
-  final Color highlightColor;
+  final Color? highlightColor;
   final double width;
   final double height;
   final double horizontalPadding;
@@ -36,7 +36,7 @@ class ButtonX extends StatelessWidget {
     this.cornerRadius = 8.0,
     this.borderWidth = 0.0,
     this.borderColor = ColorX.transparent,
-    this.highlightColor = ColorX.white,
+    this.highlightColor,
     this.width = double.infinity,
     this.height = 48.0,
     this.horizontalPadding = 8.0,
@@ -55,6 +55,7 @@ class ButtonX extends StatelessWidget {
         ),
         color: enabled == true ? backgroundColor : disabledBackgroundColor,
         child: InkWellX(
+            highlightColor: highlightColor,
             onClicked: enabled == true ? onClicked : null,
             child: Container(
               width: width,

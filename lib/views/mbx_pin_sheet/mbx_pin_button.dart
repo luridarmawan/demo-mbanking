@@ -21,6 +21,7 @@ class MbxInButton extends StatelessWidget {
             height: 48.0,
             cornerRadius: 8.0,
             backgroundColor: ColorX.theme.lighten(0.4),
+            highlightColor: ColorX.theme.lighten(0.3),
             titleColor: ColorX.black,
             title: title,
             faIcon: faIcon,

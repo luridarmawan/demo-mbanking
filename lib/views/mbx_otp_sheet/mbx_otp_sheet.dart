@@ -1,3 +1,5 @@
+import 'package:demombanking/utils/all_utils.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_otp_dot.dart';
 import 'mbx_otp_sheet_controller.dart';
@@ -216,6 +218,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
                       backgroundColor: ColorX.transparent,
+                      highlightColor: ColorX.theme.withOpacity(0.1),
                       width: 120.0,
                       height: 32.0,
                       cornerRadius: 8.0,
