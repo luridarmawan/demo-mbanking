@@ -12,11 +12,9 @@ import '../demo_bottom_navbar_screen/demo_bottom_navbar_screen.dart';
 import '../demo_carousel_screen/demo_carousel_screen.dart';
 import '../demo_database_screen/demo_database_screen.dart';
 import '../demo_drawer_screen/demo_drawer_screen.dart';
-import '../demo_gridview_screen/demo_gridview_screen.dart';
 import '../demo_html_screen/demo_html_screen.dart';
 import '../demo_image_screen/demo_image_screen.dart';
 import '../demo_linechart_screen/demo_linechart_screen.dart';
-import '../demo_listview_screen/demo_listview_screen.dart';
 import '../demo_login_screen/demo_login_screen.dart';
 import '../demo_onboarding_screen/demo_onboarding_screen.dart';
 import '../demo_piechart_screen/demo_piechart_screen.dart';
@@ -80,13 +78,9 @@ class DemoController extends SuperController {
     });
   }
 
-  btnListViewClicked() {
-    Get.to(DemoListViewScreen());
-  }
+  btnListViewClicked() {}
 
-  btnGridViewClicked() {
-    Get.to(DemoGridViewScreen());
-  }
+  btnGridViewClicked() {}
 
   btnDrawerClicked() {
     Get.to(DemoDrawerScreen());

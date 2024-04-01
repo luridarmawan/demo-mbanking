@@ -22,13 +22,18 @@ class MbxTncScreen extends StatelessWidget {
               },
             ),
             bottomPadding: false,
-            bodyView: ContainerX(
-                backgroundColor: ColorX.theme,
-                child: ContainerX(
-                  padding: EdgeInsets.only(top: 12.0),
-                  backgroundColor: ColorX.white,
-                  topLeftRadius: 16.0,
-                  topRightRadius: 16.0,
+            bodyView: Column(
+              children: [
+                ContainerX(
+                  backgroundColor: ColorX.theme,
+                  width: double.infinity,
+                  height: 16.0,
+                  child: ContainerX(
+                      backgroundColor: ColorX.white,
+                      topLeftRadius: 16.0,
+                      topRightRadius: 16.0),
+                ),
+                Expanded(
                   child: controller.tncVM.loading
                       ? Center(
                           child: CircularProgressIndicator(
@@ -36,6 +41,8 @@ class MbxTncScreen extends StatelessWidget {
                                   AlwaysStoppedAnimation<Color>(ColorX.gray)),
                         )
                       : WebViewWidget(controller: controller.webController),
-                ))));
+                )
+              ],
+            )));
   }
 }
