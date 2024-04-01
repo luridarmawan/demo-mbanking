@@ -116,19 +116,28 @@ class MbxReloginScreen extends StatelessWidget {
                                                       faIcon: FontAwesomeIcons
                                                           .qrcode,
                                                       title: 'QRIS',
-                                                      titleColor: ColorX.black),
+                                                      titleColor: ColorX.black,
+                                                      highlightColor: ColorX
+                                                          .theme
+                                                          .withOpacity(0.2)),
                                                   MbxLauncherCell(
                                                       color: ColorX.blue,
                                                       faIcon: FontAwesomeIcons
                                                           .sackDollar,
                                                       title: 'Tarik Tunai',
-                                                      titleColor: ColorX.black),
+                                                      titleColor: ColorX.black,
+                                                      highlightColor: ColorX
+                                                          .theme
+                                                          .withOpacity(0.2)),
                                                   MbxLauncherCell(
                                                       color: ColorX.green,
                                                       faIcon: FontAwesomeIcons
                                                           .question,
                                                       title: 'Bantuan',
-                                                      titleColor: ColorX.black),
+                                                      titleColor: ColorX.black,
+                                                      highlightColor: ColorX
+                                                          .theme
+                                                          .withOpacity(0.2)),
                                                 ],
                                               )),
                                         ],

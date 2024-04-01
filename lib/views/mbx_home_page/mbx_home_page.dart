@@ -161,48 +161,72 @@ class MbxHomePage extends StatelessWidget {
                                       physics: ClampingScrollPhysics(),
                                       children: [
                                         MbxLauncherCell(
-                                            color: ColorX.green,
-                                            faIcon: FontAwesomeIcons
-                                                .arrowRightArrowLeft,
-                                            title: 'Transfer',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.green,
+                                          faIcon: FontAwesomeIcons
+                                              .arrowRightArrowLeft,
+                                          title: 'Transfer',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.blue,
-                                            faIcon: FontAwesomeIcons.sackDollar,
-                                            title: 'Tarik Tunai',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.blue,
+                                          faIcon: FontAwesomeIcons.sackDollar,
+                                          title: 'Tarik Tunai',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.teal,
-                                            faIcon: FontAwesomeIcons.landmark,
-                                            title: 'Deposito',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.teal,
+                                          faIcon: FontAwesomeIcons.landmark,
+                                          title: 'Deposito',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.yellow,
-                                            faIcon: FontAwesomeIcons
-                                                .handHoldingDollar,
-                                            title: 'Paylater',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.yellow,
+                                          faIcon: FontAwesomeIcons
+                                              .handHoldingDollar,
+                                          title: 'Paylater',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.red,
-                                            faIcon: FontAwesomeIcons.qrcode,
-                                            title: 'QRIS',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.red,
+                                          faIcon: FontAwesomeIcons.qrcode,
+                                          title: 'QRIS',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.green,
-                                            faIcon: FontAwesomeIcons.houseFlag,
-                                            title: 'Bayar',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.green,
+                                          faIcon: FontAwesomeIcons.houseFlag,
+                                          title: 'Bayar',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.blue,
-                                            faIcon: FontAwesomeIcons
-                                                .circleDollarToSlot,
-                                            title: 'Top Up',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.blue,
+                                          faIcon: FontAwesomeIcons
+                                              .circleDollarToSlot,
+                                          title: 'Top Up',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.gray,
-                                            faIcon: FontAwesomeIcons.ellipsis,
-                                            title: 'Lainnya',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.gray,
+                                          faIcon: FontAwesomeIcons.ellipsis,
+                                          title: 'Lainnya',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -237,26 +261,38 @@ class MbxHomePage extends StatelessWidget {
                                       physics: ClampingScrollPhysics(),
                                       children: [
                                         MbxLauncherCell(
-                                            color: ColorX.yellow,
-                                            faIcon:
-                                                FontAwesomeIcons.solidLightbulb,
-                                            title: 'Listrik PLN',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.yellow,
+                                          faIcon:
+                                              FontAwesomeIcons.solidLightbulb,
+                                          title: 'Listrik PLN',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.red,
-                                            faIcon: FontAwesomeIcons.mobile,
-                                            title: 'Pulsa',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.red,
+                                          faIcon: FontAwesomeIcons.mobile,
+                                          title: 'Pulsa',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.blue,
-                                            faIcon: FontAwesomeIcons.water,
-                                            title: 'PAM',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.blue,
+                                          faIcon: FontAwesomeIcons.water,
+                                          title: 'PAM',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                         MbxLauncherCell(
-                                            color: ColorX.teal,
-                                            faIcon: FontAwesomeIcons.shield,
-                                            title: 'BPJS',
-                                            titleColor: ColorX.white),
+                                          color: ColorX.teal,
+                                          faIcon: FontAwesomeIcons.shield,
+                                          title: 'BPJS',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
                                       ],
                                     ),
                                   ),
