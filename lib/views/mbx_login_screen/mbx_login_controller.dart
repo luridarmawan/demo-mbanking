@@ -81,7 +81,7 @@ class MbLoginController extends GetxController {
         title: 'OTP',
         description: 'Masukkan kode OTP yang anda terima melalui SMS.',
         onSubmit: (code) async {
-          LoggerX.log('OTP: $code');
+          LoggerX.log('[OTP] entered: $code');
           Get.loading();
           final resp = await MbxLoginPhoneVM.request(phone: '');
           Get.back();
@@ -90,8 +90,11 @@ class MbLoginController extends GetxController {
           } else {
             return false;
           }
-        }).then((value) {
-      askPin();
+        }).then((code) {
+      if ((code as String).isNotEmpty) {
+        LoggerX.log('[OTP] verfied: $code');
+        askPin();
+      }
     });
   }
 
