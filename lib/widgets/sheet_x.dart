@@ -65,6 +65,7 @@ class SheetX {
                     title: rightBtnTitle,
                     titleColor: ColorX.black,
                     backgroundColor: ColorX.white,
+                    highlightColor: ColorX.theme.withOpacity(0.1),
                     borderWidth: 1.0,
                     borderColor: ColorX.gray,
                     onClicked: onRightBtnClicked ?? () => {},
