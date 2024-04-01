@@ -1,3 +1,5 @@
+import 'package:demombanking/utils/all_utils.dart';
+
 import '../../models/mbx_news_model.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_news_screen/mbx_news_screen.dart';
@@ -12,6 +14,7 @@ class MbxNewsCell extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(left: 12.0),
         child: InkWellX(
+          highlightColor: ColorX.theme.withOpacity(0.1),
           cornerRadius: 12.0,
           onClicked: () {
             Get.to(MbxNewsScreen(news: news));

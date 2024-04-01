@@ -1,3 +1,5 @@
+import 'package:demombanking/utils/all_utils.dart';
+
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
@@ -16,6 +18,7 @@ class MbxLauncherCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWellX(
+        highlightColor: ColorX.theme.lighten(0.1),
         cornerRadius: 12.0,
         onClicked: () {},
         child: ContainerX(

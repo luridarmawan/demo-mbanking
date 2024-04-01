@@ -132,6 +132,8 @@ class MbxHomePage extends StatelessWidget {
                                             .profile.accounts.length,
                                         itemBuilder: (context, index) {
                                           return InkWellX(
+                                              highlightColor:
+                                                  ColorX.theme.withOpacity(0.1),
                                               cornerRadius: 12.0,
                                               child: MbxAccountCell(
                                                 account: MbxProfileVM
