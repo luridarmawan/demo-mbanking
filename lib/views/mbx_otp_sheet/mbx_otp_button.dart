@@ -4,7 +4,6 @@ import '../../widgets/all_widgets.dart';
 class MbxOtpButton extends StatelessWidget {
   final String title;
   final IconData? faIcon;
-
   final GestureTapCallback? onClicked;
 
   MbxOtpButton({
@@ -17,16 +16,18 @@ class MbxOtpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: ButtonX(
-            height: 48.0,
-            cornerRadius: 8.0,
-            backgroundColor: ColorX.theme.lighten(0.4),
-            titleColor: ColorX.black,
-            title: title,
-            faIcon: faIcon,
-            faColor: ColorX.black,
-            fontSize: 24.0,
-            fontWeight: FontWeight.w400,
-            onClicked: onClicked));
+        child: (title.isNotEmpty || faIcon != null)
+            ? ButtonX(
+                height: 48.0,
+                cornerRadius: 8.0,
+                backgroundColor: ColorX.theme.lighten(0.4),
+                titleColor: ColorX.black,
+                title: title,
+                faIcon: faIcon,
+                faColor: ColorX.black,
+                fontSize: 24.0,
+                fontWeight: FontWeight.w400,
+                onClicked: onClicked)
+            : ContainerX(height: 48.0));
   }
 }

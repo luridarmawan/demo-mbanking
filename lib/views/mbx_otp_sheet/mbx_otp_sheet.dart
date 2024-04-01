@@ -186,12 +186,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        MbxOtpButton(
-                          faIcon: FontAwesomeIcons.fingerprint,
-                          onClicked: () {
-                            controller.btnFingerprintClicked();
-                          },
-                        ),
+                        MbxOtpButton(),
                         ContainerX(width: 4.0),
                         MbxOtpButton(
                           title: '0',
