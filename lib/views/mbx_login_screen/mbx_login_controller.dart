@@ -95,7 +95,13 @@ class MbLoginController extends GetxController {
         }
       },
       onResend: () async {
-        ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
+        Get.loading();
+        MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
+          Get.back();
+          if (resp.statusCode == 200) {
+            ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
+          }
+        });
       },
     ).then((code) {
       if (code != null && (code as String).isNotEmpty) {
