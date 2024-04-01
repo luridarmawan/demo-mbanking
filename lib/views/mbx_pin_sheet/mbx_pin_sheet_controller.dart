@@ -2,21 +2,26 @@ import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
-  final String phone;
+  final Future<bool> Function(String code) onSubmit;
   String code = '';
   String error = '';
 
-  MbxPinSheetController({required this.phone});
+  MbxPinSheetController({required this.onSubmit});
 
   btnCloseClicked() {
     Get.back();
   }
 
-  btnKeypadClicked(String digit) {
+  btnKeypadClicked(String digit) async {
     if (code.length < 6) {
       code = code + digit;
       if (code.length == 6) {
-        submit();
+        final result = await onSubmit(code);
+        if (result == true) {
+          Get.back(result: code);
+        } else {
+          clear(error);
+        }
       }
     }
     update();
@@ -39,17 +44,5 @@ class MbxPinSheetController extends GetxController {
     code = '';
     this.error = error;
     update();
-  }
-
-  submit() {
-    Get.loading();
-    MbxLoginOtpVM.request(phone: phone, otp: code).then((resp) {
-      Get.back();
-      if (resp.statusCode == 200) {
-        Get.back(result: code);
-      } else {
-        Get.back();
-      }
-    });
   }
 }

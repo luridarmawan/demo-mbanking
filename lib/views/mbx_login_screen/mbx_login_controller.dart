@@ -99,20 +99,27 @@ class MbLoginController extends GetxController {
   }
 
   askPin() {
-    final sheet = MbxPinSheet(
-      title: 'PIN',
-      description: 'Masukkan nomor pin m-banking atau ATM anda.',
-    );
-    sheet.show().then((value) {
-      LoggerX.log('PIN: $value');
-      if (value != null) {
-        Get.loading();
-        MbxProfileVM.request().then((resp) {
+    MbxPinSheet.show(
+        title: 'PIN',
+        description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        onSubmit: (code) async {
+          LoggerX.log('[PIN] entered: $code');
+          Get.loading();
+          final resp = await MbxLoginPhoneVM.request(phone: '');
           Get.back();
-          Get.deleteAll();
-          Get.offAll(MbxBottomNavBarScreen());
-        });
-      }
+          if (resp.statusCode == 200) {
+            return true;
+          } else {
+            return false;
+          }
+        }).then((code) {
+      LoggerX.log('[PIN] verfied: $code');
+      Get.loading();
+      MbxProfileVM.request().then((resp) {
+        Get.back();
+        Get.deleteAll();
+        Get.offAll(MbxBottomNavBarScreen());
+      });
     });
   }
 }

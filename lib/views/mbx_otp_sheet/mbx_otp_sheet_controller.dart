@@ -1,7 +1,7 @@
 import '../../widgets/all_widgets.dart';
 
 class MbxOtpSheetController extends GetxController {
-  final Future<bool> Function(String code)? onSubmit;
+  final Future<bool> Function(String code) onSubmit;
   String code = '';
   String error = '';
 
@@ -15,7 +15,7 @@ class MbxOtpSheetController extends GetxController {
     if (code.length < 6) {
       code = code + digit;
       if (code.length == 6) {
-        final result = await onSubmit!(code);
+        final result = await onSubmit(code);
         if (result == true) {
           Get.back(result: code);
         } else {

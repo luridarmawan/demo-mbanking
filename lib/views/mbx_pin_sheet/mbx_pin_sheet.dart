@@ -7,23 +7,33 @@ import 'mbx_pin_button.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
   final String description;
+  final Future<bool> Function(String code) onSubmit;
   TextEditingController pinController = TextEditingController();
 
-  MbxPinSheet({required this.title, required this.description});
+  MbxPinSheet({
+    required this.title,
+    required this.description,
+    required this.onSubmit,
+  });
 
-  Future<T?> show<T>() {
+  static Future<T?> show<T>(
+      {required String title,
+      required String description,
+      required Future<bool> Function(String code) onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
+    final sheet =
+        MbxPinSheet(title: title, description: description, onSubmit: onSubmit);
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
-        widget: this,
+        widget: sheet,
         title: title);
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxPinSheetController>(
-        init: MbxPinSheetController(phone: ''),
+        init: MbxPinSheetController(onSubmit: onSubmit),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,

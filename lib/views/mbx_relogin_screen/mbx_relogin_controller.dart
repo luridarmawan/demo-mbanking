@@ -29,6 +29,7 @@ class MbxReloginController extends GetxController {
   }
 
   btnLoginClicked() {
+    /*
     final sheet = MbxPinSheet(
       title: 'PIN',
       description: 'Masukkan nomor pin m-banking atau ATM anda.',
@@ -42,7 +43,7 @@ class MbxReloginController extends GetxController {
           Get.offAll(MbxBottomNavBarScreen());
         });
       }
-    });
+    }); */
   }
 
   btnSwitchAccountClicked() {
