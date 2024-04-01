@@ -1,3 +1,5 @@
+import 'package:demombanking/views/mbx_profile_page/mbx_profile_menu_button.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_profile_controller.dart';
@@ -72,232 +74,36 @@ class MbxProfilePage extends StatelessWidget {
                             topLeftRadius: 16.0,
                             topRightRadius: 16.0,
                             child: Column(children: [
-                              ContainerX(
-                                padding: EdgeInsets.only(
-                                    left: 12.0,
-                                    top: 0.0,
-                                    right: 12.0,
-                                    bottom: 0.0),
-                                child: InkWellX(
-                                    cornerRadius: 8.0,
-                                    onClicked: () {
-                                      Get.back();
-                                    },
-                                    child: ContainerX(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0,
-                                            top: 8.0,
-                                            right: 8.0,
-                                            bottom: 8.0),
-                                        child: Row(
-                                          children: [
-                                            ContainerX(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              cornerRadius: 20.0,
-                                              backgroundColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              child: Center(
-                                                child: ImageX(
-                                                  faIcon: FontAwesomeIcons.gear,
-                                                  width: 20.0,
-                                                  height: 20.0,
-                                                  color: ColorX.black,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 8.0,
-                                            ),
-                                            TextX(
-                                              'Settings',
-                                              fontSize: 17.0,
-                                              fontWeight: FontWeight.w500,
-                                              color: ColorX.black,
-                                            ),
-                                            Spacer(),
-                                            ImageX(
-                                              faIcon:
-                                                  FontAwesomeIcons.chevronRight,
-                                              width: 13.0,
-                                              height: 13.0,
-                                              color: ColorX.black,
-                                              fit: BoxFit.contain,
-                                            )
-                                          ],
-                                        ))),
+                              MbaxProfileMenuButton(
+                                title: 'Aktivasi Biometrik',
+                                faIcon: FontAwesomeIcons.fingerprint,
+                                onClicked: () {},
                               ),
-                              ContainerX(
-                                padding: EdgeInsets.only(
-                                    left: 12.0,
-                                    top: 0.0,
-                                    right: 12.0,
-                                    bottom: 0.0),
-                                child: InkWellX(
-                                    cornerRadius: 8.0,
-                                    onClicked: () {
-                                      controller.btnTncClicked();
-                                    },
-                                    child: ContainerX(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0,
-                                            top: 8.0,
-                                            right: 8.0,
-                                            bottom: 8.0),
-                                        child: Row(
-                                          children: [
-                                            ContainerX(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              cornerRadius: 20.0,
-                                              backgroundColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              child: Center(
-                                                child: ImageX(
-                                                  faIcon: FontAwesomeIcons
-                                                      .shieldHalved,
-                                                  width: 20.0,
-                                                  height: 20.0,
-                                                  color: ColorX.black,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 8.0,
-                                            ),
-                                            TextX(
-                                              'Syarat & Ketentuan',
-                                              fontSize: 17.0,
-                                              fontWeight: FontWeight.w500,
-                                              color: ColorX.black,
-                                            ),
-                                            Spacer(),
-                                            ImageX(
-                                              faIcon:
-                                                  FontAwesomeIcons.chevronRight,
-                                              width: 13.0,
-                                              height: 13.0,
-                                              color: ColorX.black,
-                                              fit: BoxFit.contain,
-                                            )
-                                          ],
-                                        ))),
+                              MbaxProfileMenuButton(
+                                title: 'Ganti PIN',
+                                faIcon: FontAwesomeIcons.key,
+                                onClicked: () {},
                               ),
-                              ContainerX(
-                                padding: EdgeInsets.only(
-                                    left: 12.0,
-                                    top: 0.0,
-                                    right: 12.0,
-                                    bottom: 0.0),
-                                child: InkWellX(
-                                    cornerRadius: 8.0,
-                                    onClicked: () {
-                                      controller.btnPrivacyPolicyClicked();
-                                    },
-                                    child: ContainerX(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0,
-                                            top: 8.0,
-                                            right: 8.0,
-                                            bottom: 8.0),
-                                        child: Row(
-                                          children: [
-                                            ContainerX(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              cornerRadius: 20.0,
-                                              backgroundColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              child: Center(
-                                                child: ImageX(
-                                                  faIcon: FontAwesomeIcons
-                                                      .shieldHalved,
-                                                  width: 20.0,
-                                                  height: 20.0,
-                                                  color: ColorX.black,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 8.0,
-                                            ),
-                                            TextX(
-                                              'Kebijakan Privasi',
-                                              fontSize: 17.0,
-                                              fontWeight: FontWeight.w500,
-                                              color: ColorX.black,
-                                            ),
-                                            Spacer(),
-                                            ImageX(
-                                              faIcon:
-                                                  FontAwesomeIcons.chevronRight,
-                                              width: 13.0,
-                                              height: 13.0,
-                                              color: ColorX.black,
-                                              fit: BoxFit.contain,
-                                            )
-                                          ],
-                                        ))),
+                              MbaxProfileMenuButton(
+                                title: 'Syarat & Ketentuan',
+                                faIcon: FontAwesomeIcons.shieldHalved,
+                                onClicked: () {
+                                  controller.btnTncClicked();
+                                },
                               ),
-                              ContainerX(
-                                padding: EdgeInsets.only(
-                                    left: 12.0,
-                                    top: 0.0,
-                                    right: 12.0,
-                                    bottom: 0.0),
-                                child: InkWellX(
-                                    cornerRadius: 8.0,
-                                    onClicked: () {
-                                      controller.btnLogoutClicked();
-                                    },
-                                    child: ContainerX(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0,
-                                            top: 8.0,
-                                            right: 8.0,
-                                            bottom: 8.0),
-                                        child: Row(
-                                          children: [
-                                            ContainerX(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              cornerRadius: 20.0,
-                                              backgroundColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              child: Center(
-                                                child: ImageX(
-                                                  faIcon:
-                                                      FontAwesomeIcons.powerOff,
-                                                  width: 20.0,
-                                                  height: 20.0,
-                                                  color: ColorX.black,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 8.0,
-                                            ),
-                                            TextX(
-                                              'Keluar',
-                                              fontSize: 17.0,
-                                              fontWeight: FontWeight.w500,
-                                              color: ColorX.black,
-                                            ),
-                                            Spacer(),
-                                            ImageX(
-                                              faIcon:
-                                                  FontAwesomeIcons.chevronRight,
-                                              width: 13.0,
-                                              height: 13.0,
-                                              color: ColorX.black,
-                                              fit: BoxFit.contain,
-                                            )
-                                          ],
-                                        ))),
+                              MbaxProfileMenuButton(
+                                title: 'Kebijakan Privasi',
+                                faIcon: FontAwesomeIcons.shieldHalved,
+                                onClicked: () {
+                                  controller.btnPrivacyPolicyClicked();
+                                },
+                              ),
+                              MbaxProfileMenuButton(
+                                title: 'Keluar',
+                                faIcon: FontAwesomeIcons.powerOff,
+                                onClicked: () {
+                                  controller.btnLogoutClicked();
+                                },
                               ),
                               Spacer(),
                               Padding(

@@ -13,7 +13,6 @@ class MbxBottomNavBarScreen extends StatelessWidget {
   MbxBottomNavBarScreen({this.tabBarIndex = 0});
   @override
   Widget build(BuildContext context) {
-    final tabWidth = (MediaQuery.of(Get.context!).size.width - 24.0) / 5.0;
     return GetBuilder<MbxBottomNavBarController>(
         init: MbxBottomNavBarController(tabBarIndex: tabBarIndex),
         builder: (controller) => ScreenX(
@@ -65,7 +64,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                           controller.btnHistoryClicked();
                         }),
                     ContainerX(
-                      width: tabWidth,
+                      width: MbxButtonNavBarButton.buttonWidth,
                     ),
                     MbxButtonNavBarButton(
                         title: 'Notifikasi',
