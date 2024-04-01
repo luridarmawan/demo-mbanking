@@ -8,21 +8,27 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   final String title;
   final String description;
   final Future<bool> Function(String code) onSubmit;
+  final Future<void> Function() onResend;
   TextEditingController pinController = TextEditingController();
 
-  MbxOtpSheet({
-    required this.title,
-    required this.description,
-    required this.onSubmit,
-  });
+  MbxOtpSheet(
+      {required this.title,
+      required this.description,
+      required this.onSubmit,
+      required this.onResend});
 
   static Future<T?> show<T>(
       {required String title,
       required String description,
-      required Future<bool> Function(String code) onSubmit}) {
+      required Future<bool> Function(String code) onSubmit,
+      required Future<void> Function() onResend}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet =
-        MbxOtpSheet(title: title, description: description, onSubmit: onSubmit);
+    final sheet = MbxOtpSheet(
+      title: title,
+      description: description,
+      onSubmit: onSubmit,
+      onResend: onResend,
+    );
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
@@ -33,7 +39,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxOtpSheetController>(
-        init: MbxOtpSheetController(onSubmit: onSubmit),
+        init: MbxOtpSheetController(onSubmit: onSubmit, onResend: onResend),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             topLeftRadius: 32.0,

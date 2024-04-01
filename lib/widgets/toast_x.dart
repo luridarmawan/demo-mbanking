@@ -37,6 +37,7 @@ class ToastX {
             shadowColor: ColorX.transparent,
             backgroundColor: ColorX.transparent,
             controller: controller,
+            elevation: 0.0,
             behavior: FlashBehavior.floating,
             position: FlashPosition.bottom,
             padding: EdgeInsets.all(0.0),
@@ -90,13 +91,13 @@ class BasicSnackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerX(
-      backgroundColor: ColorX.black.withOpacity(0.85),
-      padding: EdgeInsets.all(16.0),
+      backgroundColor: ColorX.theme.withOpacity(0.7),
+      padding: EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
       child: Wrap(children: [
         TextX(
           msg,
           color: ColorX.white,
-          fontSize: 17.0,
+          fontSize: 15.0,
           fontWeight: FontWeight.w500,
           textAlign: TextAlign.start,
           maxLines: 16,

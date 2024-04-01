@@ -1,5 +1,6 @@
 import 'package:demombanking/views/mbx_pin_sheet/mbx_pin_sheet.dart';
 import 'package:demombanking/widgets/all_widgets.dart';
+import 'package:flash/flash_helper.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_otp_vm.dart';
@@ -80,19 +81,23 @@ class MbLoginController extends GetxController {
 
   askOtp(String phone) {
     MbxOtpSheet.show(
-        title: 'OTP',
-        description: 'Masukkan kode OTP yang anda terima melalui SMS.',
-        onSubmit: (code) async {
-          LoggerX.log('[OTP] entered: $code');
-          Get.loading();
-          final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
-          Get.back();
-          if (resp.statusCode == 200) {
-            return true;
-          } else {
-            return false;
-          }
-        }).then((code) {
+      title: 'OTP',
+      description: 'Masukkan kode OTP yang anda terima melalui SMS.',
+      onSubmit: (code) async {
+        LoggerX.log('[OTP] entered: $code');
+        Get.loading();
+        final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
+        Get.back();
+        if (resp.statusCode == 200) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      onResend: () async {
+        ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
+      },
+    ).then((code) {
       if (code != null && (code as String).isNotEmpty) {
         LoggerX.log('[OTP] verfied: $code');
         askPin(phone, code);

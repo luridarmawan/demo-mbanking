@@ -2,10 +2,11 @@ import '../../widgets/all_widgets.dart';
 
 class MbxOtpSheetController extends GetxController {
   final Future<bool> Function(String code) onSubmit;
+  final Future<void> Function() onResend;
   String code = '';
   String error = '';
 
-  MbxOtpSheetController({required this.onSubmit});
+  MbxOtpSheetController({required this.onSubmit, required this.onResend});
 
   btnCloseClicked() {
     Get.back();
@@ -26,8 +27,6 @@ class MbxOtpSheetController extends GetxController {
     update();
   }
 
-  btnFingerprintClicked() {}
-
   btnBackspaceClicked() {
     if (code.length > 0) {
       code = code.substring(0, code.length - 1);
@@ -35,8 +34,10 @@ class MbxOtpSheetController extends GetxController {
     update();
   }
 
-  btnResendClicked() {
-    Get.back(result: '');
+  btnResendClicked() async {
+    await onResend();
+    clear('');
+    update();
   }
 
   clear(String error) {
