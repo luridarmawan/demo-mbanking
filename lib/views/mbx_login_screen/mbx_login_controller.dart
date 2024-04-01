@@ -93,7 +93,7 @@ class MbLoginController extends GetxController {
             return false;
           }
         }).then((code) {
-      if ((code as String).isNotEmpty) {
+      if (code != null && (code as String).isNotEmpty) {
         LoggerX.log('[OTP] verfied: $code');
         askPin(phone, code);
       }
@@ -116,13 +116,15 @@ class MbLoginController extends GetxController {
             return false;
           }
         }).then((code) {
-      LoggerX.log('[PIN] verfied: $code');
-      Get.loading();
-      MbxProfileVM.request().then((resp) {
-        Get.back();
-        Get.deleteAll();
-        Get.offAll(MbxBottomNavBarScreen());
-      });
+      if (code != null && (code as String).isNotEmpty) {
+        LoggerX.log('[PIN] verfied: $code');
+        Get.loading();
+        MbxProfileVM.request().then((resp) {
+          Get.back();
+          Get.deleteAll();
+          Get.offAll(MbxBottomNavBarScreen());
+        });
+      }
     });
   }
 }
