@@ -1,5 +1,6 @@
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../utils/all_utils.dart';
+import '../../viewmodels/mbx_login_pin_vm.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
@@ -29,21 +30,29 @@ class MbxReloginController extends GetxController {
   }
 
   btnLoginClicked() {
-    /*
-    final sheet = MbxPinSheet(
-      title: 'PIN',
-      description: 'Masukkan nomor pin m-banking atau ATM anda.',
-    );
-    sheet.show().then((value) {
-      LoggerX.log('PIN: $value');
-      if (value != null) {
-        Get.loading();
-        MbxProfileVM.request().then((resp) {
-          Get.deleteAll();
-          Get.offAll(MbxBottomNavBarScreen());
-        });
-      }
-    }); */
+    MbxPinSheet.show(
+        title: 'PIN',
+        description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        onSubmit: (code) async {
+          LoggerX.log('[PIN] entered: $code');
+          Get.loading();
+          final resp =
+              await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
+          Get.back();
+          if (resp.statusCode == 200) {
+            return true;
+          } else {
+            return false;
+          }
+        }).then((code) {
+      LoggerX.log('[PIN] verfied: $code');
+      Get.loading();
+      MbxProfileVM.request().then((resp) {
+        Get.back();
+        Get.deleteAll();
+        Get.offAll(MbxBottomNavBarScreen());
+      });
+    });
   }
 
   btnSwitchAccountClicked() {
