@@ -1,19 +1,18 @@
 import '../../widgets/all_widgets.dart';
-import '../mbx_receipt_screen/mbx_receipt_screen.dart';
-import 'mbx_notification_controller.dart';
-import 'mbx_notification_cell.dart';
+import 'mbx_receipt_controller.dart';
+import 'mbx_receipt_cell.dart';
 
-class MbxNotificationPage extends StatelessWidget {
-  MbxNotificationPage({Key? key}) : super(key: key);
+class MbxReceiptScreen extends StatelessWidget {
+  MbxReceiptScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxNotificationController>(
-        init: MbxNotificationController(),
+    return GetBuilder<MbxReceiptController>(
+        init: MbxReceiptController(),
         builder: (controller) => ScreenX(
             lightStatusBar: true,
             headerView: NavigationBarX(
-              title: 'Notifikasi',
+              title: 'Receipt',
             ),
             bottomPadding: false,
             bodyView: Column(children: [
@@ -29,7 +28,7 @@ class MbxNotificationPage extends StatelessWidget {
               Expanded(
                 child: NotificationListener<ScrollNotification>(
                     onNotification: (ScrollNotification scrollInfo) {
-                      if (controller.notificationListVM.loading == false &&
+                      if (controller.historyListVM.loading == false &&
                           scrollInfo.metrics.pixels ==
                               scrollInfo.metrics.maxScrollExtent) {
                         controller.nextPage();
@@ -56,23 +55,15 @@ class MbxNotificationPage extends StatelessWidget {
                                       backgroundColor: ColorX.lightGray,
                                     ));
                               },
-                              itemCount:
-                                  controller.notificationListVM.list.length,
+                              itemCount: controller.historyListVM.list.length,
                               itemBuilder: (context, index) {
-                                if (index ==
-                                    controller.notificationListVM.list.length -
-                                        1) {
-                                  controller.nextPage();
-                                }
                                 final history =
-                                    controller.notificationListVM.list[index];
+                                    controller.historyListVM.list[index];
                                 return InkWellX(
                                     highlightColor:
                                         ColorX.theme.withOpacity(0.1),
-                                    onClicked: () {
-                                      Get.to(MbxReceiptScreen());
-                                    },
-                                    child: MbxNotificationCell(history));
+                                    onClicked: () {},
+                                    child: MbxReceiptCell(history));
                               })),
                     )),
               )

@@ -1,4 +1,5 @@
 import '../../widgets/all_widgets.dart';
+import '../mbx_receipt_screen/mbx_receipt_screen.dart';
 import 'mbx_history_controller.dart';
 import 'mbx_history_cell.dart';
 
@@ -11,19 +12,22 @@ class MbxHistoryPage extends StatelessWidget {
         init: MbxHistoryController(),
         builder: (controller) => ScreenX(
             lightStatusBar: true,
-            loading: controller.historyListVM.list.isEmpty &&
-                controller.historyListVM.loading,
             headerView: NavigationBarX(
               title: 'Riwayat',
             ),
             bottomPadding: false,
-            bodyView: ContainerX(
-                backgroundColor: ColorX.theme,
-                child: ContainerX(
-                  padding: EdgeInsets.only(top: 16.0),
-                  backgroundColor: ColorX.white,
-                  topLeftRadius: 16.0,
-                  topRightRadius: 16.0,
+            bodyView: Column(
+              children: [
+                ContainerX(
+                  backgroundColor: ColorX.theme,
+                  width: double.infinity,
+                  height: 16.0,
+                  child: ContainerX(
+                      backgroundColor: ColorX.white,
+                      topLeftRadius: 16.0,
+                      topRightRadius: 16.0),
+                ),
+                Expanded(
                   child: NotificationListener<ScrollNotification>(
                       onNotification: (ScrollNotification scrollInfo) {
                         if (controller.historyListVM.loading == false &&
@@ -60,10 +64,14 @@ class MbxHistoryPage extends StatelessWidget {
                                   return InkWellX(
                                       highlightColor:
                                           ColorX.theme.withOpacity(0.1),
-                                      onClicked: () {},
+                                      onClicked: () {
+                                        Get.to(MbxReceiptScreen());
+                                      },
                                       child: MbxHistoryCell(history));
                                 })),
                       )),
-                ))));
+                )
+              ],
+            )));
   }
 }
