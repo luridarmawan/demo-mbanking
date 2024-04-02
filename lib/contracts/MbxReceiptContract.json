@@ -31,6 +31,9 @@
 		  "value": "A01"
 		},
 		{
+			"label": "-"
+		},
+		{
 		  "label": "Sumber Dana",
 		  "value": "Super Saver - 1234567890"
 		},

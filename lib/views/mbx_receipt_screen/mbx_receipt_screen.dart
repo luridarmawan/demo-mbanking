@@ -58,6 +58,14 @@ class MbxReceiptScreen extends StatelessWidget {
                     )),
                   ),
                   ContainerX(height: 16.0),
+                  TextX(
+                    controller.receiptVM.title,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  TextX(controller.receiptVM.amount,
+                      fontSize: 24.0, fontWeight: FontWeight.w600),
+                  ContainerX(height: 16.0),
                   ListView.builder(
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
