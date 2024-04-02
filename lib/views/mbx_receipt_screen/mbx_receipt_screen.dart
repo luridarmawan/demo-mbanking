@@ -59,13 +59,11 @@ class MbxReceiptScreen extends StatelessWidget {
                   ),
                   ContainerX(height: 16.0),
                   DashedDivider(
-                      dashColor: ColorX.black, dashWidth: 6.0, dashHeight: 1.0),
+                      dashColor: ColorX.gray, dashWidth: 6.0, dashHeight: 1.0),
                   ContainerX(height: 16.0),
                   ListView.separated(
                       shrinkWrap: true,
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(Get.context!).padding.bottom +
-                              100.0),
+                      padding: EdgeInsets.zero,
                       physics: ClampingScrollPhysics(),
                       separatorBuilder: (context, index) {
                         return Padding(
