@@ -142,8 +142,8 @@ class ImageX extends StatelessWidget {
 
   Widget imageAwesome(BuildContext context, IconData icon) {
     return ContainerX(
-        width: width,
-        height: height,
+        width: width - (padding.left + padding.right),
+        height: height - (padding.top + padding.bottom),
         child: Center(
             child: FaIcon(
           icon,
