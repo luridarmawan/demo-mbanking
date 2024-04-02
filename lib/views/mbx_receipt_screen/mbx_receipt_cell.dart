@@ -1,88 +1,54 @@
-import 'package:demombanking/utils/all_utils.dart';
-import '../../models/mbx_history_model.dart';
-import '../../viewmodels/mbx_format_vm.dart';
+import 'package:demombanking/models/mbx_receipt_detail_model.dart';
 import '../../widgets/all_widgets.dart';
+import 'mbx_receipt_screen.dart';
 
 // ignore: must_be_immutable
 class MbxReceiptCell extends StatelessWidget {
-  final MbxHistoryModel history;
-  MbxReceiptCell(this.history);
+  final MbxReceiptDetailModel detail;
+  MbxReceiptCell(this.detail);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding:
-            EdgeInsets.only(left: 12.0, top: 8.0, right: 12.0, bottom: 8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 6.0),
-              child: ImageX(
-                backgroundColor: ColorX.theme.darken(0.05),
-                faIcon: history.amount < 0
-                    ? FontAwesomeIcons.arrowUp
-                    : FontAwesomeIcons.arrowDown,
-                color: ColorX.white,
-                width: 24.0,
-                height: 24.0,
-                cornerRadius: 16.0,
-                padding: EdgeInsets.all(4.0),
-              ),
-            ),
-            SizedBox(width: 12.0),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+    return detail.label == '-'
+        ? Padding(
+            padding:
+                EdgeInsets.only(left: 24.0, top: 8.0, right: 24.0, bottom: 8.0),
+            child: DashedDivider(
+                dashColor: ColorX.gray, dashWidth: 6.0, dashHeight: 1.0))
+        : Padding(
+            padding:
+                EdgeInsets.only(left: 24.0, top: 4.0, right: 24.0, bottom: 4.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: TextX(
-                          history.title,
+                          detail.label,
                           color: ColorX.black,
                           fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                           textAlign: TextAlign.start,
                           maxLines: 3,
                         ),
                       ),
-                      SizedBox(width: 8.0),
-                      TextX(
-                        MbxFormatVM.currencyRP(history.amount,
-                            prefix: true, mutation: true, masked: false),
-                        color: history.amount > 0 ? ColorX.green : ColorX.black,
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.w700,
-                        textAlign: TextAlign.start,
+                      ContainerX(width: 24.0),
+                      Expanded(
+                          child: TextX(
+                        detail.value,
+                        color: ColorX.black,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w400,
+                        textAlign: TextAlign.end,
                         maxLines: 1,
-                      )
+                      )),
                     ],
                   ),
-                  SizedBox(height: 2.0),
-                  TextX(
-                    history.description,
-                    color: ColorX.black,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    textAlign: TextAlign.start,
-                    maxLines: 3,
-                  ),
-                  SizedBox(height: 2.0),
-                  TextX(
-                    MbxFormatVM.longDateTime(history.created_at),
-                    color: ColorX.black,
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w400,
-                    textAlign: TextAlign.start,
-                    maxLines: 3,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ));
+                ),
+              ],
+            ));
   }
 }

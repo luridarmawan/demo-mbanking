@@ -1,9 +1,8 @@
-import '../../viewmodels/mbx_history_list_vm.dart';
+import '../../viewmodels/mbx_receipt_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxReceiptController extends GetxController {
-  final scrollController = ScrollController();
-  var historyListVM = MbxHistoryListVM();
+  var receiptVM = MbxReceiptVM();
 
   @override
   void onReady() {
@@ -17,7 +16,7 @@ class MbxReceiptController extends GetxController {
 
   nextPage() {
     update();
-    historyListVM.nextPage().then((resp) {
+    receiptVM.nextPage().then((resp) {
       update();
     });
   }

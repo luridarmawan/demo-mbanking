@@ -58,26 +58,14 @@ class MbxReceiptScreen extends StatelessWidget {
                     )),
                   ),
                   ContainerX(height: 16.0),
-                  DashedDivider(
-                      dashColor: ColorX.gray, dashWidth: 6.0, dashHeight: 1.0),
-                  ContainerX(height: 16.0),
-                  ListView.separated(
+                  ListView.builder(
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       physics: ClampingScrollPhysics(),
-                      separatorBuilder: (context, index) {
-                        return Padding(
-                            padding: EdgeInsets.only(left: 60.0),
-                            child: ContainerX(
-                              height: 1.0,
-                              width: double.infinity,
-                              backgroundColor: ColorX.lightGray,
-                            ));
-                      },
-                      itemCount: controller.historyListVM.list.length,
+                      itemCount: controller.receiptVM.details.length,
                       itemBuilder: (context, index) {
-                        final history = controller.historyListVM.list[index];
-                        return MbxReceiptCell(history);
+                        final detail = controller.receiptVM.details[index];
+                        return MbxReceiptCell(detail);
                       }),
                 ])),
               ))
