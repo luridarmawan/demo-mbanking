@@ -13,7 +13,7 @@ class MbxHomeController extends GetxController {
   void onReady() {
     super.onReady();
     newsListVM.nextPage().then((resp) {
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         update();
       }
     });

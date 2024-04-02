@@ -15,7 +15,7 @@ class MbxPrivacyPolicyVM {
             contract: true)
         .then((resp) async {
       loading = false;
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         privacy_policy = MbxPrivacyPolicyModel.fromJason(resp.jason['data']);
       }
       return resp;

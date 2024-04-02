@@ -15,7 +15,7 @@ class MbxNewsDetailVM {
             contract: true)
         .then((resp) async {
       loading = false;
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         news = MbxNewsModel.fromJason(resp.jason['data']);
       }
       return resp;

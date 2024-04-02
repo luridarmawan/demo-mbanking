@@ -18,7 +18,7 @@ class MbxProfileVM {
             contractFile: 'lib/contracts/MbxProfileContract.json',
             contract: true)
         .then((resp) async {
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         final savedToken = profile.token;
         profile.decode(resp.jason['data']);
         profile.token = savedToken;

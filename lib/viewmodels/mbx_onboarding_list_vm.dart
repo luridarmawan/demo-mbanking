@@ -21,7 +21,7 @@ class MbxOnboardingListVM {
             contract: true)
         .then((resp) async {
       loading = false;
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         for (var item in resp.jason['data'].jasonListValue) {
           var movie = MbxOnboardingModel.fromJason(item);
           list.add(movie);

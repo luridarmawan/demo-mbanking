@@ -17,7 +17,7 @@ class MbxLoginPinVM {
             contractFile: 'lib/contracts/MbxLoginPinContract.json',
             contract: true)
         .then((resp) async {
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         MbxProfileVM.profile.token = resp.jason['data']['token'].stringValue;
         MbxProfileVM.save();
       } else {}

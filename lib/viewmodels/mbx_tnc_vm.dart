@@ -15,7 +15,7 @@ class MbxTncVM {
             contract: true)
         .then((resp) async {
       loading = false;
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         tnc = MbxTncModel.fromJason(resp.jason['data']);
       }
       return resp;

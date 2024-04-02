@@ -39,7 +39,7 @@ class MbxReloginController extends GetxController {
           final resp =
               await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
           Get.back();
-          if (resp.statusCode == 200) {
+          if (resp.status == 200) {
             return true;
           } else {
             return false;

@@ -32,7 +32,7 @@ class MbLoginController extends GetxController {
     });
 
     onboardingVM.nextPage().then((resp) {
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         update();
       }
     });
@@ -73,8 +73,17 @@ class MbLoginController extends GetxController {
     Get.loading();
     MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
       Get.back();
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         askOtp(txtPhoneController.text);
+      } else {
+        SheetX.showMessage(
+          title: 'Login',
+          message: resp.message,
+          leftBtnTitle: 'OK',
+          onLeftBtnClicked: () {
+            Get.back();
+          },
+        );
       }
     });
   }
@@ -88,7 +97,7 @@ class MbLoginController extends GetxController {
         Get.loading();
         final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
         Get.back();
-        if (resp.statusCode == 200) {
+        if (resp.status == 200) {
           return true;
         } else {
           return false;
@@ -98,7 +107,7 @@ class MbLoginController extends GetxController {
         Get.loading();
         MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
           Get.back();
-          if (resp.statusCode == 200) {
+          if (resp.status == 200) {
             ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
           }
         });
@@ -121,7 +130,7 @@ class MbLoginController extends GetxController {
           final resp =
               await MbxLoginPinVM.request(phone: phone, otp: otp, pin: code);
           Get.back();
-          if (resp.statusCode == 200) {
+          if (resp.status == 200) {
             return true;
           } else {
             return false;

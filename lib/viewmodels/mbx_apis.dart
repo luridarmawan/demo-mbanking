@@ -180,7 +180,7 @@ class MbxApi {
   }
 
   static handleResponse(MbxApiResponse resp) async {
-    if (resp.statusCode == 401) {
+    if (resp.status == 401) {
       await MbxProfileVM.logout();
     }
   }

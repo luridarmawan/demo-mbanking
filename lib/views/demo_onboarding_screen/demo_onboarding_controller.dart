@@ -10,7 +10,7 @@ class DemoOnboardingController extends GetxController {
   void onReady() {
     super.onReady();
     movieListVM.nextPage().then((resp) {
-      if (resp.statusCode == 200) {
+      if (resp.status == 200) {
         update();
       }
     });
